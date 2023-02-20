@@ -24,7 +24,19 @@ public class AddEditSiteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_site);
+        // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
+        // get intent that got passed from prev screen (through click on either
+        // floatingActionButton or specific site) and check if it contains an id
+        // if contains id > comes from edit and contains note > load edit site screen,
+        // else load add site screen
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(EXTRA_ID)) {
+            setContentView(R.layout.activity_edit_site);
+        } else {
+            setContentView(R.layout.activity_add_site);
+        }
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
@@ -35,10 +47,10 @@ public class AddEditSiteActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
-        // get intent that got passed from prev screen (through click on either
-        // floatingActionButton or specific site) and check if it contains an id
-        // if contains id > comes from edit and contains note > fill text fields
-        Intent intent = getIntent();
+        // check if intent that got passed from prev screen (through click on either
+        // floatingActionButton or specific site) contains an id
+        // if contains id > comes from edit and contains note > fill text fields,
+        // else keep text fields empty
         if (intent.hasExtra(EXTRA_ID)) {
             setTitle("Edit Site");
             editTextTitle.setText(intent.getStringExtra(EXTRA_TITLE));
