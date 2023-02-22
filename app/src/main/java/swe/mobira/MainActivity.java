@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import swe.mobira.entities.Site;
+
 public class MainActivity extends AppCompatActivity {
     public static final int ADD_SITE_ACTIVITY_REQUEST_CODE = 1;
     public static final int EDIT_SITE_ACTIVITY_REQUEST_CODE = 2;
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Site site) {
                 Intent intent = new Intent(MainActivity.this, AddEditSiteActivity.class);
-                intent.putExtra(AddEditSiteActivity.EXTRA_ID, site.getId());
+                intent.putExtra(AddEditSiteActivity.EXTRA_ID, site.getSiteID());
                 intent.putExtra(AddEditSiteActivity.EXTRA_TITLE, site.getTitle());
                 intent.putExtra(AddEditSiteActivity.EXTRA_DESCRIPTION, site.getDescription());
                 // lat and long need to be passed along as stings
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             String comment = data.getStringExtra(AddEditSiteActivity.EXTRA_COMMENT);
 
             Site site = new Site(title, description, latitude, longitude, comment);
-            site.setId(id);
+            site.setSiteID(id);
             appViewModel.updateSite(site);
             Toast.makeText(getApplicationContext(), "Site saved", Toast.LENGTH_LONG).show();
         } else {

@@ -6,13 +6,15 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+import swe.mobira.entities.Site;
+
 public class AppRepository {
     private AppDAO appDAO;
     private LiveData<List<Site>> allSites;
 
     public AppRepository(Application application) {
         AppDatabase database = AppDatabase.getDatabase(application);
-        appDAO = database.siteDAO();
+        appDAO = database.appDAO();
         allSites = appDAO.getAllSites();
     }
 

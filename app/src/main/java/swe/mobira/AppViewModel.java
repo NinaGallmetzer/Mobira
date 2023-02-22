@@ -8,6 +8,8 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
+import swe.mobira.entities.Site;
+
 public class AppViewModel extends AndroidViewModel {
     private AppRepository repository;
     private LiveData<List<Site>> allSites;

@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import swe.mobira.entities.Site;
+
 public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppHolder> {
     private List<Site> sites = new ArrayList<>();
 

@@ -11,10 +11,13 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Site.class}, version = 1)
-public abstract class AppDatabase extends RoomDatabase {
+import swe.mobira.entities.RingingRecord;
+import swe.mobira.entities.Site;
 
-    public abstract AppDAO siteDAO();
+@Database(entities = {Site.class,
+        RingingRecord.class}, version = 1)
+public abstract class AppDatabase extends RoomDatabase {
+    public abstract AppDAO appDAO();
     private static volatile AppDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     static final ExecutorService databaseWriteExecutor =
@@ -41,14 +44,14 @@ public abstract class AppDatabase extends RoomDatabase {
             super.onCreate(db);
 
             databaseWriteExecutor.execute(() -> {
-                AppDAO appDao = INSTANCE.siteDAO();
-                appDao.deleteAllSites();
+                AppDAO appDAO = INSTANCE.appDAO();
+                appDAO.deleteAllSites();
 
-                appDao.insertSite(new Site("Title 1", "Description 1", 1.11, 11.1, "Comment 1"));
-                appDao.insertSite(new Site("Title 2", "Description 2", 2.22, 22.2, "Comment 2"));
-                appDao.insertSite(new Site("Title 3", "Description 3", 3.33, 33.3, "Comment 3"));
+                appDAO.insertSite(new Site("Site title 1", "Site description 1", 1.11, 11.1, "Site comment 1"));
+                appDAO.insertSite(new Site("Site title 2", "Site description 2", 2.22, 22.2, "Site comment 2"));
+                appDAO.insertSite(new Site("Site title 3", "Site description 3", 3.33, 33.3, "Site comment 3"));
+                appDAO.insertRingingRecord(new RingingRecord(2,4353,2525,3232,15.4, 23.7, "sunny", "Record comment 1"));
             });
         }
     };
-
 }

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddEditSiteActivity">
+    tools:context=".AddEditSiteActivity"
+    tools:ignore="HardcodedText">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title:"
-            android:paddingLeft="4dp"/>
+            android:paddingLeft="@dimen/tiny_padding"/>
 
         <EditText
             android:id="@+id/edit_text_title"
@@ -33,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_text_title"
             android:text="Description:"
-            android:paddingLeft="4dp"/>
+            android:paddingLeft="@dimen/tiny_padding"/>
 
         <EditText
             android:id="@+id/edit_text_description"
@@ -48,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_text_description"
             android:text="Latitude:"
-            android:paddingLeft="4dp"/>
+            android:paddingLeft="@dimen/tiny_padding"/>
 
         <EditText
             android:id="@+id/edit_text_latitude"
@@ -63,7 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_text_latitude"
             android:text="Longitude:"
-            android:paddingLeft="4dp"/>
+            android:paddingLeft="@dimen/tiny_padding"/>
 
         <EditText
             android:id="@+id/edit_text_longitude"
@@ -78,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_text_longitude"
             android:text="Comment:"
-            android:paddingLeft="4dp"/>
+            android:paddingLeft="@dimen/tiny_padding"/>
 
         <EditText
             android:id="@+id/edit_text_comment"
@@ -88,11 +89,21 @@
             android:inputType="textMultiLine"/>
 
         <Button
+            android:id="@+id/button_show_records"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="Show Records"
+            android:layout_above="@id/button_save"
+            android:layout_margin="@dimen/small_padding"
+            android:textColor="@color/buttonLabel"/>
+
+        <Button
             android:id="@+id/button_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="Save"
+            android:text="Save Changes"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/small_padding"
             android:textColor="@color/buttonLabel"/>

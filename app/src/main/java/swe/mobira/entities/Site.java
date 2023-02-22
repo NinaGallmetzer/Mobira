@@ -1,16 +1,12 @@
-package swe.mobira;
-
-import android.util.EventLogTags;
+package swe.mobira.entities;
 
 import androidx.annotation.NonNull;
-import androidx.room.Delete;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
-@Entity(tableName = "site_table")
+@Entity
 public class Site {
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private int siteID;
     @NonNull
     private String title;
     private String description;
@@ -18,8 +14,16 @@ public class Site {
     private double longitude;
     private String comment;
 
-    public int getId() {
-        return id;
+    public Site(@NonNull String title, String description,  double latitude, double longitude, String comment) {
+        this.title = title;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.comment = comment;
+    }
+
+    public int getSiteID() {
+        return siteID;
     }
 
     @NonNull
@@ -41,15 +45,7 @@ public class Site {
         return comment;
     }
 
-    public Site(@NonNull String title, String description,  double latitude, double longitude, String comment) {
-        this.title = title;
-        this.description = description;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.comment = comment;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setSiteID(int siteID) {
+        this.siteID = siteID;
     }
 }
