@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import swe.mobira.entities.Site;
+import swe.mobira.entities.site.Site;
 
 public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppHolder> {
     private List<Site> sites = new ArrayList<>();
@@ -33,9 +33,6 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppHolder> {
         Site currentSite = sites.get(position);
         holder.textViewTitle.setText(currentSite.getTitle());
         holder.textViewDescription.setText(currentSite.getDescription());
-//      holder.textViewLatitude.setText(Double.toString(currentSite.getLatitude()));
-//      holder.textViewLongitude.setText(Double.toString(currentSite.getLongitude()));
-//      holder.textViewComment.setText(currentSite.getComment());
     }
 
     @Override
@@ -51,16 +48,10 @@ public class AppAdapter extends RecyclerView.Adapter<AppAdapter.AppHolder> {
     class AppHolder extends RecyclerView.ViewHolder {
         private TextView textViewTitle;
         private TextView textViewDescription;
-//      private TextView textViewLatitude;
-//      private TextView textViewLongitude;
-//      private TextView textViewComment;
         public AppHolder(View itemview) {
             super(itemview);
             textViewTitle = itemview.findViewById(R.id.text_view_title);
             textViewDescription = itemview.findViewById(R.id.text_view_description);
-//          textViewLatitude = itemview.findViewById(R.id.text_view_latitude);
-//          textViewLongitude = itemview.findViewById(R.id.text_view_longitude);
-//          textViewComment = itemview.findViewById(R.id.text_view_comment);
 
             // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
             // create new OnClickListener, get position from adapter

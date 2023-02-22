@@ -6,39 +6,49 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import swe.mobira.entities.Site;
+import swe.mobira.entities.ringingrecord.RingingRecordDAO;
+import swe.mobira.entities.site.Site;
+import swe.mobira.entities.site.SiteDAO;
 
 public class AppRepository {
-    private AppDAO appDAO;
+    private SiteDAO siteDAO;
     private LiveData<List<Site>> allSites;
+    private RingingRecordDAO ringingRecordDAO;
+    private LiveData<List<Site>> allRingingRecords;
 
     public AppRepository(Application application) {
-        AppDatabase database = AppDatabase.getDatabase(application);
-        appDAO = database.appDAO();
-        allSites = appDAO.getAllSites();
+        MobiraDatabase database = MobiraDatabase.getDatabase(application);
+        siteDAO = database.siteDAO();
+        allSites = siteDAO.getAllSites();
+        ringingRecordDAO = database.ringingRecordDAO();
+/*
+        LiveData<List<RingingRecord>> test = ringingRecordDAO.getAllRingingRecords();
+        String test_text = String.format("All RingingRecords %s", test);
+        Log.d("debug", test_text);
+*/
     }
 
     public void insertSite(Site site) {
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            appDAO.insertSite(site);
+        MobiraDatabase.databaseWriteExecutor.execute(() -> {
+            siteDAO.insertSite(site);
         });
     }
 
     public void updateSite(Site site) {
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            appDAO.updateSite(site);
+        MobiraDatabase.databaseWriteExecutor.execute(() -> {
+            siteDAO.updateSite(site);
         });
     }
 
     public void deleteSite(Site site) {
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            appDAO.deleteSite(site);
+        MobiraDatabase.databaseWriteExecutor.execute(() -> {
+            siteDAO.deleteSite(site);
         });
     }
 
     public void deleteAllSites() {
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            appDAO.deleteAllSites();
+        MobiraDatabase.databaseWriteExecutor.execute(() -> {
+            siteDAO.deleteAllSites();
         });
     }
 

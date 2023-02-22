@@ -1,4 +1,4 @@
-package swe.mobira;
+package swe.mobira.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import swe.mobira.R;
 
 public class AddEditSiteActivity extends AppCompatActivity {
     public static final String EXTRA_ID = "swe.mobira.EXTRA_ID";

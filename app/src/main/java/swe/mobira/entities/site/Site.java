@@ -1,4 +1,4 @@
-package swe.mobira.entities;
+package swe.mobira.entities.site;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

@@ -1,8 +1,11 @@
-package swe.mobira.entities;
+package swe.mobira.entities.ringingrecord;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+
+import swe.mobira.entities.site.Site;
+
 @Entity(foreignKeys = {@ForeignKey(entity = Site.class,
         parentColumns = "siteID", childColumns = "siteID",
         onDelete = ForeignKey.CASCADE,

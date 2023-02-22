@@ -5,8 +5,8 @@ import androidx.room.Relation;
 
 import java.util.List;
 
-import swe.mobira.entities.RingingRecord;
-import swe.mobira.entities.Site;
+import swe.mobira.entities.ringingrecord.RingingRecord;
+import swe.mobira.entities.site.Site;
 
 public class SiteWithRecords {
     @Embedded

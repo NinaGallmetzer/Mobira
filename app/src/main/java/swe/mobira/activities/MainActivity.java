@@ -1,4 +1,4 @@
-package swe.mobira;
+package swe.mobira.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -11,7 +11,10 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import swe.mobira.entities.Site;
+import swe.mobira.AppAdapter;
+import swe.mobira.AppViewModel;
+import swe.mobira.R;
+import swe.mobira.entities.site.Site;
 
 public class MainActivity extends AppCompatActivity {
     public static final int ADD_SITE_ACTIVITY_REQUEST_CODE = 1;

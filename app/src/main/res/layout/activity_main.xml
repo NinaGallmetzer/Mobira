@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".activities.MainActivity"
     tools:ignore="HardcodedText">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -20,6 +20,7 @@
         android:src="@drawable/ic_add"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/huge_padding"
+        android:backgroundTint="@color/colorAccent"
         android:contentDescription="ADD" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

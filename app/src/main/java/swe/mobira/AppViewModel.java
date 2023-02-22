@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import swe.mobira.entities.Site;
+import swe.mobira.entities.site.Site;
 
 public class AppViewModel extends AndroidViewModel {
     private AppRepository repository;
