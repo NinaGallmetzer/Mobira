@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.ShowSiteDetailsActivity"
+    tools:ignore="HardcodedText"
+    android:padding="@dimen/small_padding">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title:"
+            android:paddingLeft="@dimen/tiny_padding"/>
+
+        <TextView
+            android:id="@+id/edit_text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="33dp"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_title"
+            android:text="Description:"
+            android:paddingLeft="@dimen/tiny_padding"/>
+
+        <TextView
+            android:id="@+id/edit_text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+            android:id="@+id/latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_description"
+            android:text="Latitude:"
+            android:paddingLeft="@dimen/tiny_padding"/>
+
+        <TextView
+            android:id="@+id/edit_text_latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/latitude"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+            android:id="@+id/longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_latitude"
+            android:text="Longitude:"
+            android:paddingLeft="@dimen/tiny_padding"/>
+
+        <TextView
+            android:id="@+id/edit_text_longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/longitude"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+        <TextView
+            android:id="@+id/comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_longitude"
+            android:text="Comment:"
+            android:paddingLeft="@dimen/tiny_padding"/>
+
+        <TextView
+            android:id="@+id/edit_text_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/comment"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+
+    </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/actions_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Actions"
+        app:icon="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/delete_site_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/colorAccent"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/actions_fab"
+        app:layout_constraintEnd_toEndOf="@+id/actions_fab"
+        app:srcCompat="@drawable/ic_delete_24"
+        android:contentDescription="DELETE SITE" />
+
+    <TextView
+        android:id="@+id/delete_site_action_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Delete Site"
+        app:layout_constraintBottom_toBottomOf="@+id/delete_site_fab"
+        app:layout_constraintEnd_toStartOf="@+id/delete_site_fab"
+        app:layout_constraintTop_toTopOf="@+id/delete_site_fab" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit_site_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/colorAccent"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/delete_site_fab"
+        app:layout_constraintEnd_toEndOf="@+id/delete_site_fab"
+        app:srcCompat="@drawable/ic_edit_24"
+        android:contentDescription="EDIT SITE" />
+
+    <TextView
+        android:id="@+id/edit_site_action_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Edit Site"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_site_fab"
+        app:layout_constraintEnd_toStartOf="@+id/edit_site_fab"
+        app:layout_constraintTop_toTopOf="@+id/edit_site_fab" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/show_records_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/colorAccent"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/edit_site_fab"
+        app:layout_constraintEnd_toEndOf="@+id/edit_site_fab"
+        app:srcCompat="@drawable/ic_add_record_24"
+        android:contentDescription="SHOW RECORDS" />
+
+    <TextView
+        android:id="@+id/show_records_action_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Ringing Event"
+        app:layout_constraintBottom_toBottomOf="@+id/show_records_fab"
+        app:layout_constraintEnd_toStartOf="@+id/show_records_fab"
+        app:layout_constraintTop_toTopOf="@+id/show_records_fab" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

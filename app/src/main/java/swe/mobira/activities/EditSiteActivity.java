@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import swe.mobira.R;
 
-public class AddEditSiteActivity extends AppCompatActivity {
+public class EditSiteActivity extends AppCompatActivity {
     public static final String EXTRA_ID = "swe.mobira.EXTRA_ID";
     public static final String EXTRA_TITLE = "swe.mobira.EXTRA_TITLE";
     public static final String EXTRA_DESCRIPTION = "swe.mobira.EXTRA_DESCRIPTION";
@@ -27,18 +27,11 @@ public class AddEditSiteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
-        // get intent that got passed from prev screen (through click on either
-        // floatingActionButton or specific site) and check if it contains an id
-        // if contains id > comes from edit and contains site > load edit site screen,
-        // else load add site screen
+        // get currentSiteData that got passed from prev screen > load edit-site-screen
+        setContentView(R.layout.activity_edit_site);
+        setTitle("Edit Site");
 
-        Intent intent = getIntent();
-
-        if (intent.hasExtra(EXTRA_ID)) {
-            setContentView(R.layout.activity_edit_site);
-        } else {
-            setContentView(R.layout.activity_add_site);
-        }
+        Intent currentSiteData = getIntent();
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
@@ -49,20 +42,13 @@ public class AddEditSiteActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
-        // check if intent that got passed from prev screen (through click on either
-        // floatingActionButton or specific site) contains an id
-        // if contains id > comes from edit and contains note > fill text fields,
-        // else keep text fields empty
-        if (intent.hasExtra(EXTRA_ID)) {
-            setTitle("Edit Site");
-            editTextTitle.setText(intent.getStringExtra(EXTRA_TITLE));
-            editTextDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
-            editTextLatitude.setText(intent.getStringExtra(EXTRA_LATITUDE));
-            editTextLongitude.setText(intent.getStringExtra(EXTRA_LONGITUDE));
-            editTextComment.setText(intent.getStringExtra(EXTRA_COMMENT));
-        } else {
-            setTitle("Add Site");
-        }
+        // fill text fields
+
+        editTextTitle.setText(currentSiteData.getStringExtra(EXTRA_TITLE));
+        editTextDescription.setText(currentSiteData.getStringExtra(EXTRA_DESCRIPTION));
+        editTextLatitude.setText(currentSiteData.getStringExtra(EXTRA_LATITUDE));
+        editTextLongitude.setText(currentSiteData.getStringExtra(EXTRA_LONGITUDE));
+        editTextComment.setText(currentSiteData.getStringExtra(EXTRA_COMMENT));
 
         Button button = findViewById(R.id.button_save);
         button.setOnClickListener(view -> saveSite());
@@ -80,21 +66,21 @@ public class AddEditSiteActivity extends AppCompatActivity {
             return;
         }
 
-        Intent data = new Intent();
-        data.putExtra(EXTRA_TITLE, title);
-        data.putExtra(EXTRA_DESCRIPTION, description);
-        data.putExtra(EXTRA_LATITUDE, latitude);
-        data.putExtra(EXTRA_LONGITUDE, longitude);
-        data.putExtra(EXTRA_COMMENT, comment);
+        Intent currentSiteData = new Intent();
+        currentSiteData.putExtra(EXTRA_TITLE, title);
+        currentSiteData.putExtra(EXTRA_DESCRIPTION, description);
+        currentSiteData.putExtra(EXTRA_LATITUDE, latitude);
+        currentSiteData.putExtra(EXTRA_LONGITUDE, longitude);
+        currentSiteData.putExtra(EXTRA_COMMENT, comment);
 
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
-        // extract id from intent (if exists otherwise = -1) and add to data
+        // extract id from intent (if exists, otherwise = -1) and add to currentSiteData
         int id = getIntent().getIntExtra(EXTRA_ID, -1);
         if (id != -1) {
-            data.putExtra(EXTRA_ID, id);
+            currentSiteData.putExtra(EXTRA_ID, id);
         }
 
-        setResult(RESULT_OK, data);
+        setResult(RESULT_OK, currentSiteData);
         finish();
     }
 }

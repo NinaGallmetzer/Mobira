@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.AddEditSiteActivity"
+    tools:context=".activities.EditSiteActivity"
     tools:ignore="HardcodedText"
     android:padding="@dimen/small_padding">
 
@@ -83,16 +83,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/comment"
         android:inputType="textMultiLine"/>
-
-    <Button
-        android:id="@+id/button_show_records"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:text="Show Records"
-        android:layout_above="@id/button_save"
-        android:layout_margin="@dimen/small_padding"
-        android:textColor="@color/buttonLabel"/>
 
     <Button
         android:id="@+id/button_save"
