@@ -21,6 +21,10 @@ public interface SiteDAO {
     void deleteSite(Site site);
     @Query("DELETE FROM Site")
     void deleteAllSites();
+    // DAO & ROOM DATABASE (https://www.youtube.com/watch?v=0cg09tlAAQ0)
+    // LiveDate makes object observable > as soon as site table changes > object is updated >
+    // > activity will using it will be notified
+    // needs to be declared LiveData in every function using this function up until activity
     @Query("SELECT * FROM Site ORDER BY title ASC")
     LiveData<List<Site>> getAllSites();
 }

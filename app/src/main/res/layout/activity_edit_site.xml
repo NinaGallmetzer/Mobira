@@ -1,113 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activities.AddEditSiteActivity"
-    tools:ignore="HardcodedText">
+    tools:ignore="HardcodedText"
+    android:padding="@dimen/small_padding">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/small_padding">
+        android:layout_height="wrap_content"
+        android:text="Title:"
+        android:paddingLeft="@dimen/tiny_padding"/>
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Title:"
-            android:paddingLeft="@dimen/tiny_padding"/>
+    <EditText
+        android:id="@+id/edit_text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:inputType="text"/>
 
-        <EditText
-            android:id="@+id/edit_text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:inputType="text"/>
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_title"
+        android:text="Description:"
+        android:paddingLeft="@dimen/tiny_padding"/>
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edit_text_title"
-            android:text="Description:"
-            android:paddingLeft="@dimen/tiny_padding"/>
+    <EditText
+        android:id="@+id/edit_text_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description"
+        android:inputType="textMultiLine"/>
 
-        <EditText
-            android:id="@+id/edit_text_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/description"
-            android:inputType="textMultiLine"/>
+    <TextView
+        android:id="@+id/latitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_description"
+        android:text="Latitude:"
+        android:paddingLeft="@dimen/tiny_padding"/>
 
-        <TextView
-            android:id="@+id/latitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edit_text_description"
-            android:text="Latitude:"
-            android:paddingLeft="@dimen/tiny_padding"/>
+    <EditText
+        android:id="@+id/edit_text_latitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/latitude"
+        android:inputType="numberDecimal"/>
 
-        <EditText
-            android:id="@+id/edit_text_latitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/latitude"
-            android:inputType="numberDecimal"/>
+    <TextView
+        android:id="@+id/longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_latitude"
+        android:text="Longitude:"
+        android:paddingLeft="@dimen/tiny_padding"/>
 
-        <TextView
-            android:id="@+id/longitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edit_text_latitude"
-            android:text="Longitude:"
-            android:paddingLeft="@dimen/tiny_padding"/>
+    <EditText
+        android:id="@+id/edit_text_longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/longitude"
+        android:inputType="numberDecimal"/>
 
-        <EditText
-            android:id="@+id/edit_text_longitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/longitude"
-            android:inputType="numberDecimal"/>
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_longitude"
+        android:text="Comment:"
+        android:paddingLeft="@dimen/tiny_padding"/>
 
-        <TextView
-            android:id="@+id/comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edit_text_longitude"
-            android:text="Comment:"
-            android:paddingLeft="@dimen/tiny_padding"/>
+    <EditText
+        android:id="@+id/edit_text_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comment"
+        android:inputType="textMultiLine"/>
 
-        <EditText
-            android:id="@+id/edit_text_comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/comment"
-            android:inputType="textMultiLine"/>
+    <Button
+        android:id="@+id/button_show_records"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Show Records"
+        android:layout_above="@id/button_save"
+        android:layout_margin="@dimen/small_padding"
+        android:textColor="@color/buttonLabel"/>
 
-        <Button
-            android:id="@+id/button_show_records"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:text="Show Records"
-            android:layout_above="@id/button_save"
-            android:layout_margin="@dimen/small_padding"
-            android:textColor="@color/buttonLabel"/>
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Save Changes"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/small_padding"
+        android:textColor="@color/buttonLabel"/>
 
-        <Button
-            android:id="@+id/button_save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:text="Save Changes"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/small_padding"
-            android:textColor="@color/buttonLabel"/>
-
-    </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>

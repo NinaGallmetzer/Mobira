@@ -1,4 +1,4 @@
-package swe.mobira;
+package swe.mobira.entities.site;
 
 import android.app.Application;
 
@@ -6,28 +6,21 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import swe.mobira.entities.ringingrecord.RingingRecordDAO;
-import swe.mobira.entities.site.Site;
-import swe.mobira.entities.site.SiteDAO;
+import swe.mobira.MobiraDatabase;
 
-public class AppRepository {
+// REPOSITORY (https://www.youtube.com/watch?v=HhmA9S53XV8)
+// useful in case of multiple data sources (e.g. locally and cloud)
+public class SiteRepository {
     private SiteDAO siteDAO;
     private LiveData<List<Site>> allSites;
-    private RingingRecordDAO ringingRecordDAO;
-    private LiveData<List<Site>> allRingingRecords;
 
-    public AppRepository(Application application) {
+    public SiteRepository(Application application) {
         MobiraDatabase database = MobiraDatabase.getDatabase(application);
         siteDAO = database.siteDAO();
         allSites = siteDAO.getAllSites();
-        ringingRecordDAO = database.ringingRecordDAO();
-/*
-        LiveData<List<RingingRecord>> test = ringingRecordDAO.getAllRingingRecords();
-        String test_text = String.format("All RingingRecords %s", test);
-        Log.d("debug", test_text);
-*/
     }
 
+    // to not run function on the main thread > use ExecutorService created in the database.class
     public void insertSite(Site site) {
         MobiraDatabase.databaseWriteExecutor.execute(() -> {
             siteDAO.insertSite(site);
@@ -43,12 +36,6 @@ public class AppRepository {
     public void deleteSite(Site site) {
         MobiraDatabase.databaseWriteExecutor.execute(() -> {
             siteDAO.deleteSite(site);
-        });
-    }
-
-    public void deleteAllSites() {
-        MobiraDatabase.databaseWriteExecutor.execute(() -> {
-            siteDAO.deleteAllSites();
         });
     }
 

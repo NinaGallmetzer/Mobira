@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activities.AddEditSiteActivity"
-    tools:ignore="HardcodedText">
+    tools:ignore="HardcodedText"
+    android:padding="@dimen/small_padding">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/small_padding">
+        android:layout_height="match_parent">
 
         <EditText
             android:id="@+id/edit_text_title"

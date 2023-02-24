@@ -29,7 +29,7 @@ public class AddEditSiteActivity extends AppCompatActivity {
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
         // get intent that got passed from prev screen (through click on either
         // floatingActionButton or specific site) and check if it contains an id
-        // if contains id > comes from edit and contains note > load edit site screen,
+        // if contains id > comes from edit and contains site > load edit site screen,
         // else load add site screen
 
         Intent intent = getIntent();

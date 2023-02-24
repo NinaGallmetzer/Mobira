@@ -1,4 +1,4 @@
-package swe.mobira;
+package swe.mobira.entities.site;
 
 import android.app.Application;
 
@@ -8,15 +8,16 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import swe.mobira.entities.site.Site;
-
-public class AppViewModel extends AndroidViewModel {
-    private AppRepository repository;
+// VIEW MODEL (https://www.youtube.com/watch?v=JLwW5HivZg4)
+// where data needed for specific activity is stored and processed
+// survives configuration changes (e.g. recreation of screen after orientation change)
+public class SiteViewModel extends AndroidViewModel {
+    private SiteRepository repository;
     private LiveData<List<Site>> allSites;
 
-    public AppViewModel(@NonNull Application application) {
+    public SiteViewModel(@NonNull Application application) {
         super(application);
-        repository = new AppRepository(application);
+        repository = new SiteRepository(application);
         allSites = repository.getAllSites();
     }
 
@@ -30,10 +31,6 @@ public class AppViewModel extends AndroidViewModel {
 
     public void deleteSite(Site site) {
         repository.deleteSite(site);
-    }
-
-    public void deleteAllSites() {
-        repository.deleteAllSites();
     }
 
     public LiveData<List<Site>> getAllSites() {

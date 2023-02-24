@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--CoordinatorLayout for additional features (e.g. collapsing toolbar, floating-action-button etc.)-->
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,11 +8,17 @@
     tools:context=".activities.MainActivity"
     tools:ignore="HardcodedText">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/site_item"/>
+        android:layout_height="match_parent">
+
+        <!--listitem only necessary for preview on the right-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/site_item"/>
+    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add_site"
