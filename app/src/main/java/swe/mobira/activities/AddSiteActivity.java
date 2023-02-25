@@ -12,13 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
+import swe.mobira.entities.site.Site;
 
 public class AddSiteActivity extends AppCompatActivity {
-    public static final String EXTRA_TITLE = "swe.mobira.EXTRA_TITLE";
-    public static final String EXTRA_DESCRIPTION = "swe.mobira.EXTRA_DESCRIPTION";
-    public static final String EXTRA_LATITUDE = "swe.mobira.EXTRA_LATITUDE";
-    public static final String EXTRA_LONGITUDE = "swe.mobira.EXTRA_LONGITUDE";
-    public static final String EXTRA_COMMENT = "swe.mobira.EXTRA_COMMENT";
     private EditText editTextTitle;
     private EditText editTextDescription;
     private EditText editTextLatitude;
@@ -28,7 +24,6 @@ public class AddSiteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_add_site);
         setTitle("Add Site");
 
@@ -51,8 +46,8 @@ public class AddSiteActivity extends AppCompatActivity {
     private void saveSite() {
         String title = editTextTitle.getText().toString();
         String description = editTextDescription.getText().toString();
-        String latitude =  editTextLatitude.getText().toString();
-        String longitude = editTextLongitude.getText().toString();
+        double latitude =  Double.parseDouble(editTextLatitude.getText().toString());
+        double longitude = Double.parseDouble(editTextLongitude.getText().toString());
         String comment = editTextComment.getText().toString();
 
         if (title.trim().isEmpty()) {
@@ -60,14 +55,12 @@ public class AddSiteActivity extends AppCompatActivity {
             return;
         }
 
-        Intent newSiteData = new Intent();
-        newSiteData.putExtra(EXTRA_TITLE, title);
-        newSiteData.putExtra(EXTRA_DESCRIPTION, description);
-        newSiteData.putExtra(EXTRA_LATITUDE, latitude);
-        newSiteData.putExtra(EXTRA_LONGITUDE, longitude);
-        newSiteData.putExtra(EXTRA_COMMENT, comment);
+        Site updatedSite = new Site(title, description, latitude, longitude, comment);
 
-        setResult(RESULT_OK, newSiteData);
+        Intent intent = new Intent();
+        intent.putExtra(MainActivity.EXTRA_SITE, updatedSite);
+
+        setResult(RESULT_OK, intent);
         finish();
     }
 }

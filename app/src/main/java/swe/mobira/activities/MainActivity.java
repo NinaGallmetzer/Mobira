@@ -22,12 +22,15 @@ import swe.mobira.entities.site.Site;
 
 public class MainActivity extends AppCompatActivity {
     public static final int ADD_SITE_ACTIVITY_REQUEST_CODE = 1;
+    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
+
     private SiteViewModel siteViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Sites");
 
         // RECYCLERVIEW + ADAPTER (https://www.youtube.com/watch?v=reSPN7mgshI)
         // find RecyclerView in activity_main.xml
@@ -64,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        setTitle("Sites");
-
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
         // start activity with intent (from > to), collect information from selected site (incl id) and pass to edit screen
         adapter.setOnItemClickListener(new SiteAdapter.OnItemClickListener() {
@@ -73,17 +74,9 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(Site site) {
                 Intent intent = new Intent(MainActivity.this, ShowSiteDetailsActivity.class);
                 intent.putExtra(ShowSiteDetailsActivity.EXTRA_SITE, site);
-                intent.putExtra(ShowSiteDetailsActivity.EXTRA_ID, site.getSiteID());
-                intent.putExtra(ShowSiteDetailsActivity.EXTRA_TITLE, site.getTitle());
-                intent.putExtra(ShowSiteDetailsActivity.EXTRA_DESCRIPTION, site.getDescription());
-                // lat and long need to be passed along as stings
-                intent.putExtra(ShowSiteDetailsActivity.EXTRA_LATITUDE, String.valueOf(site.getLatitude()));
-                intent.putExtra(ShowSiteDetailsActivity.EXTRA_LONGITUDE, String.valueOf(site.getLongitude()));
-                intent.putExtra(ShowSiteDetailsActivity.EXTRA_COMMENT, site.getComment());
                 startActivity(intent);
             }
         });
-
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -92,15 +85,8 @@ public class MainActivity extends AppCompatActivity {
         // if "activity result" originates from add activity (requestCode = add_site...) >
         // create site using data from intent
         if (requestCode == ADD_SITE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            String title = data.getStringExtra(AddSiteActivity.EXTRA_TITLE);
-            String description = data.getStringExtra(AddSiteActivity.EXTRA_DESCRIPTION);
-            // in intent/data, lat and long are stored as strings and need to be converted first
-            double latitude = Double.parseDouble(data.getStringExtra(AddSiteActivity.EXTRA_LATITUDE));
-            double longitude = Double.parseDouble(data.getStringExtra(AddSiteActivity.EXTRA_LONGITUDE));
-            String comment = data.getStringExtra(AddSiteActivity.EXTRA_COMMENT);
-
-            Site site = new Site(title, description, latitude, longitude, comment);
-            siteViewModel.insertSite(site);
+            Site newSite = data.getParcelableExtra(EXTRA_SITE);
+            siteViewModel.insertSite(newSite);
             Toast.makeText(getApplicationContext(), "Site saved", Toast.LENGTH_LONG).show();
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
         // if "activity result" originates from edit activity (requestCode = edit_site...) >

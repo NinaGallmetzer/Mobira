@@ -11,14 +11,13 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
+import swe.mobira.entities.site.Site;
 
 public class EditSiteActivity extends AppCompatActivity {
-    public static final String EXTRA_ID = "swe.mobira.EXTRA_ID";
-    public static final String EXTRA_TITLE = "swe.mobira.EXTRA_TITLE";
-    public static final String EXTRA_DESCRIPTION = "swe.mobira.EXTRA_DESCRIPTION";
-    public static final String EXTRA_LATITUDE = "swe.mobira.EXTRA_LATITUDE";
-    public static final String EXTRA_LONGITUDE = "swe.mobira.EXTRA_LONGITUDE";
-    public static final String EXTRA_COMMENT = "swe.mobira.EXTRA_COMMENT";
+    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
+
+    private Site currentSite;
+
     private EditText editTextTitle;
     private EditText editTextDescription;
     private EditText editTextLatitude;
@@ -33,7 +32,7 @@ public class EditSiteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_site);
         setTitle("Edit Site");
 
-        Intent currentSiteData = getIntent();
+        currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
@@ -46,12 +45,11 @@ public class EditSiteActivity extends AppCompatActivity {
 
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
         // fill text fields
-
-        editTextTitle.setText(currentSiteData.getStringExtra(EXTRA_TITLE));
-        editTextDescription.setText(currentSiteData.getStringExtra(EXTRA_DESCRIPTION));
-        editTextLatitude.setText(currentSiteData.getStringExtra(EXTRA_LATITUDE));
-        editTextLongitude.setText(currentSiteData.getStringExtra(EXTRA_LONGITUDE));
-        editTextComment.setText(currentSiteData.getStringExtra(EXTRA_COMMENT));
+        editTextTitle.setText(currentSite.getTitle());
+        editTextDescription.setText(currentSite.getDescription());
+        editTextLatitude.setText(String.valueOf(currentSite.getLatitude()));
+        editTextLongitude.setText(String.valueOf(currentSite.getLongitude()));
+        editTextComment.setText(currentSite.getComment());
 
         FloatingActionButton buttonSave = findViewById(R.id.button_save);
         buttonSave.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +64,8 @@ public class EditSiteActivity extends AppCompatActivity {
     private void saveSite() {
         String title = editTextTitle.getText().toString();
         String description = editTextDescription.getText().toString();
-        String latitude =  editTextLatitude.getText().toString();
-        String longitude = editTextLongitude.getText().toString();
+        double latitude =  Double.parseDouble(editTextLatitude.getText().toString());
+        double longitude = Double.parseDouble(editTextLongitude.getText().toString());
         String comment = editTextComment.getText().toString();
 
         if (title.trim().isEmpty()) {
@@ -75,21 +73,12 @@ public class EditSiteActivity extends AppCompatActivity {
             return;
         }
 
-        Intent currentSiteData = new Intent();
-        currentSiteData.putExtra(EXTRA_TITLE, title);
-        currentSiteData.putExtra(EXTRA_DESCRIPTION, description);
-        currentSiteData.putExtra(EXTRA_LATITUDE, latitude);
-        currentSiteData.putExtra(EXTRA_LONGITUDE, longitude);
-        currentSiteData.putExtra(EXTRA_COMMENT, comment);
+        Site updatedSite = new Site(currentSite.getSiteID(), title, description, latitude, longitude, comment);
 
-        // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
-        // extract id from intent (if exists, otherwise = -1) and add to currentSiteData
-        int id = getIntent().getIntExtra(EXTRA_ID, -1);
-        if (id != -1) {
-            currentSiteData.putExtra(EXTRA_ID, id);
-        }
+        Intent intent = new Intent();
+        intent.putExtra(ShowSiteDetailsActivity.EXTRA_SITE, updatedSite);
 
-        setResult(RESULT_OK, currentSiteData);
+        setResult(RESULT_OK, intent);
         finish();
     }
 }

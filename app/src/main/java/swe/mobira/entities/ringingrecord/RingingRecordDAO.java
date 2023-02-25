@@ -35,6 +35,6 @@ public interface RingingRecordDAO {
     LiveData<List<SiteWithRecords>> getSiteWithRecords();
 
     @Transaction
-    @Query("SELECT * FROM ringingrecord WHERE siteID = :siteID")
+    @Query("SELECT * FROM ringingrecord WHERE siteID = :siteID ORDER BY recordDate")
     LiveData<List<RingingRecord>> getRingingRecordsBySiteID(int siteID);
 }

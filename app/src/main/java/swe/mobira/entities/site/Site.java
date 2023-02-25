@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 @Entity
 public class Site implements Parcelable {
@@ -18,6 +19,16 @@ public class Site implements Parcelable {
     private String comment;
 
     public Site(@NonNull String title, String description,  double latitude, double longitude, String comment) {
+        this.title = title;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.comment = comment;
+    }
+
+    @Ignore
+    public Site(int siteID, @NonNull String title, String description,  double latitude, double longitude, String comment) {
+        this.siteID = siteID;
         this.title = title;
         this.description = description;
         this.latitude = latitude;

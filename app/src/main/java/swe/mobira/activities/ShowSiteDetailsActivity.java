@@ -21,7 +21,16 @@ import swe.mobira.entities.site.SiteViewModel;
 
 public class ShowSiteDetailsActivity extends AppCompatActivity {
     public static final int EDIT_SITE_ACTIVITY_REQUEST_CODE = 2;
+    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
+
     private SiteViewModel siteViewModel;
+    private Site currentSite;
+
+    private TextView editTextTitle;
+    private TextView editTextDescription;
+    private TextView editTextLatitude;
+    private TextView editTextLongitude;
+    private TextView editTextComment;
 
     ExtendedFloatingActionButton actionsFab;
     FloatingActionButton showRecordsFab, editSiteFab, deleteSiteFab;
@@ -29,19 +38,6 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
 
     // to check whether sub FABs are visible or not
     Boolean isAllFabsVisible;
-
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-    public static final String EXTRA_ID = "swe.mobira.EXTRA_ID";
-    public static final String EXTRA_TITLE = "swe.mobira.EXTRA_TITLE";
-    public static final String EXTRA_DESCRIPTION = "swe.mobira.EXTRA_DESCRIPTION";
-    public static final String EXTRA_LATITUDE = "swe.mobira.EXTRA_LATITUDE";
-    public static final String EXTRA_LONGITUDE = "swe.mobira.EXTRA_LONGITUDE";
-    public static final String EXTRA_COMMENT = "swe.mobira.EXTRA_COMMENT";
-    private TextView editTextTitle;
-    private TextView editTextDescription;
-    private TextView editTextLatitude;
-    private TextView editTextLongitude;
-    private TextView editTextComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +47,7 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
         setUpActionButtons();
         siteViewModel = new ViewModelProvider(this).get(SiteViewModel.class);
 
-        Intent currentSiteData = getIntent();
+        currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
 
         editTextTitle = findViewById(R.id.text_view_title);
         editTextDescription = findViewById(R.id.text_view_description);
@@ -64,26 +60,24 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable final Site changedSite) {
                 Intent update = new Intent();
-                update.putExtra(EXTRA_ID, changedSite.getSiteID());
-                update.putExtra(EXTRA_TITLE, changedSite.getTitle());
-                update.putExtra(EXTRA_DESCRIPTION, changedSite.getDescription());
-                // lat and long need to be passed along as stings
-                update.putExtra(EXTRA_LATITUDE, String.valueOf(changedSite.getLatitude()));
-                update.putExtra(EXTRA_LONGITUDE, String.valueOf(changedSite.getLongitude()));
-                update.putExtra(EXTRA_COMMENT, changedSite.getComment());
-                currentSiteData.replaceExtras(update);
+                update.putExtra(EXTRA_SITE, changedSite);
+                currentSite = changedSite;
 
                 // Update the UI.
-                editTextTitle.setText(currentSiteData.getStringExtra(EXTRA_TITLE));
-                editTextDescription.setText(currentSiteData.getStringExtra(EXTRA_DESCRIPTION));
-                editTextLatitude.setText(currentSiteData.getStringExtra(EXTRA_LATITUDE));
-                editTextLongitude.setText(currentSiteData.getStringExtra(EXTRA_LONGITUDE));
-                editTextComment.setText(currentSiteData.getStringExtra(EXTRA_COMMENT));
+                if (currentSite == null) {
+                    finish();
+                } else {
+                    editTextTitle.setText(currentSite.getTitle());
+                    editTextDescription.setText(currentSite.getDescription());
+                    editTextLatitude.setText(String.valueOf(currentSite.getLatitude()));
+                    editTextLongitude.setText(String.valueOf(currentSite.getLongitude()));
+                    editTextComment.setText(currentSite.getComment());
+                }
             }
         };
 
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
-        siteViewModel.getSiteByID(currentSiteData.getIntExtra(EXTRA_ID, -1)).observe(this, nameObserver);
+        siteViewModel.getSiteByID(currentSite.getSiteID()).observe(this, nameObserver);
 
         actionsFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +127,7 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ShowSiteDetailsActivity.this, EditSiteActivity.class);
-                intent.putExtras(currentSiteData.getExtras());
+                intent.putExtra(EditSiteActivity.EXTRA_SITE, currentSite);
                 startActivityForResult(intent, EDIT_SITE_ACTIVITY_REQUEST_CODE);
             }
         });
@@ -141,7 +135,8 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
         deleteSiteFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ShowSiteDetailsActivity.this, "TODO: Implement Delete Site", Toast.LENGTH_SHORT).show();
+                siteViewModel.deleteSite(currentSite);
+                Toast.makeText(ShowSiteDetailsActivity.this, "Site deleted", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
@@ -178,24 +173,11 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == EDIT_SITE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            int id = data.getIntExtra(EditSiteActivity.EXTRA_ID, -1);
-            if (id == -1) {
-                Toast.makeText(getApplicationContext(), "Site can't be updated", Toast.LENGTH_LONG).show();
-                return;
-            }
-            String title = data.getStringExtra(EditSiteActivity.EXTRA_TITLE);
-            String description = data.getStringExtra(EditSiteActivity.EXTRA_DESCRIPTION);
-            // in intent/data, lat and long are stored as strings and need to be converted first
-            double latitude = Double.parseDouble(data.getStringExtra(EditSiteActivity.EXTRA_LATITUDE));
-            double longitude = Double.parseDouble(data.getStringExtra(EditSiteActivity.EXTRA_LONGITUDE));
-            String comment = data.getStringExtra(EditSiteActivity.EXTRA_COMMENT);
-
-            Site site = new Site(title, description, latitude, longitude, comment);
-            site.setSiteID(id);
-            siteViewModel.updateSite(site);
-            Toast.makeText(getApplicationContext(), "Site saved", Toast.LENGTH_LONG).show();
+            Site updatedSite = data.getParcelableExtra(EXTRA_SITE);
+            siteViewModel.updateSite(updatedSite);
+            Toast.makeText(getApplicationContext(), "Site updated", Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(getApplicationContext(), "Site not saved", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Could not save changes", Toast.LENGTH_LONG).show();
         }
     }
 
