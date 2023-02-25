@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         // VIEW MODEL (https://www.youtube.com/watch?v=JLwW5HivZg4)
-        // don't create new ViewModel (otherwise new view model for every new activity of app but
+        // don't create new ViewModel (otherwise new view model for every new activity of app, but
         // one app just has one view model)
         // let Android handle view models with ViewModelProvider > Android decides whether to
         // create new view model (first activity of the app) or use existing view model
@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Site site) {
                 Intent intent = new Intent(MainActivity.this, ShowSiteDetailsActivity.class);
+                intent.putExtra(ShowSiteDetailsActivity.EXTRA_SITE, site);
                 intent.putExtra(ShowSiteDetailsActivity.EXTRA_ID, site.getSiteID());
                 intent.putExtra(ShowSiteDetailsActivity.EXTRA_TITLE, site.getTitle());
                 intent.putExtra(ShowSiteDetailsActivity.EXTRA_DESCRIPTION, site.getDescription());

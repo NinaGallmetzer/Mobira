@@ -39,6 +39,10 @@ public class SiteRepository {
         });
     }
 
+    public LiveData<Site> getSiteByID(int siteID) {
+        return siteDAO.getSiteByID(siteID);
+    }
+
     public LiveData<List<Site>> getAllSites() {
         return allSites;
     }

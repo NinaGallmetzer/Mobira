@@ -1,6 +1,9 @@
 package swe.mobira.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -27,6 +30,7 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
     // to check whether sub FABs are visible or not
     Boolean isAllFabsVisible;
 
+    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
     public static final String EXTRA_ID = "swe.mobira.EXTRA_ID";
     public static final String EXTRA_TITLE = "swe.mobira.EXTRA_TITLE";
     public static final String EXTRA_DESCRIPTION = "swe.mobira.EXTRA_DESCRIPTION";
@@ -55,11 +59,31 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
         editTextLongitude = findViewById(R.id.text_view_longitude);
         editTextComment = findViewById(R.id.text_view_comment);
 
-        editTextTitle.setText(currentSiteData.getStringExtra(EXTRA_TITLE));
-        editTextDescription.setText(currentSiteData.getStringExtra(EXTRA_DESCRIPTION));
-        editTextLatitude.setText(currentSiteData.getStringExtra(EXTRA_LATITUDE));
-        editTextLongitude.setText(currentSiteData.getStringExtra(EXTRA_LONGITUDE));
-        editTextComment.setText(currentSiteData.getStringExtra(EXTRA_COMMENT));
+        // Create the observer which updates the UI.
+        final Observer<Site> nameObserver = new Observer<Site>() {
+            @Override
+            public void onChanged(@Nullable final Site changedSite) {
+                Intent update = new Intent();
+                update.putExtra(EXTRA_ID, changedSite.getSiteID());
+                update.putExtra(EXTRA_TITLE, changedSite.getTitle());
+                update.putExtra(EXTRA_DESCRIPTION, changedSite.getDescription());
+                // lat and long need to be passed along as stings
+                update.putExtra(EXTRA_LATITUDE, String.valueOf(changedSite.getLatitude()));
+                update.putExtra(EXTRA_LONGITUDE, String.valueOf(changedSite.getLongitude()));
+                update.putExtra(EXTRA_COMMENT, changedSite.getComment());
+                currentSiteData.replaceExtras(update);
+
+                // Update the UI.
+                editTextTitle.setText(currentSiteData.getStringExtra(EXTRA_TITLE));
+                editTextDescription.setText(currentSiteData.getStringExtra(EXTRA_DESCRIPTION));
+                editTextLatitude.setText(currentSiteData.getStringExtra(EXTRA_LATITUDE));
+                editTextLongitude.setText(currentSiteData.getStringExtra(EXTRA_LONGITUDE));
+                editTextComment.setText(currentSiteData.getStringExtra(EXTRA_COMMENT));
+            }
+        };
+
+        // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
+        siteViewModel.getSiteByID(currentSiteData.getIntExtra(EXTRA_ID, -1)).observe(this, nameObserver);
 
         actionsFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +125,7 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
         showRecordsFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ShowSiteDetailsActivity.this, "Show Records", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowSiteDetailsActivity.this, "TODO: Implement Show Records", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -117,12 +141,10 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
         deleteSiteFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ShowSiteDetailsActivity.this, "Implement Delete Site", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowSiteDetailsActivity.this, "TODO: Implement Delete Site", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
-
-
     }
 
     void setUpActionButtons() {
@@ -172,12 +194,6 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
             site.setSiteID(id);
             siteViewModel.updateSite(site);
             Toast.makeText(getApplicationContext(), "Site saved", Toast.LENGTH_LONG).show();
-
-            editTextTitle.setText(title);
-            editTextDescription.setText(description);
-            editTextLatitude.setText(String.valueOf(latitude));
-            editTextLongitude.setText(String.valueOf(longitude));
-            editTextComment.setText(comment);
         } else {
             Toast.makeText(getApplicationContext(), "Site not saved", Toast.LENGTH_LONG).show();
         }

@@ -25,4 +25,7 @@ public interface SiteDAO {
     // needs to be declared LiveData in every function using this function up until activity
     @Query("SELECT * FROM Site ORDER BY title ASC")
     LiveData<List<Site>> getAllSites();
+
+    @Query("SELECT * FROM Site WHERE siteID = :siteID")
+    LiveData<Site> getSiteByID(int siteID);
 }

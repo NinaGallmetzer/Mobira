@@ -33,6 +33,10 @@ public class SiteViewModel extends AndroidViewModel {
         repository.deleteSite(site);
     }
 
+    public LiveData<Site> getSiteByID(int siteID) {
+        return repository.getSiteByID(siteID);
+    }
+
     public LiveData<List<Site>> getAllSites() {
         return allSites;
     }
