@@ -11,10 +11,10 @@ import swe.mobira.MobiraDatabase;
 public class RingingRecordRepository {
     private RingingRecordDAO ringingRecordDAO;
     private LiveData<List<RingingRecord>> allRingingRecords;
+    private int siteID;
 
     public RingingRecordRepository(Application application) {
         MobiraDatabase database = MobiraDatabase.getDatabase(application);
-        ringingRecordDAO = database.ringingRecordDAO();
         ringingRecordDAO = database.ringingRecordDAO();
 /*
         LiveData<List<RingingRecord>> test = ringingRecordDAO.getAllRingingRecords();

@@ -2,11 +2,14 @@ package swe.mobira.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
 
@@ -35,11 +38,14 @@ public class AddSiteActivity extends AppCompatActivity {
         editTextLongitude = findViewById(R.id.edit_text_longitude);
         editTextComment = findViewById(R.id.edit_text_comment);
 
-        // get x on left upper corner
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
+        FloatingActionButton buttonSave = findViewById(R.id.button_add);
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveSite();
+            }
+        });
 
-        Button AddSiteButton = findViewById(R.id.button_add);
-        AddSiteButton.setOnClickListener(view -> saveSite());
     }
 
     private void saveSite() {

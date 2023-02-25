@@ -9,8 +9,6 @@ import androidx.room.Update;
 
 import java.util.List;
 
-import swe.mobira.entities.site.Site;
-
 @Dao
 public interface SiteDAO {
     @Insert

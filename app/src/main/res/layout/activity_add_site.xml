@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activities.EditSiteActivity"
     tools:ignore="HardcodedText"
+    android:fitsSystemWindows="true"
     android:padding="@dimen/small_padding">
 
     <RelativeLayout
@@ -25,44 +27,47 @@
             android:id="@+id/edit_text_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description"
             android:layout_below="@id/edit_text_title"
+            android:hint="Description"
+            android:maxLines="3"
             android:inputType="textMultiLine"/>
 
         <EditText
             android:id="@+id/edit_text_latitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Latitude"
             android:layout_below="@id/edit_text_description"
+            android:hint="Latitude"
             android:inputType="numberDecimal"/>
 
         <EditText
             android:id="@+id/edit_text_longitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Longitude"
             android:layout_below="@id/edit_text_latitude"
+            android:hint="Longitude"
             android:inputType="numberDecimal"/>
 
         <EditText
             android:id="@+id/edit_text_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Comment"
             android:layout_below="@id/edit_text_longitude"
+            android:hint="Comment"
             android:inputType="textMultiLine"/>
-
-        <Button
-            android:id="@+id/button_add"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:text="Add Site"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/small_padding"
-            android:textColor="@color/buttonLabel"/>
-
     </RelativeLayout>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/huge_padding"
+        android:backgroundTint="@color/colorAccent"
+        android:src="@drawable/baseline_done_24"
+        android:contentDescription="ADD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

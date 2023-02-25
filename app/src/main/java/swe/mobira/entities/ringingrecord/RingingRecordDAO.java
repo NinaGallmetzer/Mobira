@@ -23,6 +23,7 @@ public interface RingingRecordDAO {
 
     @Delete
     void deleteRingingRecord(RingingRecord ringingRecord);
+
     @Query("DELETE FROM RingingRecord")
     void deleteAllRingingRecords();
 
@@ -34,6 +35,6 @@ public interface RingingRecordDAO {
     LiveData<List<SiteWithRecords>> getSiteWithRecords();
 
     @Transaction
-    @Query("SELECT * FROM site WHERE siteID = :siteID")
-    LiveData<List<SiteWithRecords>> getSiteWithRecordsBySiteID(int siteID);
+    @Query("SELECT * FROM ringingrecord WHERE siteID = :siteID")
+    LiveData<List<RingingRecord>> getRingingRecordsBySiteID(int siteID);
 }

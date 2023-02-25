@@ -1,11 +1,11 @@
 package swe.mobira.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,8 +13,12 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
+import swe.mobira.entities.site.Site;
+import swe.mobira.entities.site.SiteViewModel;
 
 public class ShowSiteDetailsActivity extends AppCompatActivity {
+    public static final int EDIT_SITE_ACTIVITY_REQUEST_CODE = 2;
+    private SiteViewModel siteViewModel;
 
     ExtendedFloatingActionButton actionsFab;
     FloatingActionButton showRecordsFab, editSiteFab, deleteSiteFab;
@@ -29,11 +33,11 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
     public static final String EXTRA_LATITUDE = "swe.mobira.EXTRA_LATITUDE";
     public static final String EXTRA_LONGITUDE = "swe.mobira.EXTRA_LONGITUDE";
     public static final String EXTRA_COMMENT = "swe.mobira.EXTRA_COMMENT";
-    private EditText editTextTitle;
-    private EditText editTextDescription;
-    private EditText editTextLatitude;
-    private EditText editTextLongitude;
-    private EditText editTextComment;
+    private TextView editTextTitle;
+    private TextView editTextDescription;
+    private TextView editTextLatitude;
+    private TextView editTextLongitude;
+    private TextView editTextComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +45,15 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_site_details);
         setTitle("Site Details");
         setUpActionButtons();
+        siteViewModel = new ViewModelProvider(this).get(SiteViewModel.class);
 
         Intent currentSiteData = getIntent();
 
-        editTextTitle = findViewById(R.id.edit_text_title);
-        editTextDescription = findViewById(R.id.edit_text_description);
-        editTextLatitude = findViewById(R.id.edit_text_latitude);
-        editTextLongitude = findViewById(R.id.edit_text_longitude);
-        editTextComment = findViewById(R.id.edit_text_comment);
+        editTextTitle = findViewById(R.id.text_view_title);
+        editTextDescription = findViewById(R.id.text_view_description);
+        editTextLatitude = findViewById(R.id.text_view_latitude);
+        editTextLongitude = findViewById(R.id.text_view_longitude);
+        editTextComment = findViewById(R.id.text_view_comment);
 
         editTextTitle.setText(currentSiteData.getStringExtra(EXTRA_TITLE));
         editTextDescription.setText(currentSiteData.getStringExtra(EXTRA_DESCRIPTION));
@@ -103,14 +108,17 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
         editSiteFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ShowSiteDetailsActivity.this, "Edit Site", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ShowSiteDetailsActivity.this, EditSiteActivity.class);
+                intent.putExtras(currentSiteData.getExtras());
+                startActivityForResult(intent, EDIT_SITE_ACTIVITY_REQUEST_CODE);
             }
         });
 
         deleteSiteFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ShowSiteDetailsActivity.this, "Delete Site", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowSiteDetailsActivity.this, "Implement Delete Site", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
@@ -143,6 +151,36 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
 
         // Set the Extended floating action button to shark state initially
         actionsFab.shrink();
-
     }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == EDIT_SITE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            int id = data.getIntExtra(EditSiteActivity.EXTRA_ID, -1);
+            if (id == -1) {
+                Toast.makeText(getApplicationContext(), "Site can't be updated", Toast.LENGTH_LONG).show();
+                return;
+            }
+            String title = data.getStringExtra(EditSiteActivity.EXTRA_TITLE);
+            String description = data.getStringExtra(EditSiteActivity.EXTRA_DESCRIPTION);
+            // in intent/data, lat and long are stored as strings and need to be converted first
+            double latitude = Double.parseDouble(data.getStringExtra(EditSiteActivity.EXTRA_LATITUDE));
+            double longitude = Double.parseDouble(data.getStringExtra(EditSiteActivity.EXTRA_LONGITUDE));
+            String comment = data.getStringExtra(EditSiteActivity.EXTRA_COMMENT);
+
+            Site site = new Site(title, description, latitude, longitude, comment);
+            site.setSiteID(id);
+            siteViewModel.updateSite(site);
+            Toast.makeText(getApplicationContext(), "Site saved", Toast.LENGTH_LONG).show();
+
+            editTextTitle.setText(title);
+            editTextDescription.setText(description);
+            editTextLatitude.setText(String.valueOf(latitude));
+            editTextLongitude.setText(String.valueOf(longitude));
+            editTextComment.setText(comment);
+        } else {
+            Toast.makeText(getApplicationContext(), "Site not saved", Toast.LENGTH_LONG).show();
+        }
+    }
+
 }

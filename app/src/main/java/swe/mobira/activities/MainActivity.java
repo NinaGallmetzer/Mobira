@@ -22,7 +22,6 @@ import swe.mobira.entities.site.Site;
 
 public class MainActivity extends AppCompatActivity {
     public static final int ADD_SITE_ACTIVITY_REQUEST_CODE = 1;
-    public static final int EDIT_SITE_ACTIVITY_REQUEST_CODE = 2;
     private SiteViewModel siteViewModel;
 
     @Override
@@ -72,15 +71,15 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new SiteAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Site site) {
-                Intent intent = new Intent(MainActivity.this, EditSiteActivity.class);
-                intent.putExtra(EditSiteActivity.EXTRA_ID, site.getSiteID());
-                intent.putExtra(EditSiteActivity.EXTRA_TITLE, site.getTitle());
-                intent.putExtra(EditSiteActivity.EXTRA_DESCRIPTION, site.getDescription());
+                Intent intent = new Intent(MainActivity.this, ShowSiteDetailsActivity.class);
+                intent.putExtra(ShowSiteDetailsActivity.EXTRA_ID, site.getSiteID());
+                intent.putExtra(ShowSiteDetailsActivity.EXTRA_TITLE, site.getTitle());
+                intent.putExtra(ShowSiteDetailsActivity.EXTRA_DESCRIPTION, site.getDescription());
                 // lat and long need to be passed along as stings
-                intent.putExtra(EditSiteActivity.EXTRA_LATITUDE, String.valueOf(site.getLatitude()));
-                intent.putExtra(EditSiteActivity.EXTRA_LONGITUDE, String.valueOf(site.getLongitude()));
-                intent.putExtra(EditSiteActivity.EXTRA_COMMENT, site.getComment());
-                startActivityForResult(intent, EDIT_SITE_ACTIVITY_REQUEST_CODE);
+                intent.putExtra(ShowSiteDetailsActivity.EXTRA_LATITUDE, String.valueOf(site.getLatitude()));
+                intent.putExtra(ShowSiteDetailsActivity.EXTRA_LONGITUDE, String.valueOf(site.getLongitude()));
+                intent.putExtra(ShowSiteDetailsActivity.EXTRA_COMMENT, site.getComment());
+                startActivity(intent);
             }
         });
 
@@ -105,23 +104,6 @@ public class MainActivity extends AppCompatActivity {
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
         // if "activity result" originates from edit activity (requestCode = edit_site...) >
         // update site using data from intent
-        } else if (requestCode == EDIT_SITE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
-            int id = data.getIntExtra(EditSiteActivity.EXTRA_ID, -1);
-            if (id == -1) {
-                Toast.makeText(getApplicationContext(), "Site can't be updated", Toast.LENGTH_LONG).show();
-                return;
-            }
-            String title = data.getStringExtra(EditSiteActivity.EXTRA_TITLE);
-            String description = data.getStringExtra(EditSiteActivity.EXTRA_DESCRIPTION);
-            // in intent/data, lat and long are stored as strings and need to be converted first
-            double latitude = Double.parseDouble(data.getStringExtra(EditSiteActivity.EXTRA_LATITUDE));
-            double longitude = Double.parseDouble(data.getStringExtra(EditSiteActivity.EXTRA_LONGITUDE));
-            String comment = data.getStringExtra(EditSiteActivity.EXTRA_COMMENT);
-
-            Site site = new Site(title, description, latitude, longitude, comment);
-            site.setSiteID(id);
-            siteViewModel.updateSite(site);
-            Toast.makeText(getApplicationContext(), "Site saved", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(getApplicationContext(), "Site not saved", Toast.LENGTH_LONG).show();
         }

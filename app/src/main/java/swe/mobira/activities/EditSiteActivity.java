@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
 
@@ -39,7 +41,8 @@ public class EditSiteActivity extends AppCompatActivity {
         editTextLongitude = findViewById(R.id.edit_text_longitude);
         editTextComment = findViewById(R.id.edit_text_comment);
 
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
+        // get home logo on left upper corner
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_home_24);
 
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
         // fill text fields
@@ -50,8 +53,14 @@ public class EditSiteActivity extends AppCompatActivity {
         editTextLongitude.setText(currentSiteData.getStringExtra(EXTRA_LONGITUDE));
         editTextComment.setText(currentSiteData.getStringExtra(EXTRA_COMMENT));
 
-        Button button = findViewById(R.id.button_save);
-        button.setOnClickListener(view -> saveSite());
+        FloatingActionButton buttonSave = findViewById(R.id.button_save);
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveSite();
+            }
+        });
+
     }
 
     private void saveSite() {
