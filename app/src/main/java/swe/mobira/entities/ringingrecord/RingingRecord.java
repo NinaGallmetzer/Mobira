@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 import swe.mobira.entities.site.Site;
 
 @Entity(foreignKeys = {@ForeignKey(entity = Site.class,
@@ -14,15 +16,15 @@ public class RingingRecord {
     @PrimaryKey(autoGenerate = true)
     private int recordID;
     private int siteID;
-    private long recordDate;
-    private long startTime;
-    private long endTime;
+    private String recordDate;
+    private String startTime;
+    private String endTime;
     private double startTemperature;
     private double endTemperature;
     private String weather;
     private String comment;
 
-    public RingingRecord(int siteID, long recordDate, long startTime, long endTime, double startTemperature, double endTemperature, String weather, String comment) {
+    public RingingRecord(int siteID, String recordDate, String startTime, String endTime, double startTemperature, double endTemperature, String weather, String comment) {
         this.siteID = siteID;
         this.recordDate = recordDate;
         this.startTime = startTime;
@@ -41,15 +43,15 @@ public class RingingRecord {
         return siteID;
     }
 
-    public long getRecordDate() {
+    public String getRecordDate() {
         return recordDate;
     }
 
-    public long getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public long getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 

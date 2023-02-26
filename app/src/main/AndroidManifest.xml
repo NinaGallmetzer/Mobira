@@ -12,25 +12,25 @@
         android:theme="@style/Theme.Mobira"
         tools:targetApi="31">
         <activity
-            android:name=".activities.ListRingingRecordsActivity"
+            android:name=".entities.ringingrecord.ListRingingRecordsActivity"
             android:exported="false"
-            android:parentActivityName=".activities.ShowSiteDetailsActivity"/>
+            android:parentActivityName=".entities.site.ShowSiteDetailsActivity" />
         <activity
-            android:name=".activities.ShowSiteDetailsActivity"
+            android:name=".entities.site.ShowSiteDetailsActivity"
             android:exported="false"
-            android:parentActivityName=".activities.MainActivity" />
+            android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".activities.EditSiteActivity"
+            android:name=".entities.site.EditSiteActivity"
             android:exported="false"
-            android:parentActivityName=".activities.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activities.AddSiteActivity"
+            android:name=".entities.site.AddSiteActivity"
             android:exported="false"
-            android:parentActivityName=".activities.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

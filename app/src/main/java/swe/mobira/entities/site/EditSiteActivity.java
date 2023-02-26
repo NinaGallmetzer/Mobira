@@ -1,4 +1,4 @@
-package swe.mobira.activities;
+package swe.mobira.entities.site;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
-import swe.mobira.entities.site.Site;
 
 public class EditSiteActivity extends AppCompatActivity {
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";

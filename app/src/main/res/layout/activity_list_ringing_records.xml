@@ -5,14 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ListRingingRecordsActivity">
+    android:orientation="vertical"
+    tools:context=".entities.ringingrecord.ListRingingRecordsActivity"
+    tools:ignore="HardcodedText">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/text_view_site"
+            android:id="@+id/text_view_site_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -25,7 +27,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/text_view_site">
+            android:layout_below="@id/text_view_site_title">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"

@@ -1,4 +1,4 @@
-package swe.mobira.activities;
+package swe.mobira;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -15,9 +15,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
+import swe.mobira.entities.site.ShowSiteDetailsActivity;
+import swe.mobira.entities.site.AddSiteActivity;
 import swe.mobira.entities.site.SiteAdapter;
 import swe.mobira.entities.site.SiteViewModel;
-import swe.mobira.R;
 import swe.mobira.entities.site.Site;
 
 public class MainActivity extends AppCompatActivity {

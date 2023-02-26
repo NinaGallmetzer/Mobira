@@ -6,14 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.ShowSiteDetailsActivity"
+    tools:context=".entities.site.ShowSiteDetailsActivity"
     tools:ignore="HardcodedText"
     android:padding="@dimen/small_padding">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/title"
@@ -29,7 +30,7 @@
             android:layout_below="@id/title"
             android:paddingTop="@dimen/tiny_padding"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="33dp"/>
+            android:textSize="32sp"/>
 
         <TextView
             android:id="@+id/description"

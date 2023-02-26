@@ -1,8 +1,7 @@
-package swe.mobira.activities;
+package swe.mobira.entities.site;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -16,8 +15,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
-import swe.mobira.entities.site.Site;
-import swe.mobira.entities.site.SiteViewModel;
+import swe.mobira.entities.ringingrecord.ListRingingRecordsActivity;
 
 public class ShowSiteDetailsActivity extends AppCompatActivity {
     public static final int EDIT_SITE_ACTIVITY_REQUEST_CODE = 2;
@@ -119,7 +117,9 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
         showRecordsFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ShowSiteDetailsActivity.this, "TODO: Implement Show Records", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ShowSiteDetailsActivity.this, ListRingingRecordsActivity.class);
+                intent.putExtra(ListRingingRecordsActivity.EXTRA_SITE, currentSite);
+                startActivity(intent);
             }
         });
 
@@ -175,8 +175,10 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
         if (requestCode == EDIT_SITE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Site updatedSite = data.getParcelableExtra(EXTRA_SITE);
             siteViewModel.updateSite(updatedSite);
+            setUpActionButtons();
             Toast.makeText(getApplicationContext(), "Site updated", Toast.LENGTH_LONG).show();
         } else {
+            setUpActionButtons();
             Toast.makeText(getApplicationContext(), "Could not save changes", Toast.LENGTH_LONG).show();
         }
     }

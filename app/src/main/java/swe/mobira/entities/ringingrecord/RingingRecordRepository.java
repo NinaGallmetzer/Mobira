@@ -7,20 +7,17 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 import swe.mobira.MobiraDatabase;
+import swe.mobira.entities.site.Site;
 
 public class RingingRecordRepository {
     private RingingRecordDAO ringingRecordDAO;
-    private LiveData<List<RingingRecord>> allRingingRecords;
+    private LiveData<List<RingingRecord>> ringingRecords;
     private int siteID;
 
     public RingingRecordRepository(Application application) {
         MobiraDatabase database = MobiraDatabase.getDatabase(application);
         ringingRecordDAO = database.ringingRecordDAO();
-/*
-        LiveData<List<RingingRecord>> test = ringingRecordDAO.getAllRingingRecords();
-        String test_text = String.format("All RingingRecords %s", test);
-        Log.d("debug", test_text);
-*/
+        ringingRecords = ringingRecordDAO.getRingingRecordsBySiteID(siteID);
     }
 
     public void insertRingingRecord(RingingRecord ringingRecord) {
@@ -41,7 +38,11 @@ public class RingingRecordRepository {
         });
     }
 
-    public LiveData<List<RingingRecord>> getAllRingingRecords() {
-        return allRingingRecords;
+    public LiveData<RingingRecord> getRingingRecordByID(int recordID) {
+        return ringingRecordDAO.getRingingRecordByID(recordID);
+    }
+
+    public LiveData<List<RingingRecord>> getRingingsRecordsBySiteID(int siteID) {
+        return ringingRecordDAO.getRingingRecordsBySiteID(siteID);
     }
 }

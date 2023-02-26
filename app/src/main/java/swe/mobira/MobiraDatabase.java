@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.ExecutorService;
@@ -69,9 +70,9 @@ public abstract class MobiraDatabase extends RoomDatabase {
                 siteDAO.insertSite(new Site("Site title 3", "Site description 3", 3.33, 33.3, "Site comment 3"));
                 siteDAO.insertSite(new Site("Site title 4", "Site description 4", 4.44, 44.4, "Site comment 4"));
                 siteDAO.insertSite(new Site("Site title 5", "Site description 5", 5.55, 55.5, "Site comment 5"));
-                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,4353,2525,3232,15.4, 23.7, "sunny", "Record comment 1"));
-                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,457,436,78775,15.4, 23.7, "sunny", "Record comment 1"));
-                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,67787,578,8775,15.4, 23.7, "sunny", "Record comment 1"));
+                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-01","07:00","13:00",15.4, 23.7, "sunny", "Record comment 1"));
+                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-02","07:00","13:00",15.4, 23.7, "sunny", "Record comment 2"));
+                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-03","07:00","13:00",15.4, 23.7, "sunny", "Record comment 3"));
             });
         }
     };

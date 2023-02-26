@@ -13,12 +13,16 @@ import java.util.List;
 public interface SiteDAO {
     @Insert
     void insertSite(Site site);
+
     @Update
     void updateSite(Site site);
+
     @Delete
     void deleteSite(Site site);
+
     @Query("DELETE FROM Site")
     void deleteAllSites();
+
     // DAO & ROOM DATABASE (https://www.youtube.com/watch?v=0cg09tlAAQ0)
     // LiveDate makes object observable > as soon as site table changes > object is updated >
     // > activity will using it will be notified

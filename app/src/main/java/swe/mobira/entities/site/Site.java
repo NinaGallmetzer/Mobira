@@ -65,7 +65,6 @@ public class Site implements Parcelable {
 
     public Site (Parcel in) {
         String[] data = new String[6];
-
         in.readStringArray(data);
         this.siteID = Integer.parseInt(data[0]);
         this.title = data[1];
