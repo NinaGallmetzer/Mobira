@@ -19,7 +19,7 @@ import swe.mobira.entities.site.Site;
 
 public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
     public static final int EDIT_R_RECORD_ACTIVITY_REQUEST_CODE = 4;
-    public static final String EXTRA_RECORD = "swe.mobira.EXTRA_RECORD";
+    public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_RECORD";
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
 
     private RingingRecordViewModel ringingRecordViewModel;
@@ -50,7 +50,7 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
         setTitle("Ringing Record Details");
         setUpActionButtons();
 
-        currentRingingRecord = getIntent().getParcelableExtra(EXTRA_RECORD);
+        currentRingingRecord = getIntent().getParcelableExtra(EXTRA_R_RECORD);
         currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
         int siteID = currentRingingRecord.getSiteID();
 
@@ -71,7 +71,7 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable final RingingRecord changedRingingRecord) {
                 Intent update = new Intent();
-                update.putExtra(EXTRA_RECORD, changedRingingRecord);
+                update.putExtra(EXTRA_R_RECORD, changedRingingRecord);
                 currentRingingRecord = changedRingingRecord;
 
                 if (currentRingingRecord == null) {
@@ -80,7 +80,7 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
                     textViewSiteTitle.setText(currentSite.getTitle());
                     textViewDate.setText(currentRingingRecord.getRecordDate());
                     textViewStartTime.setText(currentRingingRecord.getStartTime());
-                    textViewEndTime.setText(changedRingingRecord.getEndTime());
+                    textViewEndTime.setText(currentRingingRecord.getEndTime());
                     textViewStartTemperature.setText(String.valueOf(currentRingingRecord.getStartTemperature()));
                     textViewEndTemperature.setText(String.valueOf(currentRingingRecord.getEndTemperature()));
                     textViewWeather.setText(currentRingingRecord.getWeather());
@@ -133,10 +133,11 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
         editFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(ShowRingingRecordDetailsActivity.this, EditRingingRecordActivity.class);
-//                intent.putExtra(EditRingingRecordActivity.EXTRA_RECORD, currentRingingRecord);
+                Intent intent = new Intent(ShowRingingRecordDetailsActivity.this, EditRingingRecordActivity.class);
+                intent.putExtra(EditRingingRecordActivity.EXTRA_R_RECORD, currentRingingRecord);
+                intent.putExtra(EditRingingRecordActivity.EXTRA_SITE, currentSite);
                 setUpActionButtons();
-//                startActivityForResult(intent, EDIT_R_RECORD_ACTIVITY_REQUEST_CODE);
+                startActivityForResult(intent, EDIT_R_RECORD_ACTIVITY_REQUEST_CODE);
             }
         });
 
@@ -174,7 +175,7 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == EDIT_R_RECORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            RingingRecord updatedRingingRecord = data.getParcelableExtra(EXTRA_RECORD);
+            RingingRecord updatedRingingRecord = data.getParcelableExtra(EXTRA_R_RECORD);
             ringingRecordViewModel.updateRingingRecord(updatedRingingRecord);
             Toast.makeText(getApplicationContext(), "Record updated", Toast.LENGTH_LONG).show();
         } else {

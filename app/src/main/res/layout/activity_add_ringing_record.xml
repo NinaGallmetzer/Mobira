@@ -26,6 +26,7 @@
                 android:paddingHorizontal="@dimen/medium_padding"
                 android:background="@color/design_default_color_secondary_variant"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:text="Site: "/>
             <TextView
@@ -37,6 +38,7 @@
                 android:paddingVertical="@dimen/bigger_padding"
                 android:background="@color/design_default_color_secondary_variant"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:text="Test site 1"/>
 

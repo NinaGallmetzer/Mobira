@@ -17,11 +17,12 @@
             android:id="@+id/text_view_site_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textStyle="bold"
-            android:padding="@dimen/big_padding"
+            android:paddingVertical="@dimen/bigger_padding"
+            android:paddingHorizontal="@dimen/big_padding"
             android:background="@color/colorAccent"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
+            android:textStyle="bold"
             android:text="Site title"/>
 
         <ScrollView

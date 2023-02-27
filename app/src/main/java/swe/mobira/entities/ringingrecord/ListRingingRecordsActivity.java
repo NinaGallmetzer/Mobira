@@ -71,7 +71,7 @@ public class ListRingingRecordsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(RingingRecord ringingRecord) {
                 Intent intent = new Intent(ListRingingRecordsActivity.this, ShowRingingRecordDetailsActivity.class);
-                intent.putExtra(ShowRingingRecordDetailsActivity.EXTRA_RECORD, ringingRecord);
+                intent.putExtra(ShowRingingRecordDetailsActivity.EXTRA_R_RECORD, ringingRecord);
                 intent.putExtra(ShowRingingRecordDetailsActivity.EXTRA_SITE, currentSite);
                 startActivity(intent);
             }

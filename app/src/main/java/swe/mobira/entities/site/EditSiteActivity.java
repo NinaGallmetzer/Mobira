@@ -57,7 +57,6 @@ public class EditSiteActivity extends AppCompatActivity {
                 saveSite();
             }
         });
-
     }
 
     private void saveSite() {

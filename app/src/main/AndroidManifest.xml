@@ -17,6 +17,11 @@
             android:parentActivityName=".entities.ringingrecord.ListRingingRecordsActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:name=".entities.ringingrecord.EditRingingRecordActivity"
+            android:exported="false"
+            android:parentActivityName=".entities.ringingrecord.ListRingingRecordsActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".entities.ringingrecord.ShowRingingRecordDetailsActivity"
             android:exported="false"
             android:parentActivityName=".entities.ringingrecord.ListRingingRecordsActivity" />

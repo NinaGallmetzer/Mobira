@@ -42,7 +42,7 @@
             android:layout_below="@+id/record_site_title_label"
             android:paddingTop="@dimen/small_padding"
             android:paddingStart="@dimen/bigger_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="Test site 1"/>
 
         <TextView
@@ -55,18 +55,19 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant"
             android:text="Date:"/>
-        <TextView
+        <EditText
             android:id="@+id/record_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/record_date_label"
             android:paddingTop="@dimen/small_padding"
             android:paddingStart="@dimen/bigger_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:inputType="text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="2020-20-20"/>
 
         <LinearLayout
-            android:id="@+id/time_and_temperature_layout"
+            android:id="@+id/time_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/record_date"
@@ -78,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/record_time"
                     android:layout_width="wrap_content"
@@ -87,60 +89,52 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/design_default_color_secondary_variant"
                     android:text="Time:"/>
-                <LinearLayout
-                    android:id="@+id/start_time_layout"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/record_start_time_label"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_below="@+id/record_time">
-                    <TextView
-                        android:id="@+id/record_start_time_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingVertical="@dimen/tiny_padding"
-                        android:paddingStart="@dimen/bigger_padding"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/design_default_color_secondary_variant"
-                        android:textStyle="italic"
-                        android:text="Opening:"/>
-                    <TextView
-                        android:id="@+id/record_start_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingVertical="@dimen/tiny_padding"
-                        android:paddingEnd="@dimen/huge_padding"
-                        android:textAlignment="viewEnd"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:text="07:00"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/end_time_layout"
-                    android:layout_width="match_parent"
+                    android:layout_below="@+id/record_time"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:textStyle="italic"
+                    android:text="Opening:"/>
+                <TextView
+                    android:id="@+id/record_end_time_label"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_below="@+id/start_time_layout">
-                    <TextView
-                        android:id="@+id/record_end_time_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingVertical="@dimen/tiny_padding"
-                        android:paddingStart="@dimen/bigger_padding"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/design_default_color_secondary_variant"
-                        android:textStyle="italic"
-                        android:text="Closing:"/>
-                    <TextView
-                        android:id="@+id/record_end_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingVertical="@dimen/tiny_padding"
-                        android:paddingEnd="@dimen/huge_padding"
-                        android:textAlignment="viewEnd"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:text="13:00"/>
-                </LinearLayout>
+                    android:layout_below="@+id/record_start_time_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:textStyle="italic"
+                    android:text="Closing:"/>
+                <EditText
+                    android:id="@+id/record_start_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_time"
+                    android:layout_toEndOf="@+id/record_start_time_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="07:00"/>
+                <EditText
+                    android:id="@+id/record_end_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_start_time_label"
+                    android:layout_toEndOf="@+id/record_end_time_label"
+                    android:layout_alignEnd="@+id/record_start_time"
+                    android:gravity="right"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:inputType="text"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="13:00"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -159,74 +153,72 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/design_default_color_secondary_variant"
                     android:text="Temperature:"/>
-                <LinearLayout
-                    android:id="@+id/start_temperature_layout"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/record_start_temperature_label"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_temperature">
-                    <TextView
-                        android:id="@+id/record_start_temperature_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingVertical="@dimen/tiny_padding"
-                        android:paddingStart="@dimen/bigger_padding"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/design_default_color_secondary_variant"
-                        android:textStyle="italic"
-                        android:text="Begin:"/>
-                    <TextView
-                        android:id="@+id/record_start_temperature"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingVertical="@dimen/tiny_padding"
-                        android:textAlignment="viewEnd"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:text="7.5"/>
-                    <TextView
-                        android:id="@id/record_start_temperature_unit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingEnd="@dimen/huge_padding"
-                        android:textAlignment="viewEnd"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:text="C"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/end_temperature_layout"
-                    android:layout_width="match_parent"
+                    android:layout_below="@+id/record_temperature"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:textStyle="italic"
+                    android:text="Begin:"/>
+                <TextView
+                    android:id="@+id/record_end_temperature_label"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_below="@+id/start_temperature_layout">
-                    <TextView
-                        android:id="@+id/record_end_temperature_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:paddingVertical="@dimen/tiny_padding"
-                        android:paddingStart="@dimen/bigger_padding"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/design_default_color_secondary_variant"
-                        android:textStyle="italic"
-                        android:text="End:"/>
-                    <TextView
-                        android:id="@+id/record_end_temperature"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingVertical="@dimen/tiny_padding"
-                        android:textAlignment="viewEnd"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:text="13.2"/>
-                    <TextView
-                        android:id="@id/record_end_temperature_unit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingEnd="@dimen/huge_padding"
-                        android:textAlignment="viewEnd"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:text="C"/>
-                </LinearLayout>
-
+                    android:layout_below="@+id/record_start_temperature_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:textStyle="italic"
+                    android:text="End:"/>
+                <EditText
+                    android:id="@+id/record_start_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_temperature"
+                    android:layout_toEndOf="@+id/record_start_temperature_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="7.5"/>
+                <EditText
+                    android:id="@+id/record_end_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_start_temperature_label"
+                    android:layout_toEndOf="@+id/record_end_temperature_label"
+                    android:layout_alignEnd="@+id/record_start_temperature"
+                    android:gravity="right"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="23.7"/>
+                <TextView
+                    android:id="@+id/record_start_temperature_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_temperature"
+                    android:layout_toEndOf="@+id/record_start_temperature"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="C"/>
+                <TextView
+                    android:id="@+id/record_end_temperature_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_start_temperature_label"
+                    android:layout_toEndOf="@+id/record_end_temperature"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="C"/>
             </RelativeLayout>
         </LinearLayout>
 
@@ -234,7 +226,7 @@
             android:id="@+id/general_weather_and_wind"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/time_and_temperature_layout"
+            android:layout_below="@+id/time_layout"
             android:orientation="horizontal">
 
             <RelativeLayout
@@ -264,7 +256,7 @@
                     android:textColor="@color/design_default_color_secondary_variant"
                     android:textStyle="italic"
                     android:text="General:"/>
-                <TextView
+                <EditText
                     android:id="@+id/record_weather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -272,6 +264,7 @@
                     android:layout_toEndOf="@+id/record_weather_label"
                     android:paddingTop="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
+                    android:inputType="text"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="sunny"/>
             </RelativeLayout>
@@ -302,7 +295,7 @@
                     android:textColor="@color/design_default_color_secondary_variant"
                     android:textStyle="italic"
                     android:text="Wind:"/>
-                <TextView
+                <EditText
                     android:id="@+id/record_wind"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -310,6 +303,7 @@
                     android:layout_toEndOf="@+id/record_wind_label"
                     android:paddingTop="@dimen/small_padding"
                     android:paddingStart="@dimen/small_padding"
+                    android:inputType="number"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:text="3"/>
                 <TextView
@@ -324,8 +318,6 @@
                     android:text="Bft"/>
             </RelativeLayout>
         </LinearLayout>
-
-
         <TextView
             android:id="@+id/record_coordinator_label"
             android:layout_width="wrap_content"
@@ -336,14 +328,15 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant"
             android:text="Coordinator:"/>
-        <TextView
+        <EditText
             android:id="@+id/record_coordinator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/record_coordinator_label"
             android:paddingTop="@dimen/small_padding"
-            android:paddingHorizontal="@dimen/bigger_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:paddingStart="@dimen/bigger_padding"
+            android:inputType="text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="Jane Doe"/>
 
         <TextView
@@ -356,95 +349,28 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant"
             android:text="Comment:"/>
-        <TextView
+        <EditText
             android:id="@+id/record_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/record_comment_label"
             android:paddingTop="@dimen/small_padding"
-            android:paddingHorizontal="@dimen/bigger_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:paddingStart="@dimen/bigger_padding"
+            android:inputType="textMultiLine"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="testing layout of screen for ringing record details"/>
     </RelativeLayout>
 
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/actions_fab"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:src="@drawable/baseline_done_24"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/huge_padding"
         android:backgroundTint="@color/colorAccent"
-        android:text="Actions"
-        app:icon="@drawable/ic_actions_24"
+        android:contentDescription="ADD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/delete_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/colorAccent"
-        android:contentDescription="DELETE SITE"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@+id/actions_fab"
-        app:layout_constraintEnd_toEndOf="@+id/actions_fab"
-        app:srcCompat="@drawable/ic_delete_24" />
-
-    <TextView
-        android:id="@+id/delete_fab_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="Delete Record"
-        app:layout_constraintBottom_toBottomOf="@+id/delete_fab"
-        app:layout_constraintEnd_toStartOf="@+id/delete_fab"
-        app:layout_constraintTop_toTopOf="@+id/delete_fab" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/edit_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/colorAccent"
-        android:contentDescription="EDIT SITE"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@+id/delete_fab"
-        app:layout_constraintEnd_toEndOf="@+id/delete_fab"
-        app:srcCompat="@drawable/ic_edit_24" />
-
-    <TextView
-        android:id="@+id/edit_fab_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="Edit Details"
-        app:layout_constraintBottom_toBottomOf="@+id/edit_fab"
-        app:layout_constraintEnd_toStartOf="@+id/edit_fab"
-        app:layout_constraintTop_toTopOf="@+id/edit_fab" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/show_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/colorAccent"
-        android:contentDescription="SHOW RECORDS"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@+id/edit_fab"
-        app:layout_constraintEnd_toEndOf="@+id/edit_fab"
-        app:srcCompat="@drawable/ic_add_record_24" />
-
-    <TextView
-        android:id="@+id/show_fab_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="Show Recorded Birds"
-        app:layout_constraintBottom_toBottomOf="@+id/show_fab"
-        app:layout_constraintEnd_toStartOf="@+id/show_fab"
-        app:layout_constraintTop_toTopOf="@+id/show_fab" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
