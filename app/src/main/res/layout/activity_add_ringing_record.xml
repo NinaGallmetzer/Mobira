@@ -1,6 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".entities.ringingrecord.AddRingingRecordActivity"
+    tools:ignore="HardcodedText">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/record_site_title_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:paddingVertical="@dimen/bigger_padding"
+                android:paddingHorizontal="@dimen/medium_padding"
+                android:background="@color/design_default_color_secondary_variant"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
+                android:text="Site: "/>
+            <TextView
+                android:id="@+id/record_site_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/record_site_title_label"
+                android:paddingVertical="@dimen/bigger_padding"
+                android:background="@color/design_default_color_secondary_variant"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
+                android:text="Test site 1"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/record_date_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/record_site_title_label"
+                android:paddingTop="@dimen/big_padding">
+                <EditText
+                    android:id="@+id/record_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:hint="Date"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/record_time_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/record_date_layout">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/record_start_time_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="@dimen/big_padding">
+                    <EditText
+                        android:id="@+id/record_start_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:inputType="text"
+                        android:hint="Opening time"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/record_end_time_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="@dimen/big_padding">
+                    <EditText
+                        android:id="@+id/record_end_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:inputType="text"
+                        android:hint="Closing time"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/record_temperature_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/record_time_layout">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/record_start_temperature_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="@dimen/big_padding">
+                    <EditText
+                        android:id="@+id/record_start_temperature"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:inputType="numberDecimal"
+                        android:hint="Temperature in the beginning [°C]"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/record_end_temperature_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="@dimen/big_padding">
+                    <EditText
+                        android:id="@+id/record_end_temperature"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:inputType="numberDecimal"
+                        android:hint="Temperature at the end [°C]"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/record_weather_conditions_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/record_temperature_layout">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/record_weather_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="@dimen/big_padding">
+                    <EditText
+                        android:id="@+id/record_weather"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:inputType="text"
+                        android:hint="Weather"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/record_wind_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="@dimen/big_padding">
+                    <EditText
+                        android:id="@+id/record_wind"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:inputType="number"
+                        android:hint="Wind [Bft]"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/record_coordinator_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/record_weather_conditions_layout"
+                android:paddingTop="@dimen/big_padding">
+                <EditText
+                    android:id="@+id/record_coordinator"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:hint="Coordinator"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/record_comment_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/record_coordinator_layout"
+                android:paddingTop="@dimen/big_padding">
+                <EditText
+                    android:id="@+id/record_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:hint="Comment"
+                    android:inputType="textMultiLine"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/huge_padding"
+        android:backgroundTint="@color/colorAccent"
+        android:src="@drawable/ic_save"
+        android:contentDescription="ADD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

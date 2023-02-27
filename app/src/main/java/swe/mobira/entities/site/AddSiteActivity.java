@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
-import swe.mobira.MainActivity;
 
 public class AddSiteActivity extends AppCompatActivity {
     private EditText editTextTitle;
@@ -39,7 +38,6 @@ public class AddSiteActivity extends AppCompatActivity {
                 saveSite();
             }
         });
-
     }
 
     private void saveSite() {
@@ -54,10 +52,10 @@ public class AddSiteActivity extends AppCompatActivity {
             return;
         }
 
-        Site updatedSite = new Site(title, description, latitude, longitude, comment);
+        Site newSite = new Site(title, description, latitude, longitude, comment);
 
         Intent intent = new Intent();
-        intent.putExtra(MainActivity.EXTRA_SITE, updatedSite);
+        intent.putExtra(ListSitesActivity.EXTRA_SITE, newSite);
 
         setResult(RESULT_OK, intent);
         finish();

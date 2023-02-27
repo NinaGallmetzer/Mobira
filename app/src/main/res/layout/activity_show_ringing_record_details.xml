@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".entities.ringingrecord.ShowRingingRecordDetailsActivity"
+    tools:ignore="HardcodedText">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/medium_padding"
+            android:background="@color/design_default_color_secondary_variant"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            android:text="Ringing Protocol"/>
+
+        <TextView
+            android:id="@+id/record_site_title_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
+            android:text="Site:"/>
+        <TextView
+            android:id="@+id/record_site_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/record_site_title_label"
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Test site 1"/>
+
+        <TextView
+            android:id="@+id/record_date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/record_site_title"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
+            android:text="Date:"/>
+        <TextView
+            android:id="@+id/record_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/record_date_label"
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="2020-20-20"/>
+
+        <LinearLayout
+            android:id="@+id/time_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/record_date"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/record_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/medium_padding"
+                    android:paddingTop="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:text="Time:"/>
+                <TextView
+                    android:id="@+id/record_start_time_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_time"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:textStyle="italic"
+                    android:text="Opening:"/>
+                <TextView
+                    android:id="@+id/record_end_time_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_start_time_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:textStyle="italic"
+                    android:text="Closing:"/>
+                <TextView
+                    android:id="@+id/record_start_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_time"
+                    android:layout_toEndOf="@+id/record_start_time_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="07:00"/>
+                <TextView
+                    android:id="@+id/record_end_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_start_time_label"
+                    android:layout_toEndOf="@+id/record_end_time_label"
+                    android:layout_alignEnd="@+id/record_start_time"
+                    android:gravity="right"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="13:00"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/temperature"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/record_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/bigger_padding"
+                    android:paddingStart="@dimen/medium_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:text="Temperature:"/>
+                <TextView
+                    android:id="@+id/record_start_temperature_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_temperature"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:textStyle="italic"
+                    android:text="Begin:"/>
+                <TextView
+                    android:id="@+id/record_end_temperature_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_start_temperature_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:textStyle="italic"
+                    android:text="End:"/>
+                <TextView
+                    android:id="@+id/record_start_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_temperature"
+                    android:layout_toEndOf="@+id/record_start_temperature_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="7.5"/>
+                <TextView
+                    android:id="@+id/record_end_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_start_temperature_label"
+                    android:layout_toEndOf="@+id/record_end_temperature_label"
+                    android:layout_alignEnd="@+id/record_start_temperature"
+                    android:gravity="right"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="23.7"/>
+                <TextView
+                    android:id="@+id/record_start_temperature_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_temperature"
+                    android:layout_toEndOf="@+id/record_start_temperature"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="C"/>
+                <TextView
+                    android:id="@+id/record_end_temperature_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_start_temperature_label"
+                    android:layout_toEndOf="@+id/record_end_temperature"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="C"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/general_weather_and_wind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time_layout"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/general"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/weather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/medium_padding"
+                    android:paddingTop="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:text="Weather:"/>
+                <TextView
+                    android:id="@+id/record_weather_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weather"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:textStyle="italic"
+                    android:text="General:"/>
+                <TextView
+                    android:id="@+id/record_weather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/weather"
+                    android:layout_toEndOf="@+id/record_weather_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="sunny"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/wind"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/wind_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/bigger_padding"
+                    android:paddingStart="@dimen/medium_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"/>
+                <TextView
+                    android:id="@+id/record_wind_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wind_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:textStyle="italic"
+                    android:text="Wind:"/>
+                <TextView
+                    android:id="@+id/record_wind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wind_label"
+                    android:layout_toEndOf="@+id/record_wind_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="3"/>
+                <TextView
+                    android:id="@+id/record_wind_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wind_label"
+                    android:layout_toEndOf="@+id/record_wind"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingStart="@dimen/small_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="Bft"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/record_coordinator_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/general_weather_and_wind"
+            android:paddingStart="@dimen/medium_padding"
+            android:paddingTop="@dimen/bigger_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
+            android:text="Coordinator:"/>
+        <TextView
+            android:id="@+id/record_coordinator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/record_coordinator_label"
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Jane Doe"/>
+
+        <TextView
+            android:id="@+id/record_comment_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/record_coordinator"
+            android:paddingTop="@dimen/bigger_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
+            android:text="Comment:"/>
+        <TextView
+            android:id="@+id/record_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/record_comment_label"
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="testing layout of screen for ringing record details"/>
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/actions_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="Actions"
+        app:icon="@drawable/ic_actions_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/delete_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/colorAccent"
+        android:contentDescription="DELETE SITE"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/actions_fab"
+        app:layout_constraintEnd_toEndOf="@+id/actions_fab"
+        app:srcCompat="@drawable/ic_delete_24" />
+
+    <TextView
+        android:id="@+id/delete_fab_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Delete Record"
+        app:layout_constraintBottom_toBottomOf="@+id/delete_fab"
+        app:layout_constraintEnd_toStartOf="@+id/delete_fab"
+        app:layout_constraintTop_toTopOf="@+id/delete_fab" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/colorAccent"
+        android:contentDescription="EDIT SITE"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/delete_fab"
+        app:layout_constraintEnd_toEndOf="@+id/delete_fab"
+        app:srcCompat="@drawable/ic_edit_24" />
+
+    <TextView
+        android:id="@+id/edit_fab_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Edit Details"
+        app:layout_constraintBottom_toBottomOf="@+id/edit_fab"
+        app:layout_constraintEnd_toStartOf="@+id/edit_fab"
+        app:layout_constraintTop_toTopOf="@+id/edit_fab" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/show_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/colorAccent"
+        android:contentDescription="SHOW RECORDS"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/edit_fab"
+        app:layout_constraintEnd_toEndOf="@+id/edit_fab"
+        app:srcCompat="@drawable/ic_add_record_24" />
+
+    <TextView
+        android:id="@+id/show_fab_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Show Recorded Birds"
+        app:layout_constraintBottom_toBottomOf="@+id/show_fab"
+        app:layout_constraintEnd_toStartOf="@+id/show_fab"
+        app:layout_constraintTop_toTopOf="@+id/show_fab" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

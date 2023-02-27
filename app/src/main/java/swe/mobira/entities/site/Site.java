@@ -63,6 +63,9 @@ public class Site implements Parcelable {
         this.siteID = siteID;
     }
 
+
+    // make Site parcelable //
+
     public Site (Parcel in) {
         String[] data = new String[6];
         in.readStringArray(data);
@@ -102,5 +105,4 @@ public class Site implements Parcelable {
             return new Site[i];
         }
     };
-
 }

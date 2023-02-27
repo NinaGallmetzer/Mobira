@@ -19,8 +19,10 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/tiny_padding"
-            android:paddingHorizontal="@dimen/tiny_padding"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
             android:labelFor="@id/edit_text_title"
             android:text="Title:"/>
 
@@ -29,16 +31,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:inputType="text"/>
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:inputType="text"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="Title"/>
 
         <TextView
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_text_title"
-            android:paddingTop="@dimen/tiny_padding"
-            android:paddingHorizontal="@dimen/tiny_padding"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
             android:labelFor="@id/edit_text_description"
             android:text="Description:"/>
 
@@ -47,15 +54,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
-            android:inputType="textMultiLine"/>
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:inputType="textMultiLine"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="Description"/>
 
         <TextView
             android:id="@+id/latitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_text_description"
-            android:paddingTop="@dimen/tiny_padding"
-            android:paddingHorizontal="@dimen/tiny_padding"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
             android:labelFor="@id/edit_text_latitude"
             android:text="Latitude:"/>
 
@@ -64,15 +77,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/latitude"
-            android:inputType="numberDecimal"/>
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:inputType="numberDecimal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="Latitude" />
 
         <TextView
             android:id="@+id/longitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_text_latitude"
-            android:paddingTop="@dimen/tiny_padding"
-            android:paddingHorizontal="@dimen/tiny_padding"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
             android:labelFor="@id/edit_text_longitude"
             android:text="Longitude:"/>
 
@@ -81,15 +100,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/longitude"
-            android:inputType="numberDecimal"/>
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:inputType="numberDecimal"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="Longitude" />
 
         <TextView
             android:id="@+id/comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edit_text_longitude"
-            android:paddingTop="@dimen/tiny_padding"
-            android:paddingHorizontal="@dimen/tiny_padding"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
             android:labelFor="@id/edit_text_comment"
             android:text="Comment:"/>
 
@@ -98,7 +123,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/comment"
-            android:inputType="textMultiLine"/>
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:inputType="textMultiLine"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="Comment" />
     </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -114,4 +143,3 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

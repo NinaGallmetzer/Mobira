@@ -8,54 +8,94 @@
     android:orientation="vertical"
     tools:context=".entities.site.EditSiteActivity"
     tools:ignore="HardcodedText"
-    android:fitsSystemWindows="true"
     android:padding="@dimen/small_padding">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/edit_text_title"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:inputType="text"/>
+            android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/edit_text_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edit_text_title"
-            android:hint="Description"
-            android:maxLines="3"
-            android:inputType="textMultiLine"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_text_title_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/big_padding">
+                <EditText
+                    android:id="@+id/edit_text_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:hint="Title"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/edit_text_latitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edit_text_description"
-            android:hint="Latitude"
-            android:inputType="numberDecimal"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_text_description_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edit_text_title_layout"
+                android:paddingTop="@dimen/big_padding">
+                <EditText
+                    android:id="@+id/edit_text_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="Description"
+                    android:maxLines="3"
+                    android:inputType="textMultiLine"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/edit_text_longitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edit_text_latitude"
-            android:hint="Longitude"
-            android:inputType="numberDecimal"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_text_latitude_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edit_text_description_layout"
+                android:paddingTop="@dimen/big_padding">
+                <EditText
+                    android:id="@+id/edit_text_latitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="Latitude"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/edit_text_comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edit_text_longitude"
-            android:hint="Comment"
-            android:inputType="textMultiLine"/>
-    </RelativeLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_text_longitude_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edit_text_latitude_layout"
+                android:paddingTop="@dimen/big_padding">
+                <EditText
+                    android:id="@+id/edit_text_longitude"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="Longitude"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edit_text_comment_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edit_text_longitude_layout"
+                android:paddingTop="@dimen/big_padding">
+                <EditText
+                    android:id="@+id/edit_text_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:hint="Comment"
+                    android:inputType="textMultiLine"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add"
@@ -64,10 +104,9 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/huge_padding"
         android:backgroundTint="@color/colorAccent"
-        android:src="@drawable/baseline_done_24"
+        android:src="@drawable/ic_save"
         android:contentDescription="ADD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

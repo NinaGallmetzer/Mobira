@@ -7,37 +7,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".entities.site.ShowSiteDetailsActivity"
-    tools:ignore="HardcodedText"
-    android:padding="@dimen/small_padding">
+    tools:ignore="HardcodedText">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/small_padding"
-            android:text="Title:"/>
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/text_view_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/title"
-            android:paddingTop="@dimen/tiny_padding"
+            android:padding="@dimen/medium_padding"
+            android:background="@color/design_default_color_secondary_variant"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="32sp"/>
+            android:textStyle="bold"
+            android:text="Title"/>
 
         <TextView
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_title"
-            android:paddingTop="@dimen/small_padding"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
             android:text="Description:"/>
 
         <TextView
@@ -45,15 +39,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
-            android:paddingTop="@dimen/tiny_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="Description"/>
 
         <TextView
             android:id="@+id/latitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_description"
-            android:paddingTop="@dimen/small_padding"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
             android:text="Latitude:"/>
 
         <TextView
@@ -61,15 +60,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/latitude"
-            android:paddingTop="@dimen/tiny_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="Latitude"/>
 
         <TextView
             android:id="@+id/longitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_latitude"
-            android:paddingTop="@dimen/small_padding"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
             android:text="Longitude:"/>
 
         <TextView
@@ -77,15 +81,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/longitude"
-            android:paddingTop="@dimen/tiny_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="Longitude"/>
 
         <TextView
             android:id="@+id/comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_longitude"
-            android:paddingTop="@dimen/small_padding"
+            android:paddingTop="@dimen/big_padding"
+            android:paddingStart="@dimen/medium_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/design_default_color_secondary_variant"
             android:text="Comment:"/>
 
         <TextView
@@ -93,8 +102,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/comment"
-            android:paddingTop="@dimen/tiny_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+            android:paddingTop="@dimen/small_padding"
+            android:paddingStart="@dimen/bigger_padding"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:text="Comment"/>
 
     </RelativeLayout>
 

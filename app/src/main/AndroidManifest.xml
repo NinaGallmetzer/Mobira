@@ -12,23 +12,36 @@
         android:theme="@style/Theme.Mobira"
         tools:targetApi="31">
         <activity
+            android:name=".entities.ringingrecord.AddRingingRecordActivity"
+            android:exported="false"
+            android:parentActivityName=".entities.ringingrecord.ListRingingRecordsActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".entities.ringingrecord.ShowRingingRecordDetailsActivity"
+            android:exported="false"
+            android:parentActivityName=".entities.ringingrecord.ListRingingRecordsActivity" />
+        <activity
             android:name=".entities.ringingrecord.ListRingingRecordsActivity"
             android:exported="false"
             android:parentActivityName=".entities.site.ShowSiteDetailsActivity" />
         <activity
-            android:name=".entities.site.ShowSiteDetailsActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
-        <activity
             android:name=".entities.site.EditSiteActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".entities.site.ListSitesActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".entities.site.AddSiteActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".entities.site.ListSitesActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".entities.site.ShowSiteDetailsActivity"
+            android:exported="false"
+            android:parentActivityName=".entities.site.ListSitesActivity" />
+        <activity
+            android:name=".entities.site.ListSitesActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

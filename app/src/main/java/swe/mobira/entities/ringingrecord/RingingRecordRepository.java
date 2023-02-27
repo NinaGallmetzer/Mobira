@@ -8,6 +8,7 @@ import java.util.List;
 
 import swe.mobira.MobiraDatabase;
 import swe.mobira.entities.site.Site;
+import swe.mobira.entities.site.SiteDAO;
 
 public class RingingRecordRepository {
     private RingingRecordDAO ringingRecordDAO;

@@ -65,14 +65,14 @@ public abstract class MobiraDatabase extends RoomDatabase {
                 RingingRecordDAO ringingRecordDAO = INSTANCE.ringingRecordDAO();
                 ringingRecordDAO.deleteAllRingingRecords();
 
-                siteDAO.insertSite(new Site("Site title 1", "Site description 1", 1.11, 11.1, "Site comment 1"));
-                siteDAO.insertSite(new Site("Site title 2", "Site description 2", 2.22, 22.2, "Site comment 2"));
-                siteDAO.insertSite(new Site("Site title 3", "Site description 3", 3.33, 33.3, "Site comment 3"));
-                siteDAO.insertSite(new Site("Site title 4", "Site description 4", 4.44, 44.4, "Site comment 4"));
-                siteDAO.insertSite(new Site("Site title 5", "Site description 5", 5.55, 55.5, "Site comment 5"));
-                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-01","07:00","13:00",15.4, 23.7, "sunny", "Record comment 1"));
-                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-02","07:00","13:00",15.4, 23.7, "sunny", "Record comment 2"));
-                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-03","07:00","13:00",15.4, 23.7, "sunny", "Record comment 3"));
+                siteDAO.insertSite(new Site("Site title 1", "Test site 1", 1.11, 11.1, "Comment test site 1"));
+                siteDAO.insertSite(new Site("Site title 2", "Test site 2", 2.22, 22.2, "Comment test site 2"));
+                siteDAO.insertSite(new Site("Site title 3", "Test site 3", 3.33, 33.3, "Comment test site 3"));
+                siteDAO.insertSite(new Site("Site title 4", "Test site 4", 4.44, 44.4, "Comment test site 4"));
+                siteDAO.insertSite(new Site("Site title 5", "Test site 5", 5.55, 55.5, "Comment test site 5"));
+                ringingRecordDAO.insertRingingRecord(new RingingRecord(1,"2023-01-01","07:00","13:00",15.4, 23.7, "sunny", 2, "Jane", "Test record 1 site 1"));
+                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-02","07:00","13:00",15.4, 23.7, "sunny", 1, "Anne", "Test record 1 site 2"));
+                ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-03","07:00","13:00",15.4, 23.7, "sunny", 3, "Bob", "Test record 2 site 2"));
             });
         }
     };
