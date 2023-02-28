@@ -7,11 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".entities.ringingrecord.ShowRingingRecordDetailsActivity"
-    tools:ignore="HardcodedText">
+    tools:ignore="HardcodedText"
+    android:fitsSystemWindows="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/title"
@@ -25,350 +27,374 @@
             android:textStyle="bold"
             android:text="Ringing Protocol"/>
 
-        <TextView
-            android:id="@+id/record_site_title_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
-            android:paddingTop="@dimen/big_padding"
-            android:paddingStart="@dimen/medium_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/design_default_color_secondary_variant"
-            android:text="Site:"/>
-        <TextView
-            android:id="@+id/record_site_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/record_site_title_label"
-            android:paddingTop="@dimen/small_padding"
-            android:paddingStart="@dimen/bigger_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Test site 1"/>
-
-        <TextView
-            android:id="@+id/record_date_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/record_site_title"
-            android:paddingTop="@dimen/big_padding"
-            android:paddingStart="@dimen/medium_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/design_default_color_secondary_variant"
-            android:text="Date:"/>
-        <EditText
-            android:id="@+id/record_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/record_date_label"
-            android:paddingTop="@dimen/small_padding"
-            android:paddingStart="@dimen/bigger_padding"
-            android:inputType="text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="2020-20-20"/>
-
-        <LinearLayout
-            android:id="@+id/time_layout"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/record_date"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
             <RelativeLayout
-                android:id="@+id/time"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/record_time"
+                    android:id="@+id/record_site_title_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/big_padding"
                     android:paddingStart="@dimen/medium_padding"
-                    android:paddingTop="@dimen/bigger_padding"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/design_default_color_secondary_variant"
-                    android:text="Time:"/>
+                    android:text="Site:"/>
                 <TextView
-                    android:id="@+id/record_start_time_label"
+                    android:id="@+id/record_site_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_time"
+                    android:layout_below="@+id/record_site_title_label"
                     android:paddingTop="@dimen/small_padding"
                     android:paddingStart="@dimen/bigger_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"
-                    android:textStyle="italic"
-                    android:text="Opening:"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="Test site 1"/>
+
                 <TextView
-                    android:id="@+id/record_end_time_label"
+                    android:id="@+id/record_date_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_start_time_label"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/bigger_padding"
+                    android:layout_below="@+id/record_site_title"
+                    android:paddingTop="@dimen/big_padding"
+                    android:paddingStart="@dimen/medium_padding"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/design_default_color_secondary_variant"
-                    android:textStyle="italic"
-                    android:text="Closing:"/>
+                    android:text="Date:"/>
                 <EditText
-                    android:id="@+id/record_start_time"
+                    android:id="@+id/record_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_time"
-                    android:layout_toEndOf="@+id/record_start_time_label"
+                    android:layout_below="@+id/record_date_label"
                     android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/small_padding"
+                    android:paddingStart="@dimen/bigger_padding"
+                    android:inputType="date"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="2020-20-20"/>
+
+                <LinearLayout
+                    android:id="@+id/time_and_temperature_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_date"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/medium_padding"
+                    android:baselineAligned="false">
+
+                    <RelativeLayout
+                        android:id="@+id/time_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8">
+                        <TextView
+                            android:id="@+id/time_layout_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant"
+                            android:text="Time:"/>
+                        <LinearLayout
+                            android:id="@+id/start_time_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_below="@+id/time_layout_title">
+                            <TextView
+                                android:id="@+id/record_start_time_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:paddingVertical="@dimen/tiny_padding"
+                                android:paddingStart="@dimen/bigger_padding"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/design_default_color_secondary_variant"
+                                android:textStyle="italic"
+                                android:text="Opening:"/>
+                            <EditText
+                                android:id="@+id/record_start_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingVertical="@dimen/tiny_padding"
+                                android:inputType="time"
+                                android:textAlignment="viewEnd"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:text="07:00"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/end_time_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_below="@+id/start_time_layout">
+                            <TextView
+                                android:id="@+id/record_end_time_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:paddingVertical="@dimen/tiny_padding"
+                                android:paddingStart="@dimen/bigger_padding"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/design_default_color_secondary_variant"
+                                android:textStyle="italic"
+                                android:text="Closing:"/>
+                            <EditText
+                                android:id="@+id/record_end_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingVertical="@dimen/tiny_padding"
+                                android:inputType="time"
+                                android:textAlignment="viewEnd"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:text="13:00"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/temperature_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7">
+
+                        <TextView
+                            android:id="@+id/temperature_layout_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant"
+                            android:text="Temperature:"/>
+                        <LinearLayout
+                            android:id="@+id/start_temperature_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/temperature_layout_title">
+                            <TextView
+                                android:id="@+id/record_start_temperature_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:paddingVertical="@dimen/tiny_padding"
+                                android:paddingStart="@dimen/bigger_padding"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/design_default_color_secondary_variant"
+                                android:textStyle="italic"
+                                android:text="Begin:"/>
+                            <EditText
+                                android:id="@+id/record_start_temperature"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingVertical="@dimen/tiny_padding"
+                                android:paddingEnd="@dimen/big_padding"
+                                android:inputType="numberDecimal"
+                                android:textAlignment="viewEnd"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:text="7.5"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/end_temperature_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_below="@+id/start_temperature_layout">
+                            <TextView
+                                android:id="@+id/record_end_temperature_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:paddingVertical="@dimen/tiny_padding"
+                                android:paddingStart="@dimen/bigger_padding"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                android:textColor="@color/design_default_color_secondary_variant"
+                                android:textStyle="italic"
+                                android:text="End:"/>
+                            <EditText
+                                android:id="@+id/record_end_temperature"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingVertical="@dimen/tiny_padding"
+                                android:paddingEnd="@dimen/big_padding"
+                                android:inputType="numberDecimal"
+                                android:textAlignment="viewEnd"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                                android:text="13.2"/>
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/xxx"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3">
+
+                        <TextView
+                            android:id="@+id/unit_layout_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant"/>
+                        <TextView
+                            android:id="@+id/record_start_temperature_unit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/unit_layout_title"
+                            android:paddingVertical="@dimen/tiny_padding"
+                            android:paddingEnd="@dimen/big_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:text="°C"/>
+                        <TextView
+                            android:id="@+id/record_end_temperature_unit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/record_start_temperature_unit"
+                            android:paddingVertical="@dimen/tiny_padding"
+                            android:paddingEnd="@dimen/big_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:text="°C"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/general_weather_conditions_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/time_and_temperature_layout"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/medium_padding">
+
+                    <TextView
+                        android:id="@+id/general_weather_conditions_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/medium_padding"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:text="Weather:"/>
+
+                    <LinearLayout
+                        android:id="@+id/general_weather_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/general_weather_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingVertical="@dimen/tiny_padding"
+                            android:paddingStart="@dimen/bigger_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant"
+                            android:textStyle="italic"
+                            android:text="General:"/>
+                        <EditText
+                            android:id="@+id/record_general_weather"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingVertical="@dimen/tiny_padding"
+                            android:paddingHorizontal="@dimen/small_padding"
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:text="sunny"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/wind_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:paddingVertical="@dimen/tiny_padding"
+                            android:paddingStart="@dimen/bigger_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant"
+                            android:textStyle="italic"
+                            android:text="Wind:"/>
+                        <EditText
+                            android:id="@+id/record_wind"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/tiny_padding"
+                            android:paddingHorizontal="@dimen/big_padding"
+                            android:inputType="number"
+                            android:textAlignment="viewEnd"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:text="3"/>
+                        <TextView
+                            android:id="@+id/record_wind_unit"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/tiny_padding"
+                            android:paddingEnd="@dimen/huge_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:text="Bft"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/record_coordinator_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/general_weather_conditions_layout"
+                    android:paddingStart="@dimen/medium_padding"
+                    android:paddingTop="@dimen/medium_padding"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/design_default_color_secondary_variant"
+                    android:text="Coordinator:"/>
+                <EditText
+                    android:id="@+id/record_coordinator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/record_coordinator_label"
+                    android:paddingTop="@dimen/small_padding"
+                    android:paddingHorizontal="@dimen/bigger_padding"
                     android:inputType="text"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="07:00"/>
-                <EditText
-                    android:id="@+id/record_end_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_start_time_label"
-                    android:layout_toEndOf="@+id/record_end_time_label"
-                    android:layout_alignEnd="@+id/record_start_time"
-                    android:gravity="right"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/small_padding"
-                    android:inputType="text"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="13:00"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/temperature"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:text="Jane Doe"/>
 
                 <TextView
-                    android:id="@+id/record_temperature"
+                    android:id="@+id/record_comment_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/bigger_padding"
+                    android:layout_below="@+id/record_coordinator"
+                    android:paddingTop="@dimen/medium_padding"
                     android:paddingStart="@dimen/medium_padding"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/design_default_color_secondary_variant"
-                    android:text="Temperature:"/>
-                <TextView
-                    android:id="@+id/record_start_temperature_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_temperature"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/bigger_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"
-                    android:textStyle="italic"
-                    android:text="Begin:"/>
-                <TextView
-                    android:id="@+id/record_end_temperature_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_start_temperature_label"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/bigger_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"
-                    android:textStyle="italic"
-                    android:text="End:"/>
+                    android:text="Comment:"/>
                 <EditText
-                    android:id="@+id/record_start_temperature"
+                    android:id="@+id/record_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_temperature"
-                    android:layout_toEndOf="@+id/record_start_temperature_label"
+                    android:layout_below="@+id/record_comment_label"
                     android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/small_padding"
-                    android:inputType="numberDecimal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="7.5"/>
-                <EditText
-                    android:id="@+id/record_end_temperature"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_start_temperature_label"
-                    android:layout_toEndOf="@+id/record_end_temperature_label"
-                    android:layout_alignEnd="@+id/record_start_temperature"
-                    android:gravity="right"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/small_padding"
-                    android:inputType="numberDecimal"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="23.7"/>
-                <TextView
-                    android:id="@+id/record_start_temperature_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_temperature"
-                    android:layout_toEndOf="@+id/record_start_temperature"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/small_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="C"/>
-                <TextView
-                    android:id="@+id/record_end_temperature_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_start_temperature_label"
-                    android:layout_toEndOf="@+id/record_end_temperature"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/small_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="C"/>
+                    android:paddingHorizontal="@dimen/bigger_padding"
+                    android:inputType="textMultiLine"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:text="testing layout of screen for ringing record details"/>
+
             </RelativeLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/general_weather_and_wind"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/time_layout"
-            android:orientation="horizontal">
-
-            <RelativeLayout
-                android:id="@+id/general"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/weather"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="@dimen/medium_padding"
-                    android:paddingTop="@dimen/bigger_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"
-                    android:text="Weather:"/>
-                <TextView
-                    android:id="@+id/record_weather_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/weather"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/bigger_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"
-                    android:textStyle="italic"
-                    android:text="General:"/>
-                <EditText
-                    android:id="@+id/record_weather"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/weather"
-                    android:layout_toEndOf="@+id/record_weather_label"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/small_padding"
-                    android:inputType="text"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="sunny"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/wind"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/wind_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/bigger_padding"
-                    android:paddingStart="@dimen/medium_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"/>
-                <TextView
-                    android:id="@+id/record_wind_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/wind_label"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/bigger_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"
-                    android:textStyle="italic"
-                    android:text="Wind:"/>
-                <EditText
-                    android:id="@+id/record_wind"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/wind_label"
-                    android:layout_toEndOf="@+id/record_wind_label"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/small_padding"
-                    android:inputType="number"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="3"/>
-                <TextView
-                    android:id="@+id/record_wind_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/wind_label"
-                    android:layout_toEndOf="@+id/record_wind"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/small_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:text="Bft"/>
-            </RelativeLayout>
-        </LinearLayout>
-        <TextView
-            android:id="@+id/record_coordinator_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/general_weather_and_wind"
-            android:paddingStart="@dimen/medium_padding"
-            android:paddingTop="@dimen/bigger_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/design_default_color_secondary_variant"
-            android:text="Coordinator:"/>
-        <EditText
-            android:id="@+id/record_coordinator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/record_coordinator_label"
-            android:paddingTop="@dimen/small_padding"
-            android:paddingStart="@dimen/bigger_padding"
-            android:inputType="text"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="Jane Doe"/>
-
-        <TextView
-            android:id="@+id/record_comment_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/record_coordinator"
-            android:paddingTop="@dimen/bigger_padding"
-            android:paddingStart="@dimen/medium_padding"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/design_default_color_secondary_variant"
-            android:text="Comment:"/>
-        <EditText
-            android:id="@+id/record_comment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/record_comment_label"
-            android:paddingTop="@dimen/small_padding"
-            android:paddingStart="@dimen/bigger_padding"
-            android:inputType="textMultiLine"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="testing layout of screen for ringing record details"/>
-    </RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/baseline_done_24"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/huge_padding"
         android:backgroundTint="@color/colorAccent"
+        android:src="@drawable/baseline_done_24"
         android:contentDescription="ADD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

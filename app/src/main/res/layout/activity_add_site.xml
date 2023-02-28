@@ -8,15 +8,16 @@
     android:orientation="vertical"
     tools:context=".entities.site.EditSiteActivity"
     tools:ignore="HardcodedText"
-    android:padding="@dimen/small_padding">
+    android:fitsSystemWindows="true">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/small_padding">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_title_layout"
@@ -28,6 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
+                    android:inputType="text"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:hint="Title"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -93,9 +95,7 @@
                     android:inputType="textMultiLine"/>
             </com.google.android.material.textfield.TextInputLayout>
         </RelativeLayout>
-
     </ScrollView>
-
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add"

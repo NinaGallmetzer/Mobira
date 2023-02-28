@@ -56,13 +56,13 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
 
         ringingRecordViewModel = new ViewModelProvider(this, new RingingRecordViewModelFactory(this.getApplication(), siteID)).get(RingingRecordViewModel.class);
 
-        textViewDate = findViewById(R.id.record_date);
         textViewSiteTitle = findViewById(R.id.record_site_title);
+        textViewDate = findViewById(R.id.record_date);
         textViewStartTime = findViewById(R.id.record_start_time);
         textViewEndTime = findViewById(R.id.record_end_time);
         textViewStartTemperature = findViewById(R.id.record_start_temperature);
         textViewEndTemperature = findViewById(R.id.record_end_temperature);
-        textViewWeather = findViewById(R.id.record_weather);
+        textViewWeather = findViewById(R.id.record_general_weather);
         textViewWind = findViewById(R.id.record_wind);
         textViewCoordinator = findViewById(R.id.record_coordinator);
         textViewComment = findViewById(R.id.record_comment);

@@ -47,7 +47,7 @@ public class EditRingingRecordActivity extends AppCompatActivity {
         editTextEndTime = findViewById(R.id.record_end_time);
         editTextStartTemperature = findViewById(R.id.record_start_temperature);
         editTextEndTemperature = findViewById(R.id.record_end_temperature);
-        editTextWeather = findViewById(R.id.record_weather);
+        editTextWeather = findViewById(R.id.record_general_weather);
         editTextWind = findViewById(R.id.record_wind);
         editTextCoordinator = findViewById(R.id.record_coordinator);
         editTextComment = findViewById(R.id.record_comment);
