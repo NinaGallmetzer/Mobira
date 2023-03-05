@@ -1,21 +1,21 @@
-package swe.mobira.entities.ringingrecord;
+package swe.mobira.entities.net;
 
 import android.app.Application;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-public class RingingRecordViewModelFactory implements ViewModelProvider.Factory {
+public class NetViewModelFactory implements ViewModelProvider.Factory {
     private Application mApplication;
     private int mParam;
 
-    public RingingRecordViewModelFactory(Application application, int param) {
+    public NetViewModelFactory(Application application, int param) {
         mApplication = application;
         mParam = param;
     }
 
     @Override
     public <T extends ViewModel> T create(Class<T> modelClass) {
-        return (T) new RingingRecordViewModel(mApplication, mParam);
+        return (T) new NetViewModel(mApplication, mParam);
     }
 }

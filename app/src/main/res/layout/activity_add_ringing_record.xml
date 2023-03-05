@@ -38,6 +38,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_toEndOf="@+id/record_site_title_label"
                 android:background="@color/design_default_color_secondary_variant"
+                android:ellipsize="end"
                 android:paddingVertical="@dimen/bigger_padding"
                 android:text="Test site 1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"

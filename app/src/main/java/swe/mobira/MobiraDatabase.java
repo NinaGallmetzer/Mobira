@@ -6,12 +6,15 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import swe.mobira.entities.birdrecords.BirdRecord;
+import swe.mobira.entities.birdrecords.BirdRecordDAO;
+import swe.mobira.entities.net.Net;
+import swe.mobira.entities.net.NetDAO;
 import swe.mobira.entities.ringingrecord.RingingRecord;
 import swe.mobira.entities.ringingrecord.RingingRecordDAO;
 import swe.mobira.entities.site.Site;
@@ -21,10 +24,12 @@ import swe.mobira.entities.site.SiteDAO;
 // list all entities (tables) found in database in annotation
 // version # changes in case  of changes in db structure (when already in production) >
 // > in that case, also provide migration strategy here (exportSchema)
-@Database(entities = {Site.class, RingingRecord.class}, version = 1)
+@Database(entities = {Site.class, RingingRecord.class, Net.class, BirdRecord.class}, version = 1)
 public abstract class MobiraDatabase extends RoomDatabase {
     public abstract SiteDAO siteDAO();
     public abstract RingingRecordDAO ringingRecordDAO();
+    public abstract NetDAO netDAO();
+    public abstract BirdRecordDAO birdRecordDAO();
     private static volatile MobiraDatabase INSTANCE;
     // DAO & ROOM DATABASE (https://www.youtube.com/watch?v=0cg09tlAAQ0)
     // Room doesn't allow you to issue queries on the main thread
@@ -64,6 +69,10 @@ public abstract class MobiraDatabase extends RoomDatabase {
                 siteDAO.deleteAllSites();
                 RingingRecordDAO ringingRecordDAO = INSTANCE.ringingRecordDAO();
                 ringingRecordDAO.deleteAllRingingRecords();
+                NetDAO netDAO = INSTANCE.netDAO();
+                netDAO.deleteAllNets();
+                BirdRecordDAO birdRecordDAO = INSTANCE.birdRecordDAO();
+                birdRecordDAO.deleteAllBirdRecords();
 
                 siteDAO.insertSite(new Site("Site title 1", "Test site 1", 1.11, 11.1, "Comment test site 1"));
                 siteDAO.insertSite(new Site("Site title 2", "Test site 2", 2.22, 22.2, "Comment test site 2"));

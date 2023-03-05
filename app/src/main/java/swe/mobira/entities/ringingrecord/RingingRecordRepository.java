@@ -7,8 +7,6 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 import swe.mobira.MobiraDatabase;
-import swe.mobira.entities.site.Site;
-import swe.mobira.entities.site.SiteDAO;
 
 public class RingingRecordRepository {
     private RingingRecordDAO ringingRecordDAO;
@@ -43,7 +41,7 @@ public class RingingRecordRepository {
         return ringingRecordDAO.getRingingRecordByID(recordID);
     }
 
-    public LiveData<List<RingingRecord>> getRingingsRecordsBySiteID(int siteID) {
+    public LiveData<List<RingingRecord>> getRingingRecordsBySiteID(int siteID) {
         return ringingRecordDAO.getRingingRecordsBySiteID(siteID);
     }
 }

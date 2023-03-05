@@ -86,7 +86,7 @@ public class EditRingingRecordActivity extends AppCompatActivity {
         String coordinator = editTextCoordinator.getText().toString();
         String comment = editTextComment.getText().toString();
 
-        RingingRecord updatedRingingRecord = new RingingRecord(currentRingingRecord.getRecordID(),
+        RingingRecord updatedRingingRecord = new RingingRecord(currentRingingRecord.getRingingRecordID(),
                 currentSite.getSiteID(), recordDate, startTime, endTime,
                 startTemperature, endTemperature, weather, wind, coordinator, comment);
 

@@ -17,7 +17,7 @@ import swe.mobira.entities.site.Site;
         onUpdate = ForeignKey.CASCADE)})
 public class RingingRecord implements Parcelable {
     @PrimaryKey(autoGenerate = true)
-    private int recordID;
+    private int ringingRecordID;
     private int siteID;
     private String recordDate;
     private String startTime;
@@ -43,8 +43,8 @@ public class RingingRecord implements Parcelable {
     }
 
     @Ignore
-    public RingingRecord(int recordID, int siteID, String recordDate, String startTime, String endTime, double startTemperature, double endTemperature, String weather, int wind, String coordinator, String comment) {
-        this.recordID = recordID;
+    public RingingRecord(int ringingRecordID, int siteID, String recordDate, String startTime, String endTime, double startTemperature, double endTemperature, String weather, int wind, String coordinator, String comment) {
+        this.ringingRecordID = ringingRecordID;
         this.siteID = siteID;
         this.recordDate = recordDate;
         this.startTime = startTime;
@@ -57,8 +57,8 @@ public class RingingRecord implements Parcelable {
         this.comment = comment;
     }
 
-    public int getRecordID() {
-        return recordID;
+    public int getRingingRecordID() {
+        return ringingRecordID;
     }
 
     public int getSiteID() {
@@ -97,15 +97,15 @@ public class RingingRecord implements Parcelable {
         return comment;
     }
 
-    public void setRecordID(int recordID) {this.recordID = recordID; }
+    public void setRingingRecordID(int ringingRecordID) {this.ringingRecordID = ringingRecordID; }
 
 
-    // make Site parcelable //
+    // make parcelable //
 
     public RingingRecord (Parcel in) {
         String[] data = new String[11];
         in.readStringArray(data);
-        this.recordID = Integer.parseInt(data[0]);
+        this.ringingRecordID = Integer.parseInt(data[0]);
         this.siteID = Integer.parseInt(data[1]);
         this.recordDate = data[2];
         this.startTime = data[3];
@@ -117,6 +117,7 @@ public class RingingRecord implements Parcelable {
         this.coordinator = data[9];
         this.comment = data[10];
     }
+
     @Override
     public int describeContents() {
         return 0;
@@ -125,7 +126,7 @@ public class RingingRecord implements Parcelable {
     @Override
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         parcel.writeStringArray(new String[]{
-                String.valueOf(this.recordID),
+                String.valueOf(this.ringingRecordID),
                 String.valueOf(this.siteID),
                 this.recordDate,
                 this.startTime,
@@ -136,8 +137,6 @@ public class RingingRecord implements Parcelable {
                 String.valueOf(this.wind),
                 this.coordinator,
                 this.comment
-
-
         });
     }
 

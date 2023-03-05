@@ -91,7 +91,7 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
             }
         };
 
-        ringingRecordViewModel.getRingingRecordByID(currentRingingRecord.getRecordID()).observe(this, nameObserver);
+        ringingRecordViewModel.getRingingRecordByID(currentRingingRecord.getRingingRecordID()).observe(this, nameObserver);
 
         actionsFab.setOnClickListener(new View.OnClickListener() {
             @Override

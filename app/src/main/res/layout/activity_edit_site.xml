@@ -123,11 +123,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/comment"
-            android:paddingTop="@dimen/small_padding"
-            android:paddingStart="@dimen/bigger_padding"
+            android:ellipsize="end"
             android:inputType="textMultiLine"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:text="Comment" />
+            android:paddingStart="@dimen/bigger_padding"
+            android:paddingTop="@dimen/small_padding"
+            android:text="Comment"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
     </RelativeLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

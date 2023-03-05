@@ -5,10 +5,10 @@ import androidx.room.Relation;
 
 import java.util.List;
 
-import swe.mobira.entities.ringingrecord.RingingRecord;
+import swe.mobira.entities.net.Net;
 import swe.mobira.entities.site.Site;
 
-public class SiteWithRecords {
+public class SiteWithNets {
     @Embedded
     public Site site;
 
@@ -17,5 +17,5 @@ public class SiteWithRecords {
             entityColumn = "siteID"
     )
 
-    public List<RingingRecord> ringingRecords;
+    public List<Net> nets;
 }

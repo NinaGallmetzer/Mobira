@@ -8,9 +8,6 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import swe.mobira.entities.site.Site;
-
-
 public class RingingRecordViewModel extends AndroidViewModel {
     private RingingRecordRepository repository;
     private LiveData<List<RingingRecord>> ringingRecords;
@@ -18,7 +15,7 @@ public class RingingRecordViewModel extends AndroidViewModel {
     public RingingRecordViewModel(@NonNull Application application, int siteID) {
         super(application);
         repository = new RingingRecordRepository(application);
-        ringingRecords = repository.getRingingsRecordsBySiteID(siteID);
+        ringingRecords = repository.getRingingRecordsBySiteID(siteID);
     }
 
     public void insertRingingRecord(RingingRecord ringingRecord) {

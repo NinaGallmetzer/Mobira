@@ -1,44 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-// RECYCLERVIEW + ADAPTER (https://www.youtube.com/watch?v=reSPN7mgshI)
-// creates layout of individual card > then used in main screen to display list of cards/sites
--->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/small_padding"
     android:layout_marginTop="@dimen/small_padding"
     android:layout_marginEnd="@dimen/small_padding"
     tools:ignore="HardcodedText">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/small_padding">
+        android:paddingHorizontal="@dimen/small_padding"
+        android:paddingVertical="@dimen/medium_padding">
 
         <TextView
-            android:id="@+id/text_view_title"
+            android:id="@+id/text_view_net_number_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="Title"
+            android:text="Net"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
-            android:id="@+id/text_view_description"
+            android:id="@+id/text_view_net_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_title"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:text="Description" />
+            android:paddingHorizontal="@dimen/medium_padding"
+            android:text="01"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/text_view_net_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Description" />
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
