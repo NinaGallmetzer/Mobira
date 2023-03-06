@@ -9,8 +9,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class NetViewModel extends AndroidViewModel {
-    private NetRepository repository;
-    private LiveData<List<Net>> nets;
+    private final NetRepository repository;
+    private final LiveData<List<Net>> nets;
 
     public NetViewModel(@NonNull Application application, int siteID) {
         super(application);

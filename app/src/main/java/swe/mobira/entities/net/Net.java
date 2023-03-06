@@ -18,17 +18,17 @@ import swe.mobira.entities.site.Site;
 public class Net implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     private int netID;
-    private int siteID;
-    private int netNumber;
-    private String description;
-    private int meshSize;
-    private int length;
-    private int height;
-    private int shelves;
-    private double latitude;
-    private double longitude;
-    private String habitatType;
-    private String comment;
+    private final int siteID;
+    private final int netNumber;
+    private final String description;
+    private final int meshSize;
+    private final int length;
+    private final int height;
+    private final int shelves;
+    private final double latitude;
+    private final double longitude;
+    private final String habitatType;
+    private final String comment;
 
     public Net(int siteID, int netNumber, String description, int meshSize, int length, int height, int shelves, double latitude, double longitude, String habitatType, String comment) {
         this.siteID = siteID;
@@ -119,14 +119,14 @@ public class Net implements Parcelable {
         in.readStringArray(data);
         this.netID = Integer.parseInt(data[0]);
         this.siteID = Integer.parseInt(data[1]);
-        this.netNumber = Integer.parseInt(data[2]);;
+        this.netNumber = Integer.parseInt(data[2]);
         this.description = data[3];
-        this.meshSize = Integer.parseInt(data[4]);;
-        this.length = Integer.parseInt(data[5]);;
-        this.height = Integer.parseInt(data[6]);;
-        this.shelves = Integer.parseInt(data[7]);;
-        this.latitude = Double.parseDouble(data[8]);;
-        this.longitude = Double.parseDouble(data[9]);;
+        this.meshSize = Integer.parseInt(data[4]);
+        this.length = Integer.parseInt(data[5]);
+        this.height = Integer.parseInt(data[6]);
+        this.shelves = Integer.parseInt(data[7]);
+        this.latitude = Double.parseDouble(data[8]);
+        this.longitude = Double.parseDouble(data[9]);
         this.habitatType = data[10];
         this.comment = data[11];
     }

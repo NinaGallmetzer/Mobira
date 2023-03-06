@@ -1,14 +1,15 @@
 package swe.mobira.entities.ringingrecord;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
@@ -19,17 +20,19 @@ public class ActivityEditRingingRecord extends AppCompatActivity {
     public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_R_RECORD";
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
 
+    private RingingRecordViewModel ringingRecordViewModel;
     private RingingRecord currentRingingRecord;
     private Site currentSite;
 
-    private TextInputEditText editTextStartTime;
-    private TextInputEditText editTextEndTime;
-    private TextInputEditText editTextStartTemperature;
-    private TextInputEditText editTextEndTemperature;
-    private TextInputEditText editTextWeather;
-    private TextInputEditText editTextWind;
-    private TextInputEditText editTextCoordinator;
-    private TextInputEditText editTextComment;
+    private EditText editTextRecordDate;
+    private EditText editTextStartTime;
+    private EditText editTextEndTime;
+    private EditText editTextStartTemperature;
+    private EditText editTextEndTemperature;
+    private EditText editTextWeather;
+    private EditText editTextWind;
+    private EditText editTextCoordinator;
+    private EditText editTextComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +43,10 @@ public class ActivityEditRingingRecord extends AppCompatActivity {
         currentRingingRecord = getIntent().getParcelableExtra(EXTRA_R_RECORD);
         currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
 
+        ringingRecordViewModel = new ViewModelProvider(this, new RingingRecordViewModelFactory(this.getApplication(), currentSite.getSiteID())).get(RingingRecordViewModel.class);
+
         TextView textViewSiteTitle = findViewById(R.id.record_site_title);
-        TextInputEditText editTextDate = findViewById(R.id.record_date);
+        editTextRecordDate = findViewById(R.id.record_date);
         editTextStartTime = findViewById(R.id.record_start_time);
         editTextEndTime = findViewById(R.id.record_end_time);
         editTextStartTemperature = findViewById(R.id.record_start_temperature);
@@ -54,7 +59,7 @@ public class ActivityEditRingingRecord extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(R.drawable.baseline_home_24);
 
         textViewSiteTitle.setText(currentSite.getTitle());
-        editTextDate.setText(currentRingingRecord.getRecordDate());
+        editTextRecordDate.setText(currentRingingRecord.getRecordDate());
         editTextStartTime.setText(currentRingingRecord.getStartTime());
         editTextEndTime.setText(currentRingingRecord.getEndTime());
         editTextStartTemperature.setText(String.valueOf(currentRingingRecord.getStartTemperature()));
@@ -68,14 +73,14 @@ public class ActivityEditRingingRecord extends AppCompatActivity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveRingingRecord();
+                updateRingingRecord();
             }
         });
 
     }
 
-    private void saveRingingRecord() {
-        String recordDate = String.valueOf(currentRingingRecord.getRecordDate());
+    private void updateRingingRecord() {
+        String recordDate = editTextRecordDate.getText().toString();
         String startTime = editTextStartTime.getText().toString();
         String endTime = editTextEndTime.getText().toString();
         double startTemperature = Double.parseDouble(editTextStartTemperature.getText().toString());
@@ -89,11 +94,9 @@ public class ActivityEditRingingRecord extends AppCompatActivity {
                 currentSite.getSiteID(), recordDate, startTime, endTime,
                 startTemperature, endTemperature, weather, wind, coordinator, comment);
 
-        Intent intent = new Intent();
-        intent.putExtra(ActivityShowRingingRecordDetails.EXTRA_R_RECORD, updatedRingingRecord);
-        intent.putExtra(ActivityShowRingingRecordDetails.EXTRA_SITE, currentSite);
+        ringingRecordViewModel.updateRingingRecord(updatedRingingRecord);
 
-        setResult(RESULT_OK, intent);
+        setResult(RESULT_OK);
         finish();
     }
 }

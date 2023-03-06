@@ -9,8 +9,8 @@ import java.util.List;
 import swe.mobira.MobiraDatabase;
 
 public class BirdRecordRepository {
-    private BirdRecordDAO birdRecordDAO;
-    private LiveData<List<BirdRecord>> birdRecords;
+    private final BirdRecordDAO birdRecordDAO;
+    private final LiveData<List<BirdRecord>> birdRecords;
     private int ringingRecordID;
 
     public BirdRecordRepository(Application application) {

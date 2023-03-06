@@ -9,8 +9,8 @@ import java.util.List;
 import swe.mobira.MobiraDatabase;
 
 public class RingingRecordRepository {
-    private RingingRecordDAO ringingRecordDAO;
-    private LiveData<List<RingingRecord>> ringingRecords;
+    private final RingingRecordDAO ringingRecordDAO;
+    private final LiveData<List<RingingRecord>> ringingRecords;
     private int siteID;
 
     public RingingRecordRepository(Application application) {

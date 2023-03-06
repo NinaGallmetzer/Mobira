@@ -60,7 +60,7 @@ public abstract class MobiraDatabase extends RoomDatabase {
 
     // REPOSITORY (https://www.youtube.com/watch?v=HhmA9S53XV8)
     // if db missing or not created yet > create > prepopulate with testing data
-    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
+    private static final RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);

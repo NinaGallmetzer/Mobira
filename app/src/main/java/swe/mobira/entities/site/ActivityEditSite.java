@@ -1,6 +1,7 @@
 package swe.mobira.entities.site;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +12,12 @@ import android.widget.Toast;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
+import swe.mobira.entities.ringingrecord.RingingRecordViewModel;
 
 public class ActivityEditSite extends AppCompatActivity {
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
 
+    private SiteViewModel siteViewModel;
     private Site currentSite;
 
     private EditText editTextTitle;
@@ -32,6 +35,7 @@ public class ActivityEditSite extends AppCompatActivity {
         setTitle("Edit Site");
 
         currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
+        siteViewModel = new ViewModelProvider(this).get(SiteViewModel.class);
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
@@ -54,12 +58,12 @@ public class ActivityEditSite extends AppCompatActivity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveSite();
+                updateSite();
             }
         });
     }
 
-    private void saveSite() {
+    private void updateSite() {
         String title = editTextTitle.getText().toString();
         String description = editTextDescription.getText().toString();
         double latitude =  Double.parseDouble(editTextLatitude.getText().toString());
@@ -73,10 +77,9 @@ public class ActivityEditSite extends AppCompatActivity {
 
         Site updatedSite = new Site(currentSite.getSiteID(), title, description, latitude, longitude, comment);
 
-        Intent intent = new Intent();
-        intent.putExtra(ActivityShowSiteDetails.EXTRA_SITE, updatedSite);
+        siteViewModel.updateSite(updatedSite);
 
-        setResult(RESULT_OK, intent);
+        setResult(RESULT_OK);
         finish();
     }
 }

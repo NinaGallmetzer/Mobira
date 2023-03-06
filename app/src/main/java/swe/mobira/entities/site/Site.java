@@ -12,11 +12,11 @@ public class Site implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     private int siteID;
     @NonNull
-    private String title;
-    private String description;
-    private double latitude;
-    private double longitude;
-    private String comment;
+    private final String title;
+    private final String description;
+    private final double latitude;
+    private final double longitude;
+    private final String comment;
 
     public Site(@NonNull String title, String description,  double latitude, double longitude, String comment) {
         this.title = title;

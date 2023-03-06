@@ -44,8 +44,8 @@ public class NetAdapter extends RecyclerView.Adapter<NetAdapter.NetHolder> {
     }
 
     class NetHolder extends RecyclerView.ViewHolder {
-        private TextView textViewNetNumber;
-        private TextView textViewDescription;
+        private final TextView textViewNetNumber;
+        private final TextView textViewDescription;
         public NetHolder(View itemView) {
             super(itemView);
             textViewNetNumber = itemView.findViewById(R.id.text_view_net_number);

@@ -18,16 +18,16 @@ import swe.mobira.entities.site.Site;
 public class RingingRecord implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     private int ringingRecordID;
-    private int siteID;
-    private String recordDate;
-    private String startTime;
-    private String endTime;
-    private double startTemperature;
-    private double endTemperature;
-    private String weather;
-    private int wind;
-    private String coordinator;
-    private String comment;
+    private final int siteID;
+    private final String recordDate;
+    private final String startTime;
+    private final String endTime;
+    private final double startTemperature;
+    private final double endTemperature;
+    private final String weather;
+    private final int wind;
+    private final String coordinator;
+    private final String comment;
 
     public RingingRecord(int siteID, String recordDate, String startTime, String endTime, double startTemperature, double endTemperature, String weather, int wind, String coordinator, String comment) {
         this.siteID = siteID;

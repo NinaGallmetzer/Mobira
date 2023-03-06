@@ -47,11 +47,11 @@ public class BirdRecordAdapter extends RecyclerView.Adapter<BirdRecordAdapter.Bi
     }
 
     class BirdRecordHolder extends RecyclerView.ViewHolder {
-        private TextView textViewSpecies;
-        private TextView textViewTime;
-        private TextView textViewNet;
-        private TextView textViewAge;
-        private TextView textViewSex;
+        private final TextView textViewSpecies;
+        private final TextView textViewTime;
+        private final TextView textViewNet;
+        private final TextView textViewAge;
+        private final TextView textViewSex;
 
         public BirdRecordHolder(View itemView) {
             super(itemView);

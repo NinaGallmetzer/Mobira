@@ -1,5 +1,8 @@
 package swe.mobira.entities.ringingrecord;
 
+import static swe.mobira.MainActivity.ADD_B_RECORD_ACTIVITY_REQUEST_CODE;
+import static swe.mobira.MainActivity.EDIT_R_RECORD_ACTIVITY_REQUEST_CODE;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,11 +18,11 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
+import swe.mobira.entities.birdrecord.ActivityAddBirdRecord;
 import swe.mobira.entities.birdrecord.ActivityListBirdRecords;
 import swe.mobira.entities.site.Site;
 
 public class ActivityShowRingingRecordDetails extends AppCompatActivity {
-    public static final int EDIT_R_RECORD_ACTIVITY_REQUEST_CODE = 4;
     public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_RECORD";
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
 
@@ -129,7 +132,11 @@ public class ActivityShowRingingRecordDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setUpActionButtons();
-//                startActivity(intent);
+                Intent intent = new Intent(ActivityShowRingingRecordDetails.this, ActivityAddBirdRecord.class);
+                intent.putExtra(ActivityAddBirdRecord.EXTRA_R_RECORD, currentRingingRecord);
+                intent.putExtra(ActivityAddBirdRecord.EXTRA_SITE, currentSite);
+                setUpActionButtons();
+                startActivityForResult(intent, ADD_B_RECORD_ACTIVITY_REQUEST_CODE);
             }
         });
 
@@ -193,9 +200,9 @@ public class ActivityShowRingingRecordDetails extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == EDIT_R_RECORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            RingingRecord updatedRingingRecord = data.getParcelableExtra(EXTRA_R_RECORD);
-            ringingRecordViewModel.updateRingingRecord(updatedRingingRecord);
             Toast.makeText(getApplicationContext(), "Record updated", Toast.LENGTH_LONG).show();
+        } else if (requestCode == ADD_B_RECORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Toast.makeText(getApplicationContext(), "Bird record added", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(getApplicationContext(), "No changes saved", Toast.LENGTH_LONG).show();
         }

@@ -11,8 +11,8 @@ import swe.mobira.MobiraDatabase;
 // REPOSITORY (https://www.youtube.com/watch?v=HhmA9S53XV8)
 // useful in case of multiple data sources (e.g. locally and cloud)
 public class SiteRepository {
-    private SiteDAO siteDAO;
-    private LiveData<List<Site>> allSites;
+    private final SiteDAO siteDAO;
+    private final LiveData<List<Site>> allSites;
 
     public SiteRepository(Application application) {
         MobiraDatabase database = MobiraDatabase.getDatabase(application);

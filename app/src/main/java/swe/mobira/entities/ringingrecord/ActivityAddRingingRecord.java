@@ -73,7 +73,8 @@ public class ActivityAddRingingRecord extends AppCompatActivity {
         String coordinator = Objects.requireNonNull(editTextCoordinator.getText()).toString();
         String comment = Objects.requireNonNull(editTextComment.getText()).toString();
 
-        RingingRecord newRingingRecord = new RingingRecord(currentSite.getSiteID(), recordDate, startTime, endTime,
+        RingingRecord newRingingRecord = new RingingRecord(
+                currentSite.getSiteID(), recordDate, startTime, endTime,
                 startTemperature, endTemperature, weather, wind, coordinator, comment);
 
         ringingRecordViewModel.insertRingingRecord(newRingingRecord);

@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 public class RingingRecordViewModelFactory implements ViewModelProvider.Factory {
-    private Application mApplication;
-    private int mParam;
+    private final Application mApplication;
+    private final int mParam;
 
     public RingingRecordViewModelFactory(Application application, int param) {
         mApplication = application;

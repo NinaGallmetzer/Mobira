@@ -115,7 +115,10 @@ public class ActivityAddBirdRecord extends AppCompatActivity {
         String pictureNumber = editTextBirdPictureNumber.getText().toString();
         String comment = editTextBirdComment.getText().toString();
 
-        BirdRecord newBirdRecord = new BirdRecord(currentRingingRecord.getRingingRecordID(), time, netNumber, netSide, shelfNumber, species, recapture, ringNumber, topLeftColor, topLightColor, bottomLeftColor, bottomLightColor, sex, age, fat, muscle, tarsus, wingLength, featherLength, weight, ringer, pictureNumber, comment);
+        BirdRecord newBirdRecord = new BirdRecord(currentRingingRecord.getRingingRecordID(), time,
+                netNumber, netSide, shelfNumber, species, recapture, ringNumber, topLeftColor,
+                topLightColor, bottomLeftColor, bottomLightColor, sex, age, fat, muscle, tarsus,
+                wingLength, featherLength, weight, ringer, pictureNumber, comment);
 
         birdRecordViewModel.insertBirdRecord(newBirdRecord);
 

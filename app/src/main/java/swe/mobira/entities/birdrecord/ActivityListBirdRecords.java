@@ -1,5 +1,7 @@
 package swe.mobira.entities.birdrecord;
 
+import static swe.mobira.MainActivity.ADD_B_RECORD_ACTIVITY_REQUEST_CODE;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -22,7 +24,6 @@ import swe.mobira.entities.ringingrecord.RingingRecord;
 import swe.mobira.entities.site.Site;
 
 public class ActivityListBirdRecords extends AppCompatActivity {
-    public static final int ADD_B_RECORD_ACTIVITY_REQUEST_CODE = 7;
     public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_R_RECORD";
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
 

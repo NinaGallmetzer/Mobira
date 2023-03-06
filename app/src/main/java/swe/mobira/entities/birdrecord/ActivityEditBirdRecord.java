@@ -1,13 +1,14 @@
 package swe.mobira.entities.birdrecord;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
 
 import swe.mobira.R;
 import swe.mobira.entities.ringingrecord.RingingRecord;
@@ -20,31 +21,31 @@ public class ActivityEditBirdRecord extends AppCompatActivity {
 
     private BirdRecord currentBirdRecord;
     private RingingRecord currentRingingRecord;
+
     private BirdRecordViewModel birdRecordViewModel;
 
-    private TextInputEditText editTextBirdTime;
-    private TextInputEditText editTextBirdNetNumber;
-    private TextInputEditText editTextBirdNetSide;
-    private TextInputEditText editTextBirdShelfNumber;
-    private TextInputEditText editTextBirdSpecies;
-    private TextInputEditText editTextBirdRingNumber;
-    private TextInputEditText editTextBirdRecapture;
-    private TextInputEditText editTextBirdTopLeftColor;
-    private TextInputEditText editTextBirdTopRightColor;
-    private TextInputEditText editTextBirdBottomLeftColor;
-    private TextInputEditText editTextBirdBottomRightColor;
-    private TextInputEditText editTextBirdSex;
-    private TextInputEditText editTextBirdAge;
-    private TextInputEditText editTextBirdFat;
-    private TextInputEditText editTextBirdMuscle;
-    private TextInputEditText editTextBirdTarsus;
-    private TextInputEditText editTextBirdWingLength;
-    private TextInputEditText editTextBirdFeatherLength;
-    private TextInputEditText editTextBirdWeight;
-    private TextInputEditText editTextBirdRinger;
-    private TextInputEditText editTextBirdPictureNumber;
-    private TextInputEditText editTextBirdComment;
-
+    private EditText editTextBirdTime;
+    private EditText editTextBirdNetNumber;
+    private EditText editTextBirdNetSide;
+    private EditText editTextBirdShelfNumber;
+    private EditText editTextBirdSpecies;
+    private EditText editTextBirdRingNumber;
+    private EditText editTextBirdRecapture;
+    private EditText editTextBirdTopLeftColor;
+    private EditText editTextBirdTopRightColor;
+    private EditText editTextBirdBottomLeftColor;
+    private EditText editTextBirdBottomRightColor;
+    private EditText editTextBirdSex;
+    private EditText editTextBirdAge;
+    private EditText editTextBirdFat;
+    private EditText editTextBirdMuscle;
+    private EditText editTextBirdTarsus;
+    private EditText editTextBirdWingLength;
+    private EditText editTextBirdFeatherLength;
+    private EditText editTextBirdWeight;
+    private EditText editTextBirdRinger;
+    private EditText editTextBirdPictureNumber;
+    private EditText editTextBirdComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,38 +82,75 @@ public class ActivityEditBirdRecord extends AppCompatActivity {
         currentRingingRecord = getIntent().getParcelableExtra(EXTRA_R_RECORD);
         Site currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
 
+        birdRecordViewModel = new ViewModelProvider(this, new BirdRecordViewModelFactory(this.getApplication(), currentRingingRecord.getRingingRecordID())).get(BirdRecordViewModel.class);
+
         textViewSiteTitle.setText(currentSite.getTitle());
         textViewRecordDate.setText(currentRingingRecord.getRecordDate());
-
-        editTextBirdTime.setText();
-        editTextBirdNetNumber.setText();
-        editTextBirdNetSide.setText();
-        editTextBirdShelfNumber.setText();
-        editTextBirdSpecies.setText();
-        editTextBirdRecapture.setText();
-        editTextBirdRingNumber.setText();
-        editTextBirdTopLeftColor.setText();
-        editTextBirdTopRightColor.setText();
-        editTextBirdBottomLeftColor.setText();
-        editTextBirdBottomRightColor.setText();
-        editTextBirdSex.setText();
-        editTextBirdAge.setText();
-        editTextBirdFat.setText();
-        editTextBirdMuscle.setText();
-        editTextBirdTarsus.setText();
-        editTextBirdWingLength.setText();
-        editTextBirdFeatherLength.setText();
-        editTextBirdWeight.setText();
-        editTextBirdRinger.setText();
-        editTextBirdPictureNumber.setText();
-        editTextBirdComment.setText();
+        editTextBirdTime.setText(currentBirdRecord.getTime());
+        editTextBirdNetNumber.setText(String.valueOf(currentBirdRecord.getNetNumber()));
+        editTextBirdNetSide.setText(currentBirdRecord.getNetSide());
+        editTextBirdShelfNumber.setText(String.valueOf(currentBirdRecord.getShelfNumber()));
+        editTextBirdSpecies.setText(currentBirdRecord.getSpecies());
+        editTextBirdRecapture.setText(String.valueOf(currentBirdRecord.isRecapture()));
+        editTextBirdRingNumber.setText(currentBirdRecord.getRingNumber());
+        editTextBirdTopLeftColor.setText(currentBirdRecord.getTopLeftColor());
+        editTextBirdTopRightColor.setText(currentBirdRecord.getTopRightColor());
+        editTextBirdBottomLeftColor.setText(currentBirdRecord.getBottomLeftColor());
+        editTextBirdBottomRightColor.setText(currentBirdRecord.getBottomRightColor());
+        editTextBirdSex.setText(String.valueOf(currentBirdRecord.getSex()));
+        editTextBirdAge.setText(String.valueOf(currentBirdRecord.getAge()));
+        editTextBirdFat.setText(String.valueOf(currentBirdRecord.getFat()));
+        editTextBirdMuscle.setText(String.valueOf(currentBirdRecord.getMuscle()));
+        editTextBirdTarsus.setText(String.valueOf(currentBirdRecord.getTarsus()));
+        editTextBirdWingLength.setText(String.valueOf(currentBirdRecord.getWingLength()));
+        editTextBirdFeatherLength.setText(String.valueOf(currentBirdRecord.getFeatherLength()));
+        editTextBirdWeight.setText(String.valueOf(currentBirdRecord.getWeight()));
+        editTextBirdRinger.setText(currentBirdRecord.getRinger());
+        editTextBirdPictureNumber.setText(currentBirdRecord.getPictureNumber());
+        editTextBirdComment.setText(currentBirdRecord.getComment());
 
         FloatingActionButton buttonSave = findViewById(R.id.button_save);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveRingingRecord();
+                saveBirdRecord();
             }
         });
     }
+
+    private void saveBirdRecord() {
+        String time = editTextBirdTime.getText().toString();
+        int netNumber = Integer.parseInt(editTextBirdNetNumber.getText().toString());
+        String netSide = editTextBirdNetSide.getText().toString();
+        int shelfNumber = Integer.parseInt(editTextBirdShelfNumber.getText().toString());
+        String species = editTextBirdSpecies.getText().toString();
+        boolean recapture = Boolean.parseBoolean(editTextBirdRecapture.getText().toString());
+        String ringNumber = editTextBirdRingNumber.getText().toString();
+        String topLeftColor = editTextBirdTopLeftColor.getText().toString();
+        String topLightColor = editTextBirdTopRightColor.getText().toString();
+        String bottomLeftColor = editTextBirdBottomLeftColor.getText().toString();
+        String bottomLightColor = editTextBirdBottomRightColor.getText().toString();
+        int sex = Integer.parseInt(editTextBirdSex.getText().toString());
+        int age = Integer.parseInt(editTextBirdAge.getText().toString());
+        int fat = Integer.parseInt(editTextBirdFat.getText().toString());
+        int muscle = Integer.parseInt(editTextBirdMuscle.getText().toString());
+        double tarsus = Double.parseDouble(editTextBirdTarsus.getText().toString());
+        double wingLength = Double.parseDouble(editTextBirdWingLength.getText().toString());
+        double featherLength = Double.parseDouble(editTextBirdFeatherLength.getText().toString());
+        double weight = Double.parseDouble(editTextBirdWeight.getText().toString());
+        String ringer = editTextBirdRinger.getText().toString();
+        String pictureNumber = editTextBirdPictureNumber.getText().toString();
+        String comment = editTextBirdComment.getText().toString();
+
+        BirdRecord newBirdRecord = new BirdRecord(currentBirdRecord.getBirdRecordID(), currentRingingRecord.getRingingRecordID(), time,
+                netNumber, netSide, shelfNumber, species, recapture, ringNumber, topLeftColor,
+                topLightColor, bottomLeftColor, bottomLightColor, sex, age, fat, muscle, tarsus,
+                wingLength, featherLength, weight, ringer, pictureNumber, comment);
+
+        birdRecordViewModel.updateBirdRecord(newBirdRecord);
+
+        setResult(RESULT_OK);
+        finish();
+    }
+
 }

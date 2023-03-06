@@ -9,8 +9,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class RingingRecordViewModel extends AndroidViewModel {
-    private RingingRecordRepository repository;
-    private LiveData<List<RingingRecord>> ringingRecords;
+    private final RingingRecordRepository repository;
+    private final LiveData<List<RingingRecord>> ringingRecords;
 
     public RingingRecordViewModel(@NonNull Application application, int siteID) {
         super(application);

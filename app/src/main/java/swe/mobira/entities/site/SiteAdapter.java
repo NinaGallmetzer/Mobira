@@ -64,8 +64,8 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.SiteHolder> {
     // RECYCLERVIEW + ADAPTER (https://www.youtube.com/watch?v=reSPN7mgshI)
     // holds data for recyclerview (list of cards/sites)
     class SiteHolder extends RecyclerView.ViewHolder {
-        private TextView textViewTitle;
-        private TextView textViewDescription;
+        private final TextView textViewTitle;
+        private final TextView textViewDescription;
         // RECYCLERVIEW + ADAPTER (https://www.youtube.com/watch?v=reSPN7mgshI)
         // connects data and xml (itemView = site.item.xml)
         public SiteHolder(View itemView) {

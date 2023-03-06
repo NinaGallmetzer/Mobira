@@ -1,5 +1,7 @@
 package swe.mobira.entities.site;
 
+import static swe.mobira.MainActivity.ADD_SITE_ACTIVITY_REQUEST_CODE;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -18,7 +20,6 @@ import java.util.List;
 import swe.mobira.R;
 
 public class ActivityListSites extends AppCompatActivity {
-    public static final int ADD_SITE_ACTIVITY_REQUEST_CODE = 1;
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
 
     private SiteViewModel siteViewModel;

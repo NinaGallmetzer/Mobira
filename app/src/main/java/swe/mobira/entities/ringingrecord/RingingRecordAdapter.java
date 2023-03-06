@@ -45,9 +45,9 @@ public class RingingRecordAdapter extends RecyclerView.Adapter<RingingRecordAdap
     }
 
     class RingingRecordHolder extends RecyclerView.ViewHolder {
-        private TextView textViewDate;
-        private TextView textViewStartTime;
-        private TextView textViewEndTime;
+        private final TextView textViewDate;
+        private final TextView textViewStartTime;
+        private final TextView textViewEndTime;
         public RingingRecordHolder(View itemView) {
             super(itemView);
             textViewDate = itemView.findViewById(R.id.text_view_date);

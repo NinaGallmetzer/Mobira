@@ -1,5 +1,8 @@
 package swe.mobira.entities.site;
 
+import static swe.mobira.MainActivity.ADD_R_RECORD_ACTIVITY_REQUEST_CODE;
+import static swe.mobira.MainActivity.EDIT_SITE_ACTIVITY_REQUEST_CODE;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -19,10 +22,7 @@ import swe.mobira.entities.ringingrecord.ActivityAddRingingRecord;
 import swe.mobira.entities.ringingrecord.ActivityListRingingRecords;
 
 public class ActivityShowSiteDetails extends AppCompatActivity {
-    public static final int EDIT_SITE_ACTIVITY_REQUEST_CODE = 2;
-    public static final int ADD_R_RECORD_ACTIVITY_REQUEST_CODE = 3;
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-    public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_R_RECORD";
 
     private SiteViewModel siteViewModel;
     private Site currentSite;
@@ -197,8 +197,6 @@ public class ActivityShowSiteDetails extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == EDIT_SITE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Site updatedSite = data.getParcelableExtra(EXTRA_SITE);
-            siteViewModel.updateSite(updatedSite);
             Toast.makeText(getApplicationContext(), "Site updated", Toast.LENGTH_LONG).show();
         } else if (requestCode == ADD_R_RECORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Toast.makeText(getApplicationContext(), "Record added", Toast.LENGTH_LONG).show();

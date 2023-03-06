@@ -9,8 +9,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class BirdRecordViewModel extends AndroidViewModel {
-    private BirdRecordRepository repository;
-    private LiveData<List<BirdRecord>> birdRecords;
+    private final BirdRecordRepository repository;
+    private final LiveData<List<BirdRecord>> birdRecords;
 
     public BirdRecordViewModel(@NonNull Application application, int ringingRecordID) {
         super(application);

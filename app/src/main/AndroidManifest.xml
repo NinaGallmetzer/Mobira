@@ -12,6 +12,10 @@
         android:theme="@style/Theme.Mobira"
         tools:targetApi="31">
         <activity
+            android:name=".entities.birdrecord.ActivityShowBirdRecordDetails"
+            android:exported="false"
+            android:parentActivityName=".entities.birdrecord.ActivityListBirdRecords" />
+        <activity
             android:name=".entities.birdrecord.ActivityEditBirdRecord"
             android:exported="false"
             android:parentActivityName=".entities.birdrecord.ActivityListBirdRecords"

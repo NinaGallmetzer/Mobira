@@ -1,5 +1,7 @@
 package swe.mobira.entities.ringingrecord;
 
+import static swe.mobira.MainActivity.ADD_R_RECORD_ACTIVITY_REQUEST_CODE;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,7 +22,6 @@ import swe.mobira.R;
 import swe.mobira.entities.site.Site;
 
 public class ActivityListRingingRecords extends AppCompatActivity {
-    public static final int ADD_R_RECORD_ACTIVITY_REQUEST_CODE = 3;
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
 
     private RingingRecordViewModel ringingRecordViewModel;

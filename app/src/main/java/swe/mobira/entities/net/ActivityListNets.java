@@ -1,5 +1,7 @@
 package swe.mobira.entities.net;
 
+import static swe.mobira.MainActivity.ADD_NET_ACTIVITY_REQUEST_CODE;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,7 +22,6 @@ import swe.mobira.R;
 import swe.mobira.entities.site.Site;
 
 public class ActivityListNets extends AppCompatActivity {
-    public static final int ADD_NET_ACTIVITY_REQUEST_CODE = 5;
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
     public static final String EXTRA_NET = "swe.mobira.EXTRA_NET";
 

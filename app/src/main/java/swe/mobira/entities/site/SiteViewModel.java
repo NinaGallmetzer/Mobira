@@ -12,8 +12,8 @@ import java.util.List;
 // where data needed for specific activity is stored and processed
 // survives configuration changes (e.g. recreation of screen after orientation change)
 public class SiteViewModel extends AndroidViewModel {
-    private SiteRepository repository;
-    private LiveData<List<Site>> allSites;
+    private final SiteRepository repository;
+    private final LiveData<List<Site>> allSites;
 
     public SiteViewModel(@NonNull Application application) {
         super(application);

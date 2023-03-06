@@ -9,8 +9,8 @@ import java.util.List;
 import swe.mobira.MobiraDatabase;
 
 public class NetRepository {
-    private NetDAO netDAO;
-    private LiveData<List<Net>> nets;
+    private final NetDAO netDAO;
+    private final LiveData<List<Net>> nets;
     private int siteID;
 
     public NetRepository(Application application) {
