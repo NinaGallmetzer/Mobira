@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".entities.site.ShowSiteDetailsActivity"
-    tools:ignore="HardcodedText">
+    tools:context=".entities.site.ShowSiteDetailsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,7 +18,7 @@
             android:background="@color/design_default_color_secondary_variant"
             android:paddingHorizontal="@dimen/medium_padding"
             android:paddingVertical="@dimen/bigger_padding"
-            android:text="Site title"
+            android:text="@string/text_view_site_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -31,7 +30,7 @@
             android:layout_below="@id/text_view_title"
             android:paddingStart="@dimen/medium_padding"
             android:paddingTop="@dimen/big_padding"
-            android:text="Description:"
+            android:text="@string/description"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant" />
 
@@ -42,7 +41,7 @@
             android:layout_below="@id/description"
             android:paddingStart="@dimen/bigger_padding"
             android:paddingTop="@dimen/small_padding"
-            android:text="Description"
+            android:text="@string/description"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
         <TextView
@@ -52,7 +51,7 @@
             android:layout_below="@id/text_view_description"
             android:paddingStart="@dimen/medium_padding"
             android:paddingTop="@dimen/big_padding"
-            android:text="Latitude:"
+            android:text="@string/latitude"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant" />
 
@@ -63,7 +62,7 @@
             android:layout_below="@id/latitude"
             android:paddingStart="@dimen/bigger_padding"
             android:paddingTop="@dimen/small_padding"
-            android:text="Latitude"
+            android:text="@string/latitude"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
         <TextView
@@ -73,7 +72,7 @@
             android:layout_below="@id/text_view_latitude"
             android:paddingStart="@dimen/medium_padding"
             android:paddingTop="@dimen/big_padding"
-            android:text="Longitude:"
+            android:text="@string/longitude"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant" />
 
@@ -84,7 +83,7 @@
             android:layout_below="@id/longitude"
             android:paddingStart="@dimen/bigger_padding"
             android:paddingTop="@dimen/small_padding"
-            android:text="Longitude"
+            android:text="@string/longitude"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
         <TextView
@@ -94,7 +93,7 @@
             android:layout_below="@id/text_view_longitude"
             android:paddingStart="@dimen/medium_padding"
             android:paddingTop="@dimen/big_padding"
-            android:text="Comment:"
+            android:text="@string/comment"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant" />
 
@@ -106,7 +105,7 @@
             android:ellipsize="end"
             android:paddingStart="@dimen/bigger_padding"
             android:paddingTop="@dimen/small_padding"
-            android:text="Comment"
+            android:text="@string/comment"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
     </RelativeLayout>
@@ -119,7 +118,7 @@
         android:layout_marginEnd="@dimen/huge_padding"
         android:layout_marginBottom="@dimen/huge_padding"
         android:backgroundTint="@color/colorAccent"
-        android:text="Actions"
+        android:text="@string/action"
         app:icon="@drawable/baseline_more_horiz_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -141,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Delete Site"
+        android:text="@string/delete"
         app:layout_constraintBottom_toBottomOf="@+id/delete_site_fab"
         app:layout_constraintEnd_toStartOf="@+id/delete_site_fab"
         app:layout_constraintTop_toTopOf="@+id/delete_site_fab" />
@@ -163,7 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Edit Details"
+        android:text="@string/edit"
         app:layout_constraintBottom_toBottomOf="@+id/edit_site_fab"
         app:layout_constraintEnd_toStartOf="@+id/edit_site_fab"
         app:layout_constraintTop_toTopOf="@+id/edit_site_fab" />
@@ -185,7 +184,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Show Records"
+        android:text="@string/show"
         app:layout_constraintBottom_toBottomOf="@+id/show_records_fab"
         app:layout_constraintEnd_toStartOf="@+id/show_records_fab"
         app:layout_constraintTop_toTopOf="@+id/show_records_fab" />

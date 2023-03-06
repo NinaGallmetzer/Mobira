@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".entities.ringingrecord.AddRingingRecordActivity"
-    tools:ignore="HardcodedText">
+    tools:context=".entities.ringingrecord.AddRingingRecordActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +26,7 @@
                 android:background="@color/design_default_color_secondary_variant"
                 android:paddingHorizontal="@dimen/medium_padding"
                 android:paddingVertical="@dimen/bigger_padding"
-                android:text="Site: "
+                android:text="@string/record_site_title_label"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -40,7 +39,7 @@
                 android:background="@color/design_default_color_secondary_variant"
                 android:ellipsize="end"
                 android:paddingVertical="@dimen/bigger_padding"
-                android:text="Test site 1"
+                android:text="@string/record_site_title"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/white"
                 android:textStyle="bold" />

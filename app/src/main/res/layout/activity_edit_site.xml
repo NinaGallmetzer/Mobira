@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".entities.site.EditSiteActivity"
-    tools:ignore="HardcodedText"
     android:fitsSystemWindows="true">
 
     <RelativeLayout
@@ -24,7 +23,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant"
             android:labelFor="@id/edit_text_title"
-            android:text="Title:"/>
+            android:text="@string/title"/>
 
         <EditText
             android:id="@+id/edit_text_title"
@@ -35,7 +34,7 @@
             android:paddingStart="@dimen/bigger_padding"
             android:inputType="text"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:text="Title"/>
+            android:text="@string/title"/>
 
         <TextView
             android:id="@+id/description"
@@ -47,7 +46,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant"
             android:labelFor="@id/edit_text_description"
-            android:text="Description:"/>
+            android:text="@string/description"/>
 
         <EditText
             android:id="@+id/edit_text_description"
@@ -58,7 +57,7 @@
             android:paddingStart="@dimen/bigger_padding"
             android:inputType="textMultiLine"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:text="Description"/>
+            android:text="@string/description"/>
 
         <TextView
             android:id="@+id/latitude"
@@ -70,7 +69,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant"
             android:labelFor="@id/edit_text_latitude"
-            android:text="Latitude:"/>
+            android:text="@string/latitude"/>
 
         <EditText
             android:id="@+id/edit_text_latitude"
@@ -81,7 +80,7 @@
             android:paddingStart="@dimen/bigger_padding"
             android:inputType="numberDecimal"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:text="Latitude" />
+            android:text="@string/latitude" />
 
         <TextView
             android:id="@+id/longitude"
@@ -93,7 +92,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant"
             android:labelFor="@id/edit_text_longitude"
-            android:text="Longitude:"/>
+            android:text="@string/longitude"/>
 
         <EditText
             android:id="@+id/edit_text_longitude"
@@ -104,7 +103,7 @@
             android:paddingStart="@dimen/bigger_padding"
             android:inputType="numberDecimal"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:text="Longitude" />
+            android:text="@string/longitude" />
 
         <TextView
             android:id="@+id/comment"
@@ -116,7 +115,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/design_default_color_secondary_variant"
             android:labelFor="@id/edit_text_comment"
-            android:text="Comment:"/>
+            android:text="@string/comment"/>
 
         <EditText
             android:id="@+id/edit_text_comment"
@@ -127,7 +126,7 @@
             android:inputType="textMultiLine"
             android:paddingStart="@dimen/bigger_padding"
             android:paddingTop="@dimen/small_padding"
-            android:text="Comment"
+            android:text="@string/comment"
             android:textAppearance="@style/TextAppearance.AppCompat.Title" />
     </RelativeLayout>
 

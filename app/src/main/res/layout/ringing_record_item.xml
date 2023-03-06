@@ -5,8 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/small_padding"
     android:layout_marginTop="@dimen/small_padding"
-    android:layout_marginEnd="@dimen/small_padding"
-    tools:ignore="HardcodedText">
+    android:layout_marginEnd="@dimen/small_padding">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -21,7 +20,7 @@
             android:layout_alignParentEnd="true"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Date"
+            android:text="@string/record_date_label"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -31,7 +30,7 @@
             android:layout_below="@id/text_view_date"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="From " />
+            android:text="@string/record_start_time_label" />
 
         <TextView
             android:id="@+id/text_view_start_time"
@@ -41,7 +40,7 @@
             android:layout_toEndOf="@id/text_view_start_time_label"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="00:00 " />
+            android:text="@string/text_view_start_time" />
 
         <TextView
             android:id="@+id/text_view_end_time_label"
@@ -51,7 +50,7 @@
             android:layout_toEndOf="@id/text_view_start_time"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text=" to " />
+            android:text="@string/record_end_time_label" />
 
         <TextView
             android:id="@+id/text_view_end_time"
@@ -62,7 +61,7 @@
             android:layout_toEndOf="@id/text_view_end_time_label"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="00:00" />
+            android:text="@string/text_view_end_time" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

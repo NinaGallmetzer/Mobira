@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".entities.net.ListNetsActivity"
-    tools:ignore="HardcodedText">
+    tools:context=".entities.net.ListNetsActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,7 +19,7 @@
             android:background="@color/colorAccent"
             android:paddingHorizontal="@dimen/big_padding"
             android:paddingVertical="@dimen/bigger_padding"
-            android:text="Site title"
+            android:text="@string/text_view_site_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
             android:textStyle="bold" />

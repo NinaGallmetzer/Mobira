@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    tools:ignore="HardcodedText">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/text_view_welcome"
@@ -14,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.66"
         android:gravity="center"
-        android:text="Welcome"
+        android:text="@string/text_view_welcome"
         android:textSize="40sp" />
 
     <LinearLayout
@@ -39,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Add/Browse Data"
+                android:text="@string/button_add"
                 app:cornerRadius="15dp" />
 
             <Space
@@ -53,7 +52,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorAccent"
-                android:text="Export Data"
+                android:text="@string/button_export"
                 app:cornerRadius="15dp" />
         </LinearLayout>
 
