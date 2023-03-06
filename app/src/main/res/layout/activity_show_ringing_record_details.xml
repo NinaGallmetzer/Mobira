@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".entities.ringingrecord.ShowRingingRecordDetailsActivity"
+    tools:context=".entities.ringingrecord.ActivityShowRingingRecordDetails"
     tools:ignore="HardcodedText"
     android:fitsSystemWindows="true">
 
@@ -403,7 +402,7 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/actions_fab"
         app:layout_constraintEnd_toEndOf="@+id/actions_fab"
-        app:srcCompat="@drawable/ic_delete_24" />
+        app:srcCompat="@drawable/ic_delete" />
 
     <TextView
         android:id="@+id/delete_fab_label"
@@ -425,7 +424,7 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/delete_fab"
         app:layout_constraintEnd_toEndOf="@+id/delete_fab"
-        app:srcCompat="@drawable/ic_edit_24" />
+        app:srcCompat="@drawable/ic_edit" />
 
     <TextView
         android:id="@+id/edit_fab_label"
@@ -447,7 +446,7 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/edit_fab"
         app:layout_constraintEnd_toEndOf="@+id/edit_fab"
-        app:srcCompat="@drawable/baseline_list_alt_24" />
+        app:srcCompat="@drawable/baseline_format_list_bulleted_24" />
 
     <TextView
         android:id="@+id/show_fab_label"
@@ -458,5 +457,27 @@
         app:layout_constraintBottom_toBottomOf="@+id/show_fab"
         app:layout_constraintEnd_toStartOf="@+id/show_fab"
         app:layout_constraintTop_toTopOf="@+id/show_fab" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/colorAccent"
+        android:contentDescription="ADD NEW BIRD RECORD"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toTopOf="@+id/show_fab"
+        app:layout_constraintEnd_toEndOf="@+id/show_fab"
+        app:srcCompat="@drawable/ic_add" />
+
+    <TextView
+        android:id="@+id/add_fab_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Add New Birds"
+        app:layout_constraintBottom_toBottomOf="@+id/add_fab"
+        app:layout_constraintEnd_toStartOf="@+id/add_fab"
+        app:layout_constraintTop_toTopOf="@+id/add_fab" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

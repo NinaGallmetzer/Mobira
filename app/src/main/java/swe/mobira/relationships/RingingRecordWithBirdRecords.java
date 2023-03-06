@@ -5,7 +5,7 @@ import androidx.room.Relation;
 
 import java.util.List;
 
-import swe.mobira.entities.birdrecords.BirdRecord;
+import swe.mobira.entities.birdrecord.BirdRecord;
 import swe.mobira.entities.ringingrecord.RingingRecord;
 
 public class RingingRecordWithBirdRecords {

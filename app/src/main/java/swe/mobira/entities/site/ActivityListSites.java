@@ -17,7 +17,7 @@ import java.util.List;
 
 import swe.mobira.R;
 
-public class ListSitesActivity extends AppCompatActivity {
+public class ActivityListSites extends AppCompatActivity {
     public static final int ADD_SITE_ACTIVITY_REQUEST_CODE = 1;
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
 
@@ -59,7 +59,7 @@ public class ListSitesActivity extends AppCompatActivity {
         buttonAddSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ListSitesActivity.this, AddSiteActivity.class);
+                Intent intent = new Intent(ActivityListSites.this, ActivityAddSite.class);
                 startActivityForResult(intent, ADD_SITE_ACTIVITY_REQUEST_CODE);
             }
         });
@@ -69,8 +69,8 @@ public class ListSitesActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new SiteAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Site site) {
-                Intent intent = new Intent(ListSitesActivity.this, ShowSiteDetailsActivity.class);
-                intent.putExtra(ShowSiteDetailsActivity.EXTRA_SITE, site);
+                Intent intent = new Intent(ActivityListSites.this, ActivityShowSiteDetails.class);
+                intent.putExtra(ActivityShowSiteDetails.EXTRA_SITE, site);
                 startActivity(intent);
             }
         });

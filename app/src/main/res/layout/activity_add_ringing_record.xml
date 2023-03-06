@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".entities.ringingrecord.AddRingingRecordActivity"
+    tools:context=".entities.ringingrecord.ActivityAddRingingRecord"
     tools:ignore="HardcodedText">
 
     <LinearLayout
@@ -59,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/big_padding">
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/record_date"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -82,7 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/record_start_time"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -97,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/record_end_time"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -121,7 +121,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/record_start_temperature"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -136,7 +136,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/record_end_temperature"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -160,8 +160,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
-                        <EditText
-                            android:id="@+id/record_weather"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/record_general_weather"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
@@ -175,7 +175,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/record_wind"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/record_weather_conditions_layout"
                     android:paddingTop="@dimen/big_padding">
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/record_coordinator"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -208,7 +208,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/record_coordinator_layout"
                     android:paddingTop="@dimen/big_padding">
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/record_comment"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

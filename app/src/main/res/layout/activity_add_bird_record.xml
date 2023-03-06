@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".entities.ringingrecord.ActivityAddRingingRecord"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_view_site_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@color/design_default_color_secondary_variant"
+                android:paddingHorizontal="@dimen/medium_padding"
+                android:paddingVertical="@dimen/bigger_padding"
+                android:ellipsize="end"
+                android:text="Title test site 1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text_view_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:gravity="end"
+                android:layout_toEndOf="@+id/text_view_site_title"
+                android:background="@color/design_default_color_secondary_variant"
+                android:paddingHorizontal="@dimen/medium_padding"
+                android:paddingVertical="@dimen/bigger_padding"
+                android:text="0000-00-00"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/row_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_time_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Time"
+                            android:inputType="time"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_net_number_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_net_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Net No."
+                            android:inputType="number"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/bird_net_side_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_net_side"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Net Side"
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_shelf_number_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_shelf_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Shelf No."
+                            android:inputType="number"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/row_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_01"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_species_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_species"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Species"
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_ring_number_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_ring_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Ring No."
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_recapture_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_recapture"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Recapture"
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/row_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_02"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_top_left_color_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_top_left_color"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Top Left Color"
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_top_right_color_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_top_right_color"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Top Right Color"
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/row_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_03"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_bottom_left_color_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_bottom_left_color"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Bottom Left Color"
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_bottom_right_color_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_bottom_right_color"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Bottom Right Color"
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/row_05"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_04"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_sex_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_sex"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Sex"
+                            android:inputType="number"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_age_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_age"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Age"
+                            android:inputType="number"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_fat_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_fat"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Fat"
+                            android:inputType="number"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_muscle_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_muscle"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Muscle"
+                            android:inputType="number"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/row_06"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_05"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_tarsus_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_tarsus"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Tarsus"
+                            android:inputType="numberDecimal"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_wing_length_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_wing_length"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Wing Length"
+                            android:inputType="numberDecimal"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_feather_length_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_feather_length"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="P8"
+                            android:inputType="numberDecimal"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_weight_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_weight"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Weight"
+                            android:inputType="numberDecimal"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/row_07"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_06"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_ringer_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_ringer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Ringer"
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/bird_picture_number_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/big_padding">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_bird_picture_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent"
+                            android:hint="Picture No."
+                            android:inputType="text"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/bird_comment_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_07"
+                    android:paddingTop="@dimen/big_padding">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_text_bird_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="Comment"
+                        android:inputType="text"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/huge_padding"
+        android:backgroundTint="@color/colorAccent"
+        android:contentDescription="ADD"
+        android:src="@drawable/ic_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

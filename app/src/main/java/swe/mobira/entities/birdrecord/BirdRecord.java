@@ -1,4 +1,4 @@
-package swe.mobira.entities.birdrecords;
+package swe.mobira.entities.birdrecord;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,7 +9,6 @@ import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import swe.mobira.entities.net.Net;
 import swe.mobira.entities.ringingrecord.RingingRecord;
 
 @Entity(foreignKeys = {@ForeignKey(entity = RingingRecord.class,

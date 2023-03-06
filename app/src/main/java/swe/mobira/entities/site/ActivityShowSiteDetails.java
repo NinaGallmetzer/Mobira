@@ -15,11 +15,14 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
-import swe.mobira.entities.ringingrecord.ListRingingRecordsActivity;
+import swe.mobira.entities.ringingrecord.ActivityAddRingingRecord;
+import swe.mobira.entities.ringingrecord.ActivityListRingingRecords;
 
-public class ShowSiteDetailsActivity extends AppCompatActivity {
+public class ActivityShowSiteDetails extends AppCompatActivity {
     public static final int EDIT_SITE_ACTIVITY_REQUEST_CODE = 2;
+    public static final int ADD_R_RECORD_ACTIVITY_REQUEST_CODE = 3;
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
+    public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_R_RECORD";
 
     private SiteViewModel siteViewModel;
     private Site currentSite;
@@ -31,8 +34,8 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
     private TextView editTextComment;
 
     ExtendedFloatingActionButton actionsFab;
-    FloatingActionButton showFab, editFab, deleteFab;
-    TextView showRecordsActionText, editSiteActionText, deleteSiteActionText;
+    FloatingActionButton addFab, showFab, editFab, deleteFab;
+    TextView addRecordActionText, showRecordsActionText, editSiteActionText, deleteSiteActionText;
 
     // to check whether sub FABs are visible or not
     Boolean isAllFabsVisible;
@@ -83,9 +86,11 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
                 if (!isAllFabsVisible) {
 
                     // when isAllFabsVisible becomes true make all the action name texts and FABs VISIBLE.
+                    addFab.show();
                     showFab.show();
                     editFab.show();
                     deleteFab.show();
+                    addRecordActionText.setVisibility(View.VISIBLE);
                     showRecordsActionText.setVisibility(View.VISIBLE);
                     editSiteActionText.setVisibility(View.VISIBLE);
                     deleteSiteActionText.setVisibility(View.VISIBLE);
@@ -98,9 +103,11 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
                 } else {
 
                     // when isAllFabsVisible becomes true make all the action name texts and FABs GONE.
+                    addFab.hide();
                     showFab.hide();
                     editFab.hide();
                     deleteFab.hide();
+                    addRecordActionText.setVisibility(View.GONE);
                     showRecordsActionText.setVisibility(View.GONE);
                     editSiteActionText.setVisibility(View.GONE);
                     deleteSiteActionText.setVisibility(View.GONE);
@@ -114,11 +121,21 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
             }
         });
 
+        addFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActivityShowSiteDetails.this, ActivityAddRingingRecord.class);
+                intent.putExtra(ActivityAddRingingRecord.EXTRA_SITE, currentSite);
+                setUpActionButtons();
+                startActivityForResult(intent, ADD_R_RECORD_ACTIVITY_REQUEST_CODE);
+            }
+        });
+
         showFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ShowSiteDetailsActivity.this, ListRingingRecordsActivity.class);
-                intent.putExtra(ListRingingRecordsActivity.EXTRA_SITE, currentSite);
+                Intent intent = new Intent(ActivityShowSiteDetails.this, ActivityListRingingRecords.class);
+                intent.putExtra(ActivityListRingingRecords.EXTRA_SITE, currentSite);
                 setUpActionButtons();
                 startActivity(intent);
             }
@@ -127,8 +144,8 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
         editFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ShowSiteDetailsActivity.this, EditSiteActivity.class);
-                intent.putExtra(EditSiteActivity.EXTRA_SITE, currentSite);
+                Intent intent = new Intent(ActivityShowSiteDetails.this, ActivityEditSite.class);
+                intent.putExtra(ActivityEditSite.EXTRA_SITE, currentSite);
                 setUpActionButtons();
                 startActivityForResult(intent, EDIT_SITE_ACTIVITY_REQUEST_CODE);
             }
@@ -138,7 +155,7 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 siteViewModel.deleteSite(currentSite);
-                Toast.makeText(ShowSiteDetailsActivity.this, "Site deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityShowSiteDetails.this, "Site deleted", Toast.LENGTH_SHORT).show();
                 setUpActionButtons();
                 finish();
             }
@@ -148,20 +165,24 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
     void setUpActionButtons() {
         // Register all the FABs with their appropriate IDs
         actionsFab = findViewById(R.id.actions_fab);
+        addFab = findViewById(R.id.add_record_fab);
         showFab = findViewById(R.id.show_records_fab);
         editFab = findViewById(R.id.edit_site_fab);
         deleteFab = findViewById(R.id.delete_site_fab);
 
         // Also register the action name text, of all the FABs. except parent FAB action name text
+        addRecordActionText = findViewById(R.id.add_record_action_text);
         showRecordsActionText = findViewById(R.id.show_records_action_text);
         editSiteActionText = findViewById(R.id.edit_site_action_text);
         deleteSiteActionText = findViewById(R.id.delete_site_action_text);
 
         // Now set all the FABs and all the action name texts as GONE (except parent FAB)
+        addFab.setVisibility(View.GONE);
         showFab.setVisibility(View.GONE);
         editFab.setVisibility(View.GONE);
         deleteFab.setVisibility(View.GONE);
 
+        addRecordActionText.setVisibility(View.GONE);
         showRecordsActionText.setVisibility(View.GONE);
         editSiteActionText.setVisibility(View.GONE);
         deleteSiteActionText.setVisibility(View.GONE);
@@ -179,6 +200,8 @@ public class ShowSiteDetailsActivity extends AppCompatActivity {
             Site updatedSite = data.getParcelableExtra(EXTRA_SITE);
             siteViewModel.updateSite(updatedSite);
             Toast.makeText(getApplicationContext(), "Site updated", Toast.LENGTH_LONG).show();
+        } else if (requestCode == ADD_R_RECORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Toast.makeText(getApplicationContext(), "Record added", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(getApplicationContext(), "No changes saved", Toast.LENGTH_LONG).show();
         }

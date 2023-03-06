@@ -15,9 +15,10 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
+import swe.mobira.entities.birdrecord.ActivityListBirdRecords;
 import swe.mobira.entities.site.Site;
 
-public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
+public class ActivityShowRingingRecordDetails extends AppCompatActivity {
     public static final int EDIT_R_RECORD_ACTIVITY_REQUEST_CODE = 4;
     public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_RECORD";
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
@@ -38,8 +39,8 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
     private TextView textViewComment;
 
     ExtendedFloatingActionButton actionsFab;
-    FloatingActionButton showFab, editFab, deleteFab;
-    TextView showFabLabel, editFabLabel, deleteFabLabel;
+    FloatingActionButton addFab, showFab, editFab, deleteFab;
+    TextView addFabLabel, showFabLabel, editFabLabel, deleteFabLabel;
 
     Boolean isAllFabsVisible;
 
@@ -97,9 +98,11 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!isAllFabsVisible) {
+                    addFab.show();
                     showFab.show();
                     editFab.show();
                     deleteFab.show();
+                    addFabLabel.setVisibility(View.VISIBLE);
                     showFabLabel.setVisibility(View.VISIBLE);
                     editFabLabel.setVisibility(View.VISIBLE);
                     deleteFabLabel.setVisibility(View.VISIBLE);
@@ -107,9 +110,11 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
                     actionsFab.extend();
                     isAllFabsVisible = true;
                 } else {
+                    addFab.hide();
                     showFab.hide();
                     editFab.hide();
                     deleteFab.hide();
+                    addFabLabel.setVisibility(View.GONE);
                     showFabLabel.setVisibility(View.GONE);
                     editFabLabel.setVisibility(View.GONE);
                     deleteFabLabel.setVisibility(View.GONE);
@@ -120,22 +125,31 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
             }
         });
 
+        addFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setUpActionButtons();
+//                startActivity(intent);
+            }
+        });
+
         showFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(ShowRingingRecordDetailsActivity.this, ListRingingRecordsActivity.class);
-//                intent.putExtra(ListRingingRecordsActivity.EXTRA_RECORD, currentRingingRecord);
+                Intent intent = new Intent(ActivityShowRingingRecordDetails.this, ActivityListBirdRecords.class);
+                intent.putExtra(ActivityListBirdRecords.EXTRA_R_RECORD, currentRingingRecord);
+                intent.putExtra(ActivityListBirdRecords.EXTRA_SITE, currentSite);
                 setUpActionButtons();
-//                startActivity(intent);
+                startActivity(intent);
             }
         });
 
         editFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ShowRingingRecordDetailsActivity.this, EditRingingRecordActivity.class);
-                intent.putExtra(EditRingingRecordActivity.EXTRA_R_RECORD, currentRingingRecord);
-                intent.putExtra(EditRingingRecordActivity.EXTRA_SITE, currentSite);
+                Intent intent = new Intent(ActivityShowRingingRecordDetails.this, ActivityEditRingingRecord.class);
+                intent.putExtra(ActivityEditRingingRecord.EXTRA_R_RECORD, currentRingingRecord);
+                intent.putExtra(ActivityEditRingingRecord.EXTRA_SITE, currentSite);
                 setUpActionButtons();
                 startActivityForResult(intent, EDIT_R_RECORD_ACTIVITY_REQUEST_CODE);
             }
@@ -145,7 +159,7 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ringingRecordViewModel.deleteRingingRecord(currentRingingRecord);
-                Toast.makeText(ShowRingingRecordDetailsActivity.this, "Record deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ActivityShowRingingRecordDetails.this, "Record deleted", Toast.LENGTH_SHORT).show();
                 setUpActionButtons();
                 finish();
             }
@@ -154,16 +168,20 @@ public class ShowRingingRecordDetailsActivity extends AppCompatActivity {
 
     void setUpActionButtons() {
         actionsFab = findViewById(R.id.actions_fab);
+        addFab = findViewById(R.id.add_fab);
         showFab = findViewById(R.id.show_fab);
         editFab = findViewById(R.id.edit_fab);
         deleteFab = findViewById(R.id.delete_fab);
+        addFabLabel = findViewById(R.id.add_fab_label);
         showFabLabel = findViewById(R.id.show_fab_label);
         editFabLabel = findViewById(R.id.edit_fab_label);
         deleteFabLabel = findViewById(R.id.delete_fab_label);
 
+        addFab.setVisibility(View.GONE);
         showFab.setVisibility(View.GONE);
         editFab.setVisibility(View.GONE);
         deleteFab.setVisibility(View.GONE);
+        addFabLabel.setVisibility(View.GONE);
         showFabLabel.setVisibility(View.GONE);
         editFabLabel.setVisibility(View.GONE);
         deleteFabLabel.setVisibility(View.GONE);

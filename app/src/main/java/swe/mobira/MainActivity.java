@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import swe.mobira.entities.site.ListSitesActivity;
+import swe.mobira.entities.site.ActivityListSites;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonAdd = (Button) findViewById(R.id.button_add);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListSitesActivity.class);
+                Intent intent = new Intent(MainActivity.this, ActivityListSites.class);
                 startActivity(intent);
 
                 // Do something in response to button click

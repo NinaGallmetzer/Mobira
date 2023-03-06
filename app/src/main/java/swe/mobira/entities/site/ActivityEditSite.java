@@ -1,18 +1,22 @@
 package swe.mobira.entities.site;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import swe.mobira.R;
 
-public class AddSiteActivity extends AppCompatActivity {
+public class ActivityEditSite extends AppCompatActivity {
+    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
+
+    private Site currentSite;
+
     private EditText editTextTitle;
     private EditText editTextDescription;
     private EditText editTextLatitude;
@@ -22,8 +26,12 @@ public class AddSiteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_site);
-        setTitle("Add Site");
+        // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
+        // get currentSiteData that got passed from prev screen > load edit-site-screen
+        setContentView(R.layout.activity_edit_site);
+        setTitle("Edit Site");
+
+        currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
@@ -31,7 +39,18 @@ public class AddSiteActivity extends AppCompatActivity {
         editTextLongitude = findViewById(R.id.edit_text_longitude);
         editTextComment = findViewById(R.id.edit_text_comment);
 
-        FloatingActionButton buttonSave = findViewById(R.id.button_add);
+        // get home logo on left upper corner
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_home_24);
+
+        // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
+        // fill text fields
+        editTextTitle.setText(currentSite.getTitle());
+        editTextDescription.setText(currentSite.getDescription());
+        editTextLatitude.setText(String.valueOf(currentSite.getLatitude()));
+        editTextLongitude.setText(String.valueOf(currentSite.getLongitude()));
+        editTextComment.setText(currentSite.getComment());
+
+        FloatingActionButton buttonSave = findViewById(R.id.button_save);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,10 +71,10 @@ public class AddSiteActivity extends AppCompatActivity {
             return;
         }
 
-        Site newSite = new Site(title, description, latitude, longitude, comment);
+        Site updatedSite = new Site(currentSite.getSiteID(), title, description, latitude, longitude, comment);
 
         Intent intent = new Intent();
-        intent.putExtra(ListSitesActivity.EXTRA_SITE, newSite);
+        intent.putExtra(ActivityShowSiteDetails.EXTRA_SITE, updatedSite);
 
         setResult(RESULT_OK, intent);
         finish();

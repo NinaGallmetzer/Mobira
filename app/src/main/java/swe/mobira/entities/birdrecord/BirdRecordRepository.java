@@ -1,4 +1,4 @@
-package swe.mobira.entities.birdrecords;
+package swe.mobira.entities.birdrecord;
 
 import android.app.Application;
 

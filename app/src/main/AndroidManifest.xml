@@ -12,43 +12,57 @@
         android:theme="@style/Theme.Mobira"
         tools:targetApi="31">
         <activity
-            android:name=".entities.net.ListNetsActivity"
+            android:name=".entities.birdrecord.ActivityEditBirdRecord"
             android:exported="false"
-            android:parentActivityName=".entities.site.ShowSiteDetailsActivity"/>
-        <activity
-            android:name=".entities.ringingrecord.AddRingingRecordActivity"
-            android:exported="false"
-            android:parentActivityName=".entities.ringingrecord.ListRingingRecordsActivity"
+            android:parentActivityName=".entities.birdrecord.ActivityListBirdRecords"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".entities.ringingrecord.EditRingingRecordActivity"
+            android:name=".entities.birdrecord.ActivityAddBirdRecord"
             android:exported="false"
-            android:parentActivityName=".entities.ringingrecord.ListRingingRecordsActivity"
+            android:parentActivityName=".entities.ringingrecord.ActivityShowRingingRecordDetails"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".entities.ringingrecord.ShowRingingRecordDetailsActivity"
+            android:name=".entities.birdrecord.ActivityListBirdRecords"
             android:exported="false"
-            android:parentActivityName=".entities.ringingrecord.ListRingingRecordsActivity" />
+            android:parentActivityName=".entities.ringingrecord.ActivityShowRingingRecordDetails" />
         <activity
-            android:name=".entities.ringingrecord.ListRingingRecordsActivity"
+            android:name=".entities.net.ActivityListNets"
             android:exported="false"
-            android:parentActivityName=".entities.site.ShowSiteDetailsActivity" />
+            android:parentActivityName=".entities.site.ActivityShowSiteDetails" />
         <activity
-            android:name=".entities.site.EditSiteActivity"
+            android:name=".entities.ringingrecord.ActivityAddRingingRecord"
             android:exported="false"
-            android:parentActivityName=".entities.site.ListSitesActivity"
+            android:parentActivityName=".entities.ringingrecord.ActivityListRingingRecords"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".entities.site.AddSiteActivity"
+            android:name=".entities.ringingrecord.ActivityEditRingingRecord"
             android:exported="false"
-            android:parentActivityName=".entities.site.ListSitesActivity"
+            android:parentActivityName=".entities.ringingrecord.ActivityListRingingRecords"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".entities.site.ShowSiteDetailsActivity"
+            android:name=".entities.ringingrecord.ActivityShowRingingRecordDetails"
             android:exported="false"
-            android:parentActivityName=".entities.site.ListSitesActivity" />
+            android:parentActivityName=".entities.ringingrecord.ActivityListRingingRecords" />
         <activity
-            android:name=".entities.site.ListSitesActivity"
+            android:name=".entities.ringingrecord.ActivityListRingingRecords"
+            android:exported="false"
+            android:parentActivityName=".entities.site.ActivityShowSiteDetails" />
+        <activity
+            android:name=".entities.site.ActivityEditSite"
+            android:exported="false"
+            android:parentActivityName=".entities.site.ActivityListSites"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".entities.site.ActivityAddSite"
+            android:exported="false"
+            android:parentActivityName=".entities.site.ActivityListSites"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".entities.site.ActivityShowSiteDetails"
+            android:exported="false"
+            android:parentActivityName=".entities.site.ActivityListSites" />
+        <activity
+            android:name=".entities.site.ActivityListSites"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
         <activity

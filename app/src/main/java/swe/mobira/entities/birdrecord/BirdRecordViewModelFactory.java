@@ -1,11 +1,9 @@
-package swe.mobira.entities.birdrecords;
+package swe.mobira.entities.birdrecord;
 
 import android.app.Application;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-
-import swe.mobira.entities.ringingrecord.RingingRecordViewModel;
 
 public class BirdRecordViewModelFactory implements ViewModelProvider.Factory {
     private Application mApplication;

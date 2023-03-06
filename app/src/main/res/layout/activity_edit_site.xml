@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".entities.site.EditSiteActivity"
+    tools:context=".entities.site.ActivityEditSite"
     tools:ignore="HardcodedText"
     android:fitsSystemWindows="true">
 

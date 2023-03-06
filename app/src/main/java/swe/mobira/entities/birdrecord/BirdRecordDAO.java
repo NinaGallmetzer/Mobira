@@ -1,4 +1,4 @@
-package swe.mobira.entities.birdrecords;
+package swe.mobira.entities.birdrecord;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

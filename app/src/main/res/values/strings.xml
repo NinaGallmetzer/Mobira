@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Mobira</string>
+
+    <string-array name="colors_array">
+        <item>none</item>
+        <item>white</item>
+        <item>yellow</item>
+        <item>orange</item>
+        <item>red</item>
+        <item>purple</item>
+        <item>blue</item>
+        <item>green</item>
+        <item>black</item>
+        <item>aluminium</item>
+    </string-array>
 </resources>

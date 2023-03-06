@@ -5,32 +5,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Objects;
 
 import swe.mobira.R;
 import swe.mobira.entities.site.Site;
 
-public class EditRingingRecordActivity extends AppCompatActivity {
+public class ActivityEditRingingRecord extends AppCompatActivity {
     public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_R_RECORD";
     public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
 
     private RingingRecord currentRingingRecord;
     private Site currentSite;
 
-    private TextView textViewSiteTitle;
-
-    private EditText editTextDate;
-    private EditText editTextStartTime;
-    private EditText editTextEndTime;
-    private EditText editTextStartTemperature;
-    private EditText editTextEndTemperature;
-    private EditText editTextWeather;
-    private EditText editTextWind;
-    private EditText editTextCoordinator;
-    private EditText editTextComment;
+    private TextInputEditText editTextStartTime;
+    private TextInputEditText editTextEndTime;
+    private TextInputEditText editTextStartTemperature;
+    private TextInputEditText editTextEndTemperature;
+    private TextInputEditText editTextWeather;
+    private TextInputEditText editTextWind;
+    private TextInputEditText editTextCoordinator;
+    private TextInputEditText editTextComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +40,8 @@ public class EditRingingRecordActivity extends AppCompatActivity {
         currentRingingRecord = getIntent().getParcelableExtra(EXTRA_R_RECORD);
         currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
 
-        textViewSiteTitle = findViewById(R.id.record_site_title);
-        editTextDate = findViewById(R.id.record_date);
+        TextView textViewSiteTitle = findViewById(R.id.record_site_title);
+        TextInputEditText editTextDate = findViewById(R.id.record_date);
         editTextStartTime = findViewById(R.id.record_start_time);
         editTextEndTime = findViewById(R.id.record_end_time);
         editTextStartTemperature = findViewById(R.id.record_start_temperature);
@@ -52,7 +51,7 @@ public class EditRingingRecordActivity extends AppCompatActivity {
         editTextCoordinator = findViewById(R.id.record_coordinator);
         editTextComment = findViewById(R.id.record_comment);
 
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_home_24);
+        Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(R.drawable.baseline_home_24);
 
         textViewSiteTitle.setText(currentSite.getTitle());
         editTextDate.setText(currentRingingRecord.getRecordDate());
@@ -91,8 +90,8 @@ public class EditRingingRecordActivity extends AppCompatActivity {
                 startTemperature, endTemperature, weather, wind, coordinator, comment);
 
         Intent intent = new Intent();
-        intent.putExtra(ShowRingingRecordDetailsActivity.EXTRA_R_RECORD, updatedRingingRecord);
-        intent.putExtra(ShowRingingRecordDetailsActivity.EXTRA_SITE, currentSite);
+        intent.putExtra(ActivityShowRingingRecordDetails.EXTRA_R_RECORD, updatedRingingRecord);
+        intent.putExtra(ActivityShowRingingRecordDetails.EXTRA_SITE, currentSite);
 
         setResult(RESULT_OK, intent);
         finish();

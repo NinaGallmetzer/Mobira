@@ -5,33 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 
 import swe.mobira.R;
 
-public class EditSiteActivity extends AppCompatActivity {
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-
-    private Site currentSite;
-
-    private EditText editTextTitle;
-    private EditText editTextDescription;
-    private EditText editTextLatitude;
-    private EditText editTextLongitude;
-    private EditText editTextComment;
+public class ActivityAddSite extends AppCompatActivity {
+    private TextInputEditText editTextTitle;
+    private TextInputEditText editTextDescription;
+    private TextInputEditText editTextLatitude;
+    private TextInputEditText editTextLongitude;
+    private TextInputEditText editTextComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
-        // get currentSiteData that got passed from prev screen > load edit-site-screen
-        setContentView(R.layout.activity_edit_site);
-        setTitle("Edit Site");
-
-        currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
+        setContentView(R.layout.activity_add_site);
+        setTitle("Add Site");
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
@@ -39,18 +31,7 @@ public class EditSiteActivity extends AppCompatActivity {
         editTextLongitude = findViewById(R.id.edit_text_longitude);
         editTextComment = findViewById(R.id.edit_text_comment);
 
-        // get home logo on left upper corner
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_home_24);
-
-        // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
-        // fill text fields
-        editTextTitle.setText(currentSite.getTitle());
-        editTextDescription.setText(currentSite.getDescription());
-        editTextLatitude.setText(String.valueOf(currentSite.getLatitude()));
-        editTextLongitude.setText(String.valueOf(currentSite.getLongitude()));
-        editTextComment.setText(currentSite.getComment());
-
-        FloatingActionButton buttonSave = findViewById(R.id.button_save);
+        FloatingActionButton buttonSave = findViewById(R.id.button_add);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,10 +52,10 @@ public class EditSiteActivity extends AppCompatActivity {
             return;
         }
 
-        Site updatedSite = new Site(currentSite.getSiteID(), title, description, latitude, longitude, comment);
+        Site newSite = new Site(title, description, latitude, longitude, comment);
 
         Intent intent = new Intent();
-        intent.putExtra(ShowSiteDetailsActivity.EXTRA_SITE, updatedSite);
+        intent.putExtra(ActivityListSites.EXTRA_SITE, newSite);
 
         setResult(RESULT_OK, intent);
         finish();

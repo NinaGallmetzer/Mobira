@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/small_padding"
+    android:layout_marginTop="@dimen/small_padding"
+    android:layout_marginEnd="@dimen/small_padding"
+    tools:ignore="HardcodedText">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/small_padding">
+        
+        <TextView
+            android:id="@+id/text_view_species"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Species"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/text_view_time_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_species"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Time " />
+
+        <TextView
+            android:id="@+id/text_view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_species"
+            android:layout_toEndOf="@id/text_view_time_label"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="00:00" />
+
+        <TextView
+            android:id="@+id/text_view_net_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_species"
+            android:layout_toEndOf="@id/text_view_time"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="  |  Net " />
+
+        <TextView
+            android:id="@+id/text_view_net"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_species"
+            android:layout_toEndOf="@id/text_view_net_label"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/text_view_age_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_species"
+            android:layout_toEndOf="@id/text_view_net"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="  |  Age " />
+
+        <TextView
+            android:id="@+id/text_view_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_species"
+            android:layout_toEndOf="@id/text_view_age_label"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/text_view_sex_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_species"
+            android:layout_toEndOf="@id/text_view_age"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="  |  Sex " />
+
+        <TextView
+            android:id="@+id/text_view_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_species"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/text_view_sex_label"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
