@@ -50,9 +50,9 @@ public class RingingRecordAdapter extends RecyclerView.Adapter<RingingRecordAdap
         private final TextView textViewEndTime;
         public RingingRecordHolder(View itemView) {
             super(itemView);
-            textViewDate = itemView.findViewById(R.id.text_view_date);
-            textViewStartTime = itemView.findViewById(R.id.text_view_start_time);
-            textViewEndTime = itemView.findViewById(R.id.text_view_end_time);
+            textViewDate = itemView.findViewById(R.id.text_view_record_date);
+            textViewStartTime = itemView.findViewById(R.id.text_view_record_start_time);
+            textViewEndTime = itemView.findViewById(R.id.text_view_record_end_time);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -55,11 +55,11 @@ public class BirdRecordAdapter extends RecyclerView.Adapter<BirdRecordAdapter.Bi
 
         public BirdRecordHolder(View itemView) {
             super(itemView);
-            textViewSpecies = itemView.findViewById(R.id.text_view_species);
-            textViewTime = itemView.findViewById(R.id.text_view_time);
-            textViewNet = itemView.findViewById(R.id.text_view_net);
-            textViewAge = itemView.findViewById(R.id.text_view_age);
-            textViewSex = itemView.findViewById(R.id.text_view_sex);
+            textViewSpecies = itemView.findViewById(R.id.text_view_bird_species);
+            textViewTime = itemView.findViewById(R.id.text_view_bird_time);
+            textViewNet = itemView.findViewById(R.id.text_view_bird_net);
+            textViewAge = itemView.findViewById(R.id.text_view_bird_age);
+            textViewSex = itemView.findViewById(R.id.text_view_bird_sex);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

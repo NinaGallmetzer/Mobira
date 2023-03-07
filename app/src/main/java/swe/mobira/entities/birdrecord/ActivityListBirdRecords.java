@@ -1,6 +1,9 @@
 package swe.mobira.entities.birdrecord;
 
 import static swe.mobira.MainActivity.ADD_B_RECORD_ACTIVITY_REQUEST_CODE;
+import static swe.mobira.MainActivity.EXTRA_B_RECORD;
+import static swe.mobira.MainActivity.EXTRA_R_RECORD;
+import static swe.mobira.MainActivity.EXTRA_SITE;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -24,10 +27,6 @@ import swe.mobira.entities.ringingrecord.RingingRecord;
 import swe.mobira.entities.site.Site;
 
 public class ActivityListBirdRecords extends AppCompatActivity {
-    public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_R_RECORD";
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-
-    private BirdRecordViewModel birdRecordViewModel;
     private RingingRecord currentRingingRecord;
     private Site currentSite;
 
@@ -54,7 +53,7 @@ public class ActivityListBirdRecords extends AppCompatActivity {
         BirdRecordAdapter adapter = new BirdRecordAdapter();
         recyclerView.setAdapter(adapter);
 
-        birdRecordViewModel = new ViewModelProvider(this, new BirdRecordViewModelFactory(this.getApplication(), ringingRecordID)).get(BirdRecordViewModel.class);
+        BirdRecordViewModel birdRecordViewModel = new ViewModelProvider(this, new BirdRecordViewModelFactory(this.getApplication(), ringingRecordID)).get(BirdRecordViewModel.class);
 
         birdRecordViewModel.getBirdRecordsByRingingRecordID(ringingRecordID).observe(this, new Observer<List<BirdRecord>>() {
             @Override
@@ -69,23 +68,22 @@ public class ActivityListBirdRecords extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityListBirdRecords.this, ActivityAddBirdRecord.class);
-                intent.putExtra(ActivityAddBirdRecord.EXTRA_R_RECORD, currentRingingRecord);
-                intent.putExtra(ActivityAddBirdRecord.EXTRA_SITE, currentSite);
+                intent.putExtra(EXTRA_R_RECORD, currentRingingRecord);
+                intent.putExtra(EXTRA_SITE, currentSite);
                 startActivityForResult(intent, ADD_B_RECORD_ACTIVITY_REQUEST_CODE);
             }
         });
 
-/*
         adapter.setOnItemClickListener(new BirdRecordAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(BirdRecord birdRecord) {
+            public void onItemClick(BirdRecord selectedBirdRecord) {
                 Intent intent = new Intent(ActivityListBirdRecords.this, ActivityShowBirdRecordDetails.class);
-                intent.putExtra(ActivityShowBirdRecordDetails.EXTRA_R_RECORD, birdRecord);
-                intent.putExtra(ActivityShowBirdRecordDetails.EXTRA_SITE, currentRingingRecord);
+                intent.putExtra(EXTRA_B_RECORD, selectedBirdRecord);
+                intent.putExtra(EXTRA_R_RECORD, currentRingingRecord);
+                intent.putExtra(EXTRA_SITE, currentSite);
                 startActivity(intent);
             }
         });
-*/
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

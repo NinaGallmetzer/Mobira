@@ -1,5 +1,7 @@
 package swe.mobira.entities.ringingrecord;
 
+import static swe.mobira.MainActivity.EXTRA_SITE;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -16,8 +18,6 @@ import swe.mobira.R;
 import swe.mobira.entities.site.Site;
 
 public class ActivityAddRingingRecord extends AppCompatActivity {
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-
     private RingingRecordViewModel ringingRecordViewModel;
     private Site currentSite;
 
@@ -34,26 +34,26 @@ public class ActivityAddRingingRecord extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_ringing_record);
+        setContentView(R.layout.activity_add_edit_ringing_record);
         setTitle("Add Ringing Record");
 
-        TextView textViewSiteTitle = findViewById(R.id.record_site_title);
-        editTextRecordDate = findViewById(R.id.record_date);
-        editTextStartTime = findViewById(R.id.record_start_time);
-        editTextEndTime = findViewById(R.id.record_end_time);
-        editTextStartTemperature = findViewById(R.id.record_start_temperature);
-        editTextEndTemperature = findViewById(R.id.record_end_temperature);
-        editTextWeather = findViewById(R.id.record_general_weather);
-        editTextWind = findViewById(R.id.record_wind);
-        editTextCoordinator = findViewById(R.id.record_coordinator);
-        editTextComment = findViewById(R.id.record_comment);
+        TextView textViewSiteTitle = findViewById(R.id.text_view_site_title);
+        editTextRecordDate = findViewById(R.id.edit_text_record_date);
+        editTextStartTime = findViewById(R.id.edit_text_record_start_time);
+        editTextEndTime = findViewById(R.id.edit_text_record_end_time);
+        editTextStartTemperature = findViewById(R.id.edit_text_record_start_temperature);
+        editTextEndTemperature = findViewById(R.id.edit_text_record_end_temperature);
+        editTextWeather = findViewById(R.id.edit_text_record_general_weather);
+        editTextWind = findViewById(R.id.edit_text_record_wind);
+        editTextCoordinator = findViewById(R.id.edit_text_record_coordinator);
+        editTextComment = findViewById(R.id.edit_text_record_comment);
 
         currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
         textViewSiteTitle.setText(currentSite.getTitle());
 
         ringingRecordViewModel = new ViewModelProvider(this, new RingingRecordViewModelFactory(this.getApplication(), currentSite.getSiteID())).get(RingingRecordViewModel.class);
 
-        FloatingActionButton buttonSave = findViewById(R.id.button_add);
+        FloatingActionButton buttonSave = findViewById(R.id.button_save);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

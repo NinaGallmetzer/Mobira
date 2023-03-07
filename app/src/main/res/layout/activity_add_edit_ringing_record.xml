@@ -32,7 +32,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/record_site_title"
+                android:id="@+id/text_view_site_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/big_padding">
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/record_date"
+                        android:id="@+id/edit_text_record_date"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
@@ -70,7 +70,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
-                    android:id="@+id/record_time_layout"
+                    android:id="@+id/row02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/record_date_layout"
@@ -83,7 +83,7 @@
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/record_start_time"
+                            android:id="@+id/edit_text_record_start_time"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
@@ -98,7 +98,7 @@
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/record_end_time"
+                            android:id="@+id/edit_text_record_end_time"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
@@ -109,10 +109,10 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/record_temperature_layout"
+                    android:id="@+id/row03"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/record_time_layout"
+                    android:layout_below="@id/row02"
                     android:baselineAligned="false"
                     android:orientation="horizontal">
                     <com.google.android.material.textfield.TextInputLayout
@@ -122,7 +122,7 @@
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/record_start_temperature"
+                            android:id="@+id/edit_text_record_start_temperature"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
@@ -137,7 +137,7 @@
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/record_end_temperature"
+                            android:id="@+id/edit_text_record_end_temperature"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
@@ -148,10 +148,10 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/record_weather_conditions_layout"
+                    android:id="@+id/row04"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/record_temperature_layout"
+                    android:layout_below="@id/row03"
                     android:baselineAligned="false"
                     android:orientation="horizontal">
                     <com.google.android.material.textfield.TextInputLayout
@@ -161,7 +161,7 @@
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/record_general_weather"
+                            android:id="@+id/edit_text_record_general_weather"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
@@ -176,7 +176,7 @@
                         android:layout_weight="1"
                         android:paddingTop="@dimen/big_padding">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/record_wind"
+                            android:id="@+id/edit_text_record_wind"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
@@ -190,10 +190,10 @@
                     android:id="@+id/record_coordinator_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/record_weather_conditions_layout"
+                    android:layout_below="@id/row04"
                     android:paddingTop="@dimen/big_padding">
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/record_coordinator"
+                        android:id="@+id/edit_text_record_coordinator"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
@@ -209,7 +209,7 @@
                     android:layout_below="@id/record_coordinator_layout"
                     android:paddingTop="@dimen/big_padding">
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/record_comment"
+                        android:id="@+id/edit_text_record_comment"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
@@ -222,7 +222,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_add"
+        android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

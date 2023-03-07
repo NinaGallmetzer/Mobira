@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import swe.mobira.entities.ringingrecord.RingingRecord;
@@ -14,7 +15,7 @@ import swe.mobira.entities.ringingrecord.RingingRecord;
 @Entity(foreignKeys = {@ForeignKey(entity = RingingRecord.class,
         parentColumns = "ringingRecordID", childColumns = "ringingRecordID",
         onUpdate = ForeignKey.CASCADE,
-        onDelete = ForeignKey.CASCADE)})
+        onDelete = ForeignKey.CASCADE)}, indices = {@Index("ringingRecordID")})
 public class BirdRecord implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     private int birdRecordID;

@@ -1,6 +1,8 @@
 package swe.mobira.entities.ringingrecord;
 
 import static swe.mobira.MainActivity.ADD_R_RECORD_ACTIVITY_REQUEST_CODE;
+import static swe.mobira.MainActivity.EXTRA_R_RECORD;
+import static swe.mobira.MainActivity.EXTRA_SITE;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -22,9 +24,6 @@ import swe.mobira.R;
 import swe.mobira.entities.site.Site;
 
 public class ActivityListRingingRecords extends AppCompatActivity {
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-
-    private RingingRecordViewModel ringingRecordViewModel;
     private Site currentSite;
 
     @Override
@@ -48,7 +47,7 @@ public class ActivityListRingingRecords extends AppCompatActivity {
         RingingRecordAdapter adapter = new RingingRecordAdapter();
         recyclerView.setAdapter(adapter);
 
-        ringingRecordViewModel = new ViewModelProvider(this, new RingingRecordViewModelFactory(this.getApplication(), siteID)).get(RingingRecordViewModel.class);
+        RingingRecordViewModel ringingRecordViewModel = new ViewModelProvider(this, new RingingRecordViewModelFactory(this.getApplication(), siteID)).get(RingingRecordViewModel.class);
 
         ringingRecordViewModel.getRingingRecordsBySiteID(siteID).observe(this, new Observer<List<RingingRecord>>() {
             @Override
@@ -62,7 +61,7 @@ public class ActivityListRingingRecords extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityListRingingRecords.this, ActivityAddRingingRecord.class);
-                intent.putExtra(ActivityAddRingingRecord.EXTRA_SITE, currentSite);
+                intent.putExtra(EXTRA_SITE, currentSite);
                 startActivityForResult(intent, ADD_R_RECORD_ACTIVITY_REQUEST_CODE);
             }
         });
@@ -71,8 +70,8 @@ public class ActivityListRingingRecords extends AppCompatActivity {
             @Override
             public void onItemClick(RingingRecord ringingRecord) {
                 Intent intent = new Intent(ActivityListRingingRecords.this, ActivityShowRingingRecordDetails.class);
-                intent.putExtra(ActivityShowRingingRecordDetails.EXTRA_R_RECORD, ringingRecord);
-                intent.putExtra(ActivityShowRingingRecordDetails.EXTRA_SITE, currentSite);
+                intent.putExtra(EXTRA_R_RECORD, ringingRecord);
+                intent.putExtra(EXTRA_SITE, currentSite);
                 startActivity(intent);
             }
         });

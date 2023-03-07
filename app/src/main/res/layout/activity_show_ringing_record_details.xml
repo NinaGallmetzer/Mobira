@@ -4,27 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".entities.ringingrecord.ActivityShowRingingRecordDetails"
-    tools:ignore="HardcodedText"
-    android:fitsSystemWindows="true">
+    tools:ignore="HardcodedText">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/title"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/bigger_padding"
-            android:paddingHorizontal="@dimen/medium_padding"
-            android:background="@color/design_default_color_secondary_variant"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="Ringing Protocol"/>
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/site_title_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:background="@color/design_default_color_secondary_variant"
+                android:paddingHorizontal="@dimen/medium_padding"
+                android:paddingVertical="@dimen/bigger_padding"
+                android:text="Site: "
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text_view_site_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/site_title_label"
+                android:background="@color/design_default_color_secondary_variant"
+                android:ellipsize="end"
+                android:paddingVertical="@dimen/bigger_padding"
+                android:text="Test site 1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -34,347 +53,283 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/record_site_title_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/big_padding"
-                    android:paddingStart="@dimen/medium_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"
-                    android:text="Site:"/>
-                <TextView
-                    android:id="@+id/record_site_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_site_title_label"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/bigger_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:text="Test site 1"/>
-
-                <TextView
-                    android:id="@+id/record_date_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_site_title"
-                    android:paddingTop="@dimen/big_padding"
-                    android:paddingStart="@dimen/medium_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"
-                    android:text="Date:"/>
-                <TextView
-                    android:id="@+id/record_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_date_label"
-                    android:paddingTop="@dimen/small_padding"
-                    android:paddingStart="@dimen/bigger_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:text="2020-20-20"/>
-
                 <LinearLayout
-                    android:id="@+id/time_and_temperature_layout"
+                    android:id="@+id/row_01"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_date"
-                    android:orientation="horizontal"
-                    android:baselineAligned="false">
-
-                    <RelativeLayout
-                        android:id="@+id/time_layout"
-                        android:layout_width="0dp"
+                    android:paddingTop="@dimen/small_padding"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/record_date_label"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.8">
-                        <TextView
-                            android:id="@+id/time_layout_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="@dimen/big_padding"
-                            android:paddingStart="@dimen/medium_padding"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Time:"/>
-                        <LinearLayout
-                            android:id="@+id/start_time_layout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_below="@+id/time_layout_title">
-                            <TextView
-                                android:id="@+id/record_start_time_label"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:paddingVertical="@dimen/tiny_padding"
-                                android:paddingStart="@dimen/bigger_padding"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textColor="@color/design_default_color_secondary_variant"
-                                android:textStyle="italic"
-                                android:text="Opening:"/>
-                            <TextView
-                                android:id="@+id/record_start_time"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingVertical="@dimen/tiny_padding"
-                                android:textAlignment="viewEnd"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                                android:text="07:00"/>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/end_time_layout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_below="@+id/start_time_layout">
-                            <TextView
-                                android:id="@+id/record_end_time_label"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:paddingVertical="@dimen/tiny_padding"
-                                android:paddingStart="@dimen/bigger_padding"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textColor="@color/design_default_color_secondary_variant"
-                                android:textStyle="italic"
-                                android:text="Closing:"/>
-                            <TextView
-                                android:id="@+id/record_end_time"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingVertical="@dimen/tiny_padding"
-                                android:textAlignment="viewEnd"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                                android:text="13:00"/>
-                        </LinearLayout>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/temperature_layout"
-                        android:layout_width="0dp"
+                        android:paddingTop="@dimen/big_padding"
+                        android:paddingStart="@dimen/medium_padding"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:text="Date:"/>
+                    <TextView
+                        android:id="@+id/text_view_record_date"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7">
-
-                        <TextView
-                            android:id="@+id/temperature_layout_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="@dimen/big_padding"
-                            android:paddingStart="@dimen/medium_padding"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Temperature:"/>
-                        <LinearLayout
-                            android:id="@+id/start_temperature_layout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/temperature_layout_title">
-                            <TextView
-                                android:id="@+id/record_start_temperature_label"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:paddingVertical="@dimen/tiny_padding"
-                                android:paddingStart="@dimen/bigger_padding"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textColor="@color/design_default_color_secondary_variant"
-                                android:textStyle="italic"
-                                android:text="Begin:"/>
-                            <TextView
-                                android:id="@+id/record_start_temperature"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingVertical="@dimen/tiny_padding"
-                                android:paddingEnd="@dimen/big_padding"
-                                android:textAlignment="viewEnd"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                                android:text="7.5"/>
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/end_temperature_layout"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_below="@+id/start_temperature_layout">
-                            <TextView
-                                android:id="@+id/record_end_temperature_label"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:paddingVertical="@dimen/tiny_padding"
-                                android:paddingStart="@dimen/bigger_padding"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                android:textColor="@color/design_default_color_secondary_variant"
-                                android:textStyle="italic"
-                                android:text="End:"/>
-                            <TextView
-                                android:id="@+id/record_end_temperature"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:paddingVertical="@dimen/tiny_padding"
-                                android:paddingEnd="@dimen/big_padding"
-                                android:textAlignment="viewEnd"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                                android:text="13.2"/>
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/xxx"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.3">
-
-                        <TextView
-                            android:id="@+id/unit_layout_title"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="@dimen/big_padding"
-                            android:paddingStart="@dimen/medium_padding"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                            android:textColor="@color/design_default_color_secondary_variant"/>
-                        <TextView
-                            android:id="@+id/record_start_temperature_unit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/unit_layout_title"
-                            android:paddingVertical="@dimen/tiny_padding"
-                            android:paddingEnd="@dimen/big_padding"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:text="°C"/>
-                        <TextView
-                            android:id="@+id/record_end_temperature_unit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/record_start_temperature_unit"
-                            android:paddingVertical="@dimen/tiny_padding"
-                            android:paddingEnd="@dimen/big_padding"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:text="°C"/>
-
-                    </RelativeLayout>
-
+                        android:paddingTop="@dimen/small_padding"
+                        android:paddingStart="@dimen/bigger_padding"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:text="2020-02-02"/>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/general_weather_conditions_layout"
+                    android:id="@+id/row_02"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/time_and_temperature_layout"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/general_weather_conditions_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingStart="@dimen/medium_padding"
-                        android:paddingTop="@dimen/big_padding"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/design_default_color_secondary_variant"
-                        android:text="Weather:"/>
-
+                    android:layout_below="@id/row_01"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
                     <LinearLayout
-                        android:id="@+id/general_weather_layout"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/small_padding"
+                        android:orientation="vertical">
                         <TextView
-                            android:id="@+id/general_weather_label"
+                            android:id="@+id/record_start_time_label"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:paddingVertical="@dimen/tiny_padding"
-                            android:paddingStart="@dimen/bigger_padding"
+                            android:paddingTop="@dimen/big_padding"
+                            android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:textStyle="italic"
-                            android:text="General:"/>
+                            android:text="Opening Time:"/>
                         <TextView
-                            android:id="@+id/record_general_weather"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:paddingVertical="@dimen/tiny_padding"
-                            android:paddingHorizontal="@dimen/small_padding"
+                            android:id="@+id/text_view_record_start_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/bigger_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:text="07:00"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/small_padding"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/record_end_time_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/big_padding"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant"
+                            android:text="Closing Time:"/>
+                        <TextView
+                            android:id="@+id/text_view_record_end_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/bigger_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:text="13:00"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/row_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_02"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/small_padding"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/record_start_temperature_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/big_padding"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant"
+                            android:text="Start Temperature:"/>
+                        <TextView
+                            android:id="@+id/text_view_record_start_temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/record_start_temperature_label"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/bigger_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:text="7.5"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/record_start_temperature_label"
+                            android:layout_toEndOf="@id/text_view_record_start_temperature"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/small_padding"
+                            android:text="°C"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/small_padding"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/record_end_temperature_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/big_padding"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant"
+                            android:text="End Temperature:"/>
+                        <TextView
+                            android:id="@+id/text_view_record_end_temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/record_end_temperature_label"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/bigger_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:text="13.2"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/record_end_temperature_label"
+                            android:layout_toEndOf="@id/text_view_record_end_temperature"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/small_padding"
+                            android:text="°C"/>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/row_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_03"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/small_padding"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/record_general_weather_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/big_padding"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant"
+                            android:text="Weather:"/>
+                        <TextView
+                            android:id="@+id/text_view_record_general_weather"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/bigger_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
                             android:text="sunny"/>
                     </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <RelativeLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/small_padding"
+                        android:orientation="vertical">
                         <TextView
-                            android:id="@+id/wind_label"
+                            android:id="@+id/record_wind_label"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:paddingVertical="@dimen/tiny_padding"
-                            android:paddingStart="@dimen/bigger_padding"
+                            android:paddingTop="@dimen/big_padding"
+                            android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:textStyle="italic"
                             android:text="Wind:"/>
                         <TextView
-                            android:id="@+id/record_wind"
+                            android:id="@+id/text_view_record_wind"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingVertical="@dimen/tiny_padding"
-                            android:paddingHorizontal="@dimen/big_padding"
+                            android:layout_below="@id/record_wind_label"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/bigger_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:text="3"/>
+                            android:text="2"/>
                         <TextView
-                            android:id="@+id/record_wind_unit"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingVertical="@dimen/tiny_padding"
-                            android:paddingEnd="@dimen/huge_padding"
+                            android:layout_below="@id/record_wind_label"
+                            android:layout_toEndOf="@id/text_view_record_wind"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/small_padding"
                             android:text="Bft"/>
-                    </LinearLayout>
+                    </RelativeLayout>
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/record_coordinator_label"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/row_05"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/general_weather_conditions_layout"
-                    android:paddingStart="@dimen/medium_padding"
-                    android:paddingTop="@dimen/big_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"
-                    android:text="Coordinator:"/>
-                <TextView
-                    android:id="@+id/record_coordinator"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_coordinator_label"
+                    android:layout_below="@id/row_04"
                     android:paddingTop="@dimen/small_padding"
-                    android:paddingHorizontal="@dimen/bigger_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:text="Jane Doe"/>
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/record_coordinator_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/big_padding"
+                        android:paddingStart="@dimen/medium_padding"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:text="Coordinator:"/>
+                    <TextView
+                        android:id="@+id/text_view_record_coordinator"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/small_padding"
+                        android:paddingStart="@dimen/bigger_padding"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:text="Jane Doe"/>
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/record_comment_label"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/row_06"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_coordinator"
-                    android:paddingTop="@dimen/big_padding"
-                    android:paddingStart="@dimen/medium_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/design_default_color_secondary_variant"
-                    android:text="Comment:"/>
-                <TextView
-                    android:id="@+id/record_comment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/record_comment_label"
-                    android:ellipsize="end"
+                    android:layout_below="@id/row_05"
                     android:paddingTop="@dimen/small_padding"
-                    android:paddingHorizontal="@dimen/bigger_padding"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:text="testing layout of screen for ringing record details"/>
-
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/record_comment_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/big_padding"
+                        android:paddingStart="@dimen/medium_padding"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:text="Comment:"/>
+                    <TextView
+                        android:id="@+id/text_view_record_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/small_padding"
+                        android:paddingStart="@dimen/bigger_padding"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        android:text="comment"/>
+                </LinearLayout>
             </RelativeLayout>
         </ScrollView>
     </LinearLayout>
@@ -479,5 +434,4 @@
         app:layout_constraintBottom_toBottomOf="@+id/add_fab"
         app:layout_constraintEnd_toStartOf="@+id/add_fab"
         app:layout_constraintTop_toTopOf="@+id/add_fab" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

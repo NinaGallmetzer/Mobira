@@ -1,6 +1,8 @@
 package swe.mobira.entities.net;
 
 import static swe.mobira.MainActivity.ADD_NET_ACTIVITY_REQUEST_CODE;
+import static swe.mobira.MainActivity.EXTRA_NET;
+import static swe.mobira.MainActivity.EXTRA_SITE;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -22,11 +24,7 @@ import swe.mobira.R;
 import swe.mobira.entities.site.Site;
 
 public class ActivityListNets extends AppCompatActivity {
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-    public static final String EXTRA_NET = "swe.mobira.EXTRA_NET";
-
     private NetViewModel netViewModel;
-    private Site currentSite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,7 @@ public class ActivityListNets extends AppCompatActivity {
         TextView textViewSiteTitle = findViewById(R.id.text_view_site_title);
 
         Intent intent = getIntent();
-        currentSite = intent.getParcelableExtra(EXTRA_SITE);
+        Site currentSite = intent.getParcelableExtra(EXTRA_SITE);
 
         int siteID = currentSite.getSiteID();
         String siteTitle = currentSite.getTitle();

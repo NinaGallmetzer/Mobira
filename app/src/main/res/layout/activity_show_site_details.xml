@@ -9,108 +9,232 @@
     tools:ignore="HardcodedText"
     android:fitsSystemWindows="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/text_view_title"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/design_default_color_secondary_variant"
-            android:paddingHorizontal="@dimen/medium_padding"
-            android:paddingVertical="@dimen/bigger_padding"
-            android:text="Site title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/text_view_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/design_default_color_secondary_variant"
+                android:paddingHorizontal="@dimen/medium_padding"
+                android:paddingVertical="@dimen/bigger_padding"
+                android:text="Site title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/description"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_title"
-            android:paddingStart="@dimen/medium_padding"
-            android:paddingTop="@dimen/big_padding"
-            android:text="Description:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/design_default_color_secondary_variant" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text_view_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/description"
-            android:paddingStart="@dimen/bigger_padding"
-            android:paddingTop="@dimen/small_padding"
-            android:text="Description"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/latitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_description"
-            android:paddingStart="@dimen/medium_padding"
-            android:paddingTop="@dimen/big_padding"
-            android:text="Latitude:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/design_default_color_secondary_variant" />
+                <LinearLayout
+                    android:id="@+id/row_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/small_padding"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/site_description_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/medium_padding"
+                        android:paddingTop="@dimen/big_padding"
+                        android:text="Description:"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/design_default_color_secondary_variant" />
+                    <TextView
+                        android:id="@+id/text_view_site_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/bigger_padding"
+                        android:paddingTop="@dimen/small_padding"
+                        android:text="site description"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/text_view_latitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/latitude"
-            android:paddingStart="@dimen/bigger_padding"
-            android:paddingTop="@dimen/small_padding"
-            android:text="Latitude"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                <LinearLayout
+                    android:id="@+id/row_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_01"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/small_padding"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/site_habitat_type_label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:paddingTop="@dimen/big_padding"
+                            android:text="Habitat Type:"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant" />
+                        <TextView
+                            android:id="@+id/text_view_site_habitat_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/bigger_padding"
+                            android:paddingTop="@dimen/small_padding"
+                            android:text="primary forest"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/small_padding"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/site_altitude_label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:paddingTop="@dimen/big_padding"
+                            android:text="Altitude:"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant" />
+                        <TextView
+                            android:id="@+id/text_view_site_altitude"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/site_altitude_label"
+                            android:paddingStart="@dimen/bigger_padding"
+                            android:paddingTop="@dimen/small_padding"
+                            android:text="111.1"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/site_altitude_label"
+                            android:layout_toEndOf="@id/text_view_site_altitude"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/small_padding"
+                            android:text="mASL" />
+                    </RelativeLayout>
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/longitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_latitude"
-            android:paddingStart="@dimen/medium_padding"
-            android:paddingTop="@dimen/big_padding"
-            android:text="Longitude:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/design_default_color_secondary_variant" />
+                <LinearLayout
+                    android:id="@+id/row_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_02"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/small_padding"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/site_latitude_label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:paddingTop="@dimen/big_padding"
+                            android:text="Latitude:"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant" />
+                        <TextView
+                            android:id="@+id/text_view_site_latitude"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/site_latitude_label"
+                            android:paddingStart="@dimen/bigger_padding"
+                            android:paddingTop="@dimen/small_padding"
+                            android:text="22.22222"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/site_latitude_label"
+                            android:layout_toEndOf="@id/text_view_site_latitude"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/small_padding"
+                            android:text="° N/S"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingTop="@dimen/small_padding"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/site_longitude_label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/medium_padding"
+                            android:paddingTop="@dimen/big_padding"
+                            android:text="Longitude:"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/design_default_color_secondary_variant" />
+                        <TextView
+                            android:id="@+id/text_view_site_longitude"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/site_longitude_label"
+                            android:paddingStart="@dimen/bigger_padding"
+                            android:paddingTop="@dimen/small_padding"
+                            android:text="33.33333"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/site_longitude_label"
+                            android:layout_toEndOf="@id/text_view_site_longitude"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                            android:paddingTop="@dimen/small_padding"
+                            android:paddingStart="@dimen/small_padding"
+                            android:text="° W/E"/>
+                    </RelativeLayout>
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/text_view_longitude"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/longitude"
-            android:paddingStart="@dimen/bigger_padding"
-            android:paddingTop="@dimen/small_padding"
-            android:text="Longitude"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-
-        <TextView
-            android:id="@+id/comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_longitude"
-            android:paddingStart="@dimen/medium_padding"
-            android:paddingTop="@dimen/big_padding"
-            android:text="Comment:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/design_default_color_secondary_variant" />
-
-        <TextView
-            android:id="@+id/text_view_comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/comment"
-            android:ellipsize="end"
-            android:paddingStart="@dimen/bigger_padding"
-            android:paddingTop="@dimen/small_padding"
-            android:text="Comment"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-
-    </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/row_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/row_03"
+                    android:paddingTop="@dimen/small_padding"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/site_comment_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/medium_padding"
+                        android:paddingTop="@dimen/big_padding"
+                        android:text="Comment:"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/design_default_color_secondary_variant" />
+                    <TextView
+                        android:id="@+id/text_view_site_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/bigger_padding"
+                        android:paddingTop="@dimen/small_padding"
+                        android:text="comment"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                </LinearLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/actions_fab"

@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
     public static final int ADD_B_RECORD_ACTIVITY_REQUEST_CODE = 7;
     public static final int EDIT_B_RECORD_ACTIVITY_REQUEST_CODE = 8;
 
+    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
+    public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_R_RECORD";
+    public static final String EXTRA_NET = "swe.mobira.EXTRA_NET";
+    public static final String EXTRA_B_RECORD = "swe.mobira.EXTRA_B_RECORD";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ActivityListSites.class);
                 startActivity(intent);
-
-                // Do something in response to button click
             }
         });
     }

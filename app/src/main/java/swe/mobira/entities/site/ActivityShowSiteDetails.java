@@ -2,6 +2,7 @@ package swe.mobira.entities.site;
 
 import static swe.mobira.MainActivity.ADD_R_RECORD_ACTIVITY_REQUEST_CODE;
 import static swe.mobira.MainActivity.EDIT_SITE_ACTIVITY_REQUEST_CODE;
+import static swe.mobira.MainActivity.EXTRA_SITE;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,13 +23,13 @@ import swe.mobira.entities.ringingrecord.ActivityAddRingingRecord;
 import swe.mobira.entities.ringingrecord.ActivityListRingingRecords;
 
 public class ActivityShowSiteDetails extends AppCompatActivity {
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-
     private SiteViewModel siteViewModel;
     private Site currentSite;
 
     private TextView editTextTitle;
     private TextView editTextDescription;
+    private TextView editTextHabitatType;
+    private TextView editTextAltitude;
     private TextView editTextLatitude;
     private TextView editTextLongitude;
     private TextView editTextComment;
@@ -51,10 +52,12 @@ public class ActivityShowSiteDetails extends AppCompatActivity {
         currentSite = getIntent().getParcelableExtra(EXTRA_SITE);
 
         editTextTitle = findViewById(R.id.text_view_title);
-        editTextDescription = findViewById(R.id.text_view_description);
-        editTextLatitude = findViewById(R.id.text_view_latitude);
-        editTextLongitude = findViewById(R.id.text_view_longitude);
-        editTextComment = findViewById(R.id.text_view_comment);
+        editTextDescription = findViewById(R.id.text_view_site_description);
+        editTextHabitatType = findViewById(R.id.text_view_site_habitat_type);
+        editTextAltitude = findViewById(R.id.text_view_site_altitude);
+        editTextLatitude = findViewById(R.id.text_view_site_latitude);
+        editTextLongitude = findViewById(R.id.text_view_site_longitude);
+        editTextComment = findViewById(R.id.text_view_site_comment);
 
         // Create the observer which updates the UI.
         final Observer<Site> nameObserver = new Observer<Site>() {
@@ -70,6 +73,8 @@ public class ActivityShowSiteDetails extends AppCompatActivity {
                 } else {
                     editTextTitle.setText(currentSite.getTitle());
                     editTextDescription.setText(currentSite.getDescription());
+                    editTextHabitatType.setText(currentSite.getHabitatType());
+                    editTextAltitude.setText(String.valueOf(currentSite.getAltitude()));
                     editTextLatitude.setText(String.valueOf(currentSite.getLatitude()));
                     editTextLongitude.setText(String.valueOf(currentSite.getLongitude()));
                     editTextComment.setText(currentSite.getComment());
@@ -125,7 +130,7 @@ public class ActivityShowSiteDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityShowSiteDetails.this, ActivityAddRingingRecord.class);
-                intent.putExtra(ActivityAddRingingRecord.EXTRA_SITE, currentSite);
+                intent.putExtra(EXTRA_SITE, currentSite);
                 setUpActionButtons();
                 startActivityForResult(intent, ADD_R_RECORD_ACTIVITY_REQUEST_CODE);
             }
@@ -135,7 +140,7 @@ public class ActivityShowSiteDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityShowSiteDetails.this, ActivityListRingingRecords.class);
-                intent.putExtra(ActivityListRingingRecords.EXTRA_SITE, currentSite);
+                intent.putExtra(EXTRA_SITE, currentSite);
                 setUpActionButtons();
                 startActivity(intent);
             }
@@ -145,7 +150,7 @@ public class ActivityShowSiteDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityShowSiteDetails.this, ActivityEditSite.class);
-                intent.putExtra(ActivityEditSite.EXTRA_SITE, currentSite);
+                intent.putExtra(EXTRA_SITE, currentSite);
                 setUpActionButtons();
                 startActivityForResult(intent, EDIT_SITE_ACTIVITY_REQUEST_CODE);
             }

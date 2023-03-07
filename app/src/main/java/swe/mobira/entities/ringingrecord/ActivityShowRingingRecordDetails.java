@@ -2,6 +2,8 @@ package swe.mobira.entities.ringingrecord;
 
 import static swe.mobira.MainActivity.ADD_B_RECORD_ACTIVITY_REQUEST_CODE;
 import static swe.mobira.MainActivity.EDIT_R_RECORD_ACTIVITY_REQUEST_CODE;
+import static swe.mobira.MainActivity.EXTRA_R_RECORD;
+import static swe.mobira.MainActivity.EXTRA_SITE;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,15 +25,12 @@ import swe.mobira.entities.birdrecord.ActivityListBirdRecords;
 import swe.mobira.entities.site.Site;
 
 public class ActivityShowRingingRecordDetails extends AppCompatActivity {
-    public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_RECORD";
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-
     private RingingRecordViewModel ringingRecordViewModel;
     private RingingRecord currentRingingRecord;
     private Site currentSite;
 
     private TextView textViewSiteTitle;
-    private TextView textViewDate;
+    private TextView textViewRecordDate;
     private TextView textViewStartTime;
     private TextView textViewEndTime;
     private TextView textViewStartTemperature;
@@ -51,7 +50,7 @@ public class ActivityShowRingingRecordDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_ringing_record_details);
-        setTitle("Ringing Record Details");
+        setTitle("Record Details");
         setUpActionButtons();
 
         currentRingingRecord = getIntent().getParcelableExtra(EXTRA_R_RECORD);
@@ -60,16 +59,16 @@ public class ActivityShowRingingRecordDetails extends AppCompatActivity {
 
         ringingRecordViewModel = new ViewModelProvider(this, new RingingRecordViewModelFactory(this.getApplication(), siteID)).get(RingingRecordViewModel.class);
 
-        textViewSiteTitle = findViewById(R.id.record_site_title);
-        textViewDate = findViewById(R.id.record_date);
-        textViewStartTime = findViewById(R.id.record_start_time);
-        textViewEndTime = findViewById(R.id.record_end_time);
-        textViewStartTemperature = findViewById(R.id.record_start_temperature);
-        textViewEndTemperature = findViewById(R.id.record_end_temperature);
-        textViewWeather = findViewById(R.id.record_general_weather);
-        textViewWind = findViewById(R.id.record_wind);
-        textViewCoordinator = findViewById(R.id.record_coordinator);
-        textViewComment = findViewById(R.id.record_comment);
+        textViewSiteTitle = findViewById(R.id.text_view_site_title);
+        textViewRecordDate = findViewById(R.id.text_view_record_date);
+        textViewStartTime = findViewById(R.id.text_view_record_start_time);
+        textViewEndTime = findViewById(R.id.text_view_record_end_time);
+        textViewStartTemperature = findViewById(R.id.text_view_record_start_temperature);
+        textViewEndTemperature = findViewById(R.id.text_view_record_end_temperature);
+        textViewWeather = findViewById(R.id.text_view_record_general_weather);
+        textViewWind = findViewById(R.id.text_view_record_wind);
+        textViewCoordinator = findViewById(R.id.text_view_record_coordinator);
+        textViewComment = findViewById(R.id.text_view_record_comment);
 
         final Observer<RingingRecord> nameObserver = new Observer<RingingRecord>() {
             @Override
@@ -82,7 +81,7 @@ public class ActivityShowRingingRecordDetails extends AppCompatActivity {
                     finish();
                 } else {
                     textViewSiteTitle.setText(currentSite.getTitle());
-                    textViewDate.setText(currentRingingRecord.getRecordDate());
+                    textViewRecordDate.setText(currentRingingRecord.getRecordDate());
                     textViewStartTime.setText(currentRingingRecord.getStartTime());
                     textViewEndTime.setText(currentRingingRecord.getEndTime());
                     textViewStartTemperature.setText(String.valueOf(currentRingingRecord.getStartTemperature()));
@@ -133,8 +132,8 @@ public class ActivityShowRingingRecordDetails extends AppCompatActivity {
             public void onClick(View view) {
                 setUpActionButtons();
                 Intent intent = new Intent(ActivityShowRingingRecordDetails.this, ActivityAddBirdRecord.class);
-                intent.putExtra(ActivityAddBirdRecord.EXTRA_R_RECORD, currentRingingRecord);
-                intent.putExtra(ActivityAddBirdRecord.EXTRA_SITE, currentSite);
+                intent.putExtra(EXTRA_R_RECORD, currentRingingRecord);
+                intent.putExtra(EXTRA_SITE, currentSite);
                 setUpActionButtons();
                 startActivityForResult(intent, ADD_B_RECORD_ACTIVITY_REQUEST_CODE);
             }
@@ -144,8 +143,8 @@ public class ActivityShowRingingRecordDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityShowRingingRecordDetails.this, ActivityListBirdRecords.class);
-                intent.putExtra(ActivityListBirdRecords.EXTRA_R_RECORD, currentRingingRecord);
-                intent.putExtra(ActivityListBirdRecords.EXTRA_SITE, currentSite);
+                intent.putExtra(EXTRA_R_RECORD, currentRingingRecord);
+                intent.putExtra(EXTRA_SITE, currentSite);
                 setUpActionButtons();
                 startActivity(intent);
             }
@@ -155,8 +154,8 @@ public class ActivityShowRingingRecordDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityShowRingingRecordDetails.this, ActivityEditRingingRecord.class);
-                intent.putExtra(ActivityEditRingingRecord.EXTRA_R_RECORD, currentRingingRecord);
-                intent.putExtra(ActivityEditRingingRecord.EXTRA_SITE, currentSite);
+                intent.putExtra(EXTRA_R_RECORD, currentRingingRecord);
+                intent.putExtra(EXTRA_SITE, currentSite);
                 setUpActionButtons();
                 startActivityForResult(intent, EDIT_R_RECORD_ACTIVITY_REQUEST_CODE);
             }
@@ -207,5 +206,4 @@ public class ActivityShowRingingRecordDetails extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "No changes saved", Toast.LENGTH_LONG).show();
         }
     }
-
 }

@@ -1,9 +1,11 @@
 package swe.mobira.entities.ringingrecord;
 
+import static swe.mobira.MainActivity.EXTRA_R_RECORD;
+import static swe.mobira.MainActivity.EXTRA_SITE;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,9 +19,6 @@ import swe.mobira.R;
 import swe.mobira.entities.site.Site;
 
 public class ActivityEditRingingRecord extends AppCompatActivity {
-    public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_R_RECORD";
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-
     private RingingRecordViewModel ringingRecordViewModel;
     private RingingRecord currentRingingRecord;
     private Site currentSite;
@@ -37,7 +36,7 @@ public class ActivityEditRingingRecord extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_ringing_record);
+        setContentView(R.layout.activity_add_edit_ringing_record);
         setTitle("Edit Ringing Record");
 
         currentRingingRecord = getIntent().getParcelableExtra(EXTRA_R_RECORD);
@@ -45,16 +44,16 @@ public class ActivityEditRingingRecord extends AppCompatActivity {
 
         ringingRecordViewModel = new ViewModelProvider(this, new RingingRecordViewModelFactory(this.getApplication(), currentSite.getSiteID())).get(RingingRecordViewModel.class);
 
-        TextView textViewSiteTitle = findViewById(R.id.record_site_title);
-        editTextRecordDate = findViewById(R.id.record_date);
-        editTextStartTime = findViewById(R.id.record_start_time);
-        editTextEndTime = findViewById(R.id.record_end_time);
-        editTextStartTemperature = findViewById(R.id.record_start_temperature);
-        editTextEndTemperature = findViewById(R.id.record_end_temperature);
-        editTextWeather = findViewById(R.id.record_general_weather);
-        editTextWind = findViewById(R.id.record_wind);
-        editTextCoordinator = findViewById(R.id.record_coordinator);
-        editTextComment = findViewById(R.id.record_comment);
+        TextView textViewSiteTitle = findViewById(R.id.text_view_site_title);
+        editTextRecordDate = findViewById(R.id.edit_text_record_date);
+        editTextStartTime = findViewById(R.id.edit_text_record_start_time);
+        editTextEndTime = findViewById(R.id.edit_text_record_end_time);
+        editTextStartTemperature = findViewById(R.id.edit_text_record_start_temperature);
+        editTextEndTemperature = findViewById(R.id.edit_text_record_end_temperature);
+        editTextWeather = findViewById(R.id.edit_text_record_general_weather);
+        editTextWind = findViewById(R.id.edit_text_record_wind);
+        editTextCoordinator = findViewById(R.id.edit_text_record_coordinator);
+        editTextComment = findViewById(R.id.edit_text_record_comment);
 
         Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(R.drawable.baseline_home_24);
 
@@ -76,7 +75,6 @@ public class ActivityEditRingingRecord extends AppCompatActivity {
                 updateRingingRecord();
             }
         });
-
     }
 
     private void updateRingingRecord() {

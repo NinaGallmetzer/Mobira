@@ -74,11 +74,11 @@ public abstract class MobiraDatabase extends RoomDatabase {
                 BirdRecordDAO birdRecordDAO = INSTANCE.birdRecordDAO();
                 birdRecordDAO.deleteAllBirdRecords();
 
-                siteDAO.insertSite(new Site("Site title 1", "Test site 1", 1.11, 11.1, "Comment test site 1"));
-                siteDAO.insertSite(new Site("Site title 2", "Test site 2", 2.22, 22.2, "Comment test site 2"));
-                siteDAO.insertSite(new Site("Site title 3", "Test site 3", 3.33, 33.3, "Comment test site 3"));
-                siteDAO.insertSite(new Site("Site title 4", "Test site 4", 4.44, 44.4, "Comment test site 4"));
-                siteDAO.insertSite(new Site("Site title 5", "Test site 5", 5.55, 55.5, "Comment test site 5"));
+                siteDAO.insertSite(new Site("Botanical Garden", "Bot. Garden, Dep. Biodiv, Rennweg 14", "city park", 190, 1.11, 11.1, "Comment test site 1"));
+                siteDAO.insertSite(new Site("River Bed Trail", "Test site 2", "secondary forest",120, 8.7009, -83.20175, "Comment test site 2"));
+                siteDAO.insertSite(new Site("Site title 3", "Test site 3", "habitat type 3", 100, 3.33, 33.3, "Comment test site 3"));
+                siteDAO.insertSite(new Site("Site title 4", "Test site 4", "habitat type 4", 444, 4.44, 44.4, "Comment test site 4"));
+                siteDAO.insertSite(new Site("Site title 5", "Test site 5", "habitat type 5", 555,5.55, 55.5, "Comment test site 5"));
                 ringingRecordDAO.insertRingingRecord(new RingingRecord(1,"2023-01-01","07:00","13:00",15.4, 23.7, "sunny", 2, "Jane", "Test record 1 site 1"));
                 ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-02","07:00","13:00",15.4, 23.7, "sunny", 1, "Anne", "Test record 1 site 2"));
                 ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-03","07:00","13:00",15.4, 23.7, "sunny", 3, "Bob", "Test record 2 site 2"));

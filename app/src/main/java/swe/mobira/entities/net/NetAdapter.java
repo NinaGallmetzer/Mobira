@@ -32,7 +32,7 @@ public class NetAdapter extends RecyclerView.Adapter<NetAdapter.NetHolder> {
     @Override
     public NetHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.ringing_record_item, parent, false);
+                .inflate(R.layout.ringing_record_item, parent, false);            // > net_item
         return new NetHolder(itemView);
     }
 
@@ -49,7 +49,7 @@ public class NetAdapter extends RecyclerView.Adapter<NetAdapter.NetHolder> {
         public NetHolder(View itemView) {
             super(itemView);
             textViewNetNumber = itemView.findViewById(R.id.text_view_net_number);
-            textViewDescription = itemView.findViewById(R.id.text_view_description);
+            textViewDescription = itemView.findViewById(R.id.text_view_net_description);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

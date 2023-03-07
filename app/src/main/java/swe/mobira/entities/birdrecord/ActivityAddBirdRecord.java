@@ -1,5 +1,8 @@
 package swe.mobira.entities.birdrecord;
 
+import static swe.mobira.MainActivity.EXTRA_R_RECORD;
+import static swe.mobira.MainActivity.EXTRA_SITE;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,9 +18,6 @@ import swe.mobira.entities.ringingrecord.RingingRecord;
 import swe.mobira.entities.site.Site;
 
 public class ActivityAddBirdRecord extends AppCompatActivity {
-    public static final String EXTRA_R_RECORD = "swe.mobira.EXTRA_R_RECORD";
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-
     private RingingRecord currentRingingRecord;
     private BirdRecordViewModel birdRecordViewModel;
 
@@ -47,11 +47,11 @@ public class ActivityAddBirdRecord extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_bird_record);
+        setContentView(R.layout.activity_add_edit_bird_record);
         setTitle("Add Bird Record");
 
         TextView textViewSiteTitle = findViewById(R.id.text_view_site_title);
-        TextView textViewRecordDate = findViewById(R.id.text_view_date);
+        TextView textViewRecordDate = findViewById(R.id.text_view_record_date);
         editTextBirdTime = findViewById(R.id.edit_text_bird_time);
         editTextBirdNetNumber = findViewById(R.id.edit_text_bird_net_number);
         editTextBirdNetSide = findViewById(R.id.edit_text_bird_net_side);
@@ -82,7 +82,7 @@ public class ActivityAddBirdRecord extends AppCompatActivity {
 
         birdRecordViewModel = new ViewModelProvider(this, new BirdRecordViewModelFactory(this.getApplication(), currentRingingRecord.getRingingRecordID())).get(BirdRecordViewModel.class);
 
-        FloatingActionButton buttonSave = findViewById(R.id.button_add);
+        FloatingActionButton buttonSave = findViewById(R.id.button_save);
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

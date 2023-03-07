@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".entities.ringingrecord.ActivityAddRingingRecord"
     tools:ignore="HardcodedText">
 
     <LinearLayout
@@ -33,7 +32,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/text_view_date"
+                android:id="@+id/text_view_record_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -343,7 +342,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Tarsus"
+                            android:hint="Tarsus [mm]"
                             android:inputType="numberDecimal"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -358,7 +357,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Wing Length"
+                            android:hint="Wing Length [mm]"
                             android:inputType="numberDecimal"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -373,7 +372,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="P8"
+                            android:hint="P8 [mm]"
                             android:inputType="numberDecimal"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -388,7 +387,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Weight"
+                            android:hint="Weight [g]"
                             android:inputType="numberDecimal"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -454,7 +453,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_add"
+        android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

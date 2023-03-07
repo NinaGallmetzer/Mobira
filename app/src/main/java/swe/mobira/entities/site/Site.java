@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 @Entity
 public class Site implements Parcelable {
@@ -14,23 +15,29 @@ public class Site implements Parcelable {
     @NonNull
     private final String title;
     private final String description;
+    private final String habitatType;
+    private final double altitude;
     private final double latitude;
     private final double longitude;
     private final String comment;
 
-    public Site(@NonNull String title, String description,  double latitude, double longitude, String comment) {
+    public Site(@NonNull String title, String description, String habitatType, double altitude, double latitude, double longitude, String comment) {
         this.title = title;
         this.description = description;
+        this.habitatType = habitatType;
+        this.altitude = altitude;
         this.latitude = latitude;
         this.longitude = longitude;
         this.comment = comment;
     }
 
     @Ignore
-    public Site(int siteID, @NonNull String title, String description,  double latitude, double longitude, String comment) {
+    public Site(int siteID, @NonNull String title, String description, String habitatType, double altitude, double latitude, double longitude, String comment) {
         this.siteID = siteID;
         this.title = title;
         this.description = description;
+        this.habitatType = habitatType;
+        this.altitude = altitude;
         this.latitude = latitude;
         this.longitude = longitude;
         this.comment = comment;
@@ -46,6 +53,12 @@ public class Site implements Parcelable {
     }
 
     public String getDescription() {return description; }
+
+    public String getHabitatType() {return habitatType; }
+
+    public double getAltitude() {
+        return altitude;
+    }
 
     public double getLatitude() {
         return latitude;
@@ -67,14 +80,16 @@ public class Site implements Parcelable {
     // make Site parcelable //
 
     public Site (Parcel in) {
-        String[] data = new String[6];
+        String[] data = new String[8];
         in.readStringArray(data);
         this.siteID = Integer.parseInt(data[0]);
         this.title = data[1];
         this.description = data[2];
-        this.latitude = Double.parseDouble(data[3]);
-        this.longitude = Double.parseDouble(data[4]);
-        this.comment = data[5];
+        this.habitatType = data[3];
+        this.altitude = Double.parseDouble(data[4]);
+        this.latitude = Double.parseDouble(data[5]);
+        this.longitude = Double.parseDouble(data[6]);
+        this.comment = data[7];
     }
 
     @Override
@@ -88,6 +103,8 @@ public class Site implements Parcelable {
                 String.valueOf(this.siteID),
                 this.title,
                 this.description,
+                this.habitatType,
+                String.valueOf(this.altitude),
                 String.valueOf(this.latitude),
                 String.valueOf(this.longitude),
                 this.comment

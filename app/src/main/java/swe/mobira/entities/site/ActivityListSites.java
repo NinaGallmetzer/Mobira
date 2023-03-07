@@ -1,6 +1,7 @@
 package swe.mobira.entities.site;
 
 import static swe.mobira.MainActivity.ADD_SITE_ACTIVITY_REQUEST_CODE;
+import static swe.mobira.MainActivity.EXTRA_SITE;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -20,10 +21,6 @@ import java.util.List;
 import swe.mobira.R;
 
 public class ActivityListSites extends AppCompatActivity {
-    public static final String EXTRA_SITE = "swe.mobira.EXTRA_SITE";
-
-    private SiteViewModel siteViewModel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +41,7 @@ public class ActivityListSites extends AppCompatActivity {
         // one app just has one view model)
         // let Android handle view models with ViewModelProvider > Android decides whether to
         // create new view model (first activity of the app) or use existing view model
-        siteViewModel = new ViewModelProvider(this).get(SiteViewModel.class);
+        SiteViewModel siteViewModel = new ViewModelProvider(this).get(SiteViewModel.class);
 
         // RECYCLERVIEW + ADAPTER (https://www.youtube.com/watch?v=reSPN7mgshI)
         // LiveData in ViewModel is observed, every time data changes > Adapter gets updated
@@ -71,7 +68,7 @@ public class ActivityListSites extends AppCompatActivity {
             @Override
             public void onItemClick(Site site) {
                 Intent intent = new Intent(ActivityListSites.this, ActivityShowSiteDetails.class);
-                intent.putExtra(ActivityShowSiteDetails.EXTRA_SITE, site);
+                intent.putExtra(EXTRA_SITE, site);
                 startActivity(intent);
             }
         });
@@ -83,8 +80,6 @@ public class ActivityListSites extends AppCompatActivity {
         // if "activity result" originates from add activity (requestCode = add_site...) >
         // create site using data from intent
         if (requestCode == ADD_SITE_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Site newSite = data.getParcelableExtra(EXTRA_SITE);
-            siteViewModel.insertSite(newSite);
             Toast.makeText(getApplicationContext(), "Site saved", Toast.LENGTH_LONG).show();
         // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
         // if "activity result" originates from edit activity (requestCode = edit_site...) >
