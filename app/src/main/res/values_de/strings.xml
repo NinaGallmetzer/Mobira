@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mobira</string>
+
+    <string-array name="colors_array">
+        <item>keine</item>
+        <item>weiß</item>
+        <item>gelb</item>
+        <item>orange</item>
+        <item>rot</item>
+        <item>violett</item>
+        <item>blau</item>
+        <item>grün</item>
+        <item>schwarz</item>
+        <item>metall</item>
+    </string-array>
+
+    <string name="text_view_welcome">Willkommen</string>
+    <string name="button_add">Daten eingeben/bearbeiten</string>
+    <string name="button_export">Daten exportieren</string>
+    <string name="site_description_label">Beschreibung:</string>
+    <string name="site_habitat_type_label">Habitattyp:</string>
+    <string name="site_altitude_label">Meereshöhe:</string>
+    <string name="site_latitude_label">Breitengrad:</string>
+    <string name="site_longitude_label">Längengrad:</string>
+    <string name="site_comment_label">Bemerkung:</string>
+    <string name="edit_text_site_title">Standort</string>
+    <string name="edit_text_site_description">Beschreibung</string>
+    <string name="edit_text_site_habitat_type">Habitattyp</string>
+    <string name="edit_text_site_altitude">Meereshöhe [mASL]</string>
+    <string name="edit_text_site_latitude">Breitengrad [° N/S]</string>
+    <string name="edit_text_site_longitude">Längengrad [° W/O]</string>
+    <string name="edit_text_site_comment">Bemerkung</string>
+    <string name="site_title_label">Standort:</string>
+    <string name="delete_site_fab_label">Standort löschen</string>
+    <string name="edit_site_fab_label">Details bearbeiten</string>
+    <string name="show_records_fab_label">Fangtermine anzeigen</string>
+    <string name="add_record_fab_label">Neuen Fangtermin anlegen</string>
+    <string name="record_date_label">Datum:</string>
+    <string name="record_start_time_label">Uhrzeit erste Runde:</string>
+    <string name="record_end_time_label">Uhrzeit letzte Runde:</string>
+    <string name="record_start_temperature_label">Temperatur erste Runde:</string>
+    <string name="record_end_temperature_label">Temperatur letzte Runde:</string>
+    <string name="record_general_weather_label">Wetter:</string>
+    <string name="record_wind_label">Wind:</string>
+    <string name="record_coordinator_label">Beringungsleiter:</string>
+    <string name="record_comment_label">Bemerkung:</string>
+    <string name="actions_fab">Weiter</string>
+    <string name="delete_fab_label">Eintrag löschen</string>
+    <string name="edit_fab_label">Details bearbeiten</string>
+    <string name="show_fab_label">Beringte Vögel anzeigen</string>
+    <string name="add_fab_label">Neuen Fang eintragen</string>
+    <string name="record_site_title_label">Standort:</string>
+    <string name="edit_text_record_date">Datum</string>
+    <string name="edit_text_record_start_time">Uhrzeit erste Runde</string>
+    <string name="edit_text_record_end_time">Uhrzeit letzte Runde</string>
+    <string name="edit_text_record_start_temperature">Temperatur erste Runde [°C]</string>
+    <string name="edit_text_record_end_temperature">Temperatur letzte Runde [°C]</string>
+    <string name="edit_text_record_general_weather">Wetter</string>
+    <string name="edit_text_record_wind">Wind</string>
+    <string name="edit_text_record_coordinator">Beringungsleiter</string>
+    <string name="edit_text_record_comment">Bemerkung</string>
+    <string name="record_item_start_time_label">Von</string>
+    <string name="record_item_end_time_label">bis</string>
+    <string name="bird_time_label">Uhrzeit:</string>
+    <string name="bird_net_number_label">Netznummer:</string>
+    <string name="bird_net_side_label">Netzseite:</string>
+    <string name="bird_shelf_number_label">Netztasche:</string>
+    <string name="bird_species_label">Art:</string>
+    <string name="bird_ring_number_label">Ringnummer:</string>
+    <string name="bird_recapture_label">Wiederfang:</string>
+    <string name="bird_top_left_color_label">Farbe links oben:</string>
+    <string name="bird_top_right_color_label">Farbe rechts oben:</string>
+    <string name="bird_bottom_left_color_label">Farbe links unten:</string>
+    <string name="bird_bottom_right_color_label">Farbe rechts unten:</string>
+    <string name="bird_sex_label">Geschlecht:</string>
+    <string name="bird_age_label">Alter:</string>
+    <string name="bird_fat_label">Körperfett:</string>
+    <string name="bird_muscle_label">Muskel:</string>
+    <string name="bird_tarsus_label">Tarsus:</string>
+    <string name="bird_wing_length_label">Flügellänge:</string>
+    <string name="bird_feather_length_label">Teilfederlänge (P8):</string>
+    <string name="bird_weight_label">Gewicht:</string>
+    <string name="bird_ringer_label">BeringerIn:</string>
+    <string name="bird_picture_number_label">Fotonummer(n):</string>
+    <string name="bird_comment_label">Bemerkung:</string>
+    <string name="edit_text_bird_time">Uhrzeit</string>
+    <string name="edit_text_bird_net_number">Netznummer</string>
+    <string name="edit_text_bird_net_side">Netzseite</string>
+    <string name="edit_text_bird_shelf_number">Netztasche</string>
+    <string name="edit_text_bird_species">Art</string>
+    <string name="edit_text_bird_ring_number">Ringnummer</string>
+    <string name="edit_text_bird_recapture">Wiederfang</string>
+    <string name="edit_text_bird_top_left_color">Farbe links oben</string>
+    <string name="edit_text_bird_top_right_color">Farbe rechts oben</string>
+    <string name="edit_text_bird_bottom_left_color">Farbe links unten</string>
+    <string name="edit_text_bird_bottom_right_color">Farbe rechts unten</string>
+    <string name="edit_text_bird_sex">Geschlecht</string>
+    <string name="edit_text_bird_age">Alter</string>
+    <string name="edit_text_bird_fat">Körperfett</string>
+    <string name="edit_text_bird_muscle">Muskel</string>
+    <string name="edit_text_bird_tarsus">Tarsus [mm]</string>
+    <string name="edit_text_bird_wing_length">Flügellänge [mm]</string>
+    <string name="edit_text_bird_feather_length">Teilfederlänge (P8) [mm]</string>
+    <string name="edit_text_bird_weight">Gewicht [g]</string>
+    <string name="edit_text_bird_ringer">BeringerIn</string>
+    <string name="edit_text_bird_picture_number">Fotonummer(n)</string>
+    <string name="edit_text_bird_comment">Bemerkung</string>
+    <string name="bird_item_time_label">Uhrzeit</string>
+    <string name="text_view_bird_item_net_label"> |  Netz</string>
+    <string name="bird_item_sex_label"> |  Geschlecht</string>
+    <string name="bird_item_age_label"> |  Alter</string>
+
+</resources>

@@ -31,7 +31,7 @@
                     android:background="@android:color/transparent"
                     android:inputType="text"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:hint="Title"/>
+                    android:hint="@string/edit_text_site_title"/>
             </com.google.android.material.textfield.TextInputLayout>
             
             <com.google.android.material.textfield.TextInputLayout
@@ -45,9 +45,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:hint="Description"
+                    android:hint="@string/edit_text_site_description"
                     android:maxLines="3"
-                    android:inputType="textMultiLine"/>
+                    android:inputType="textMultiLine"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -68,8 +69,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:hint="Habitat Type"
-                        android:inputType="text"/>
+                        android:hint="@string/edit_text_site_habitat_type"
+                        android:inputType="text"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/site_altitude_layout"
@@ -82,8 +84,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:hint="Altitude [mASL]"
-                        android:inputType="numberDecimal"/>
+                        android:hint="@string/edit_text_site_altitude"
+                        android:inputType="numberDecimal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -105,8 +108,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:hint="Latitude [° N/S]"
-                        android:inputType="numberDecimal"/>
+                        android:hint="@string/edit_text_site_latitude"
+                        android:inputType="numberDecimal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/site_longitude_layout"
@@ -119,8 +123,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
-                        android:hint="Longitude [° W/E]"
-                        android:inputType="numberDecimal"/>
+                        android:hint="@string/edit_text_site_longitude"
+                        android:inputType="numberDecimal"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -136,8 +141,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
-                    android:hint="Comment"
-                    android:inputType="textMultiLine"/>
+                    android:hint="@string/edit_text_site_comment"
+                    android:inputType="textMultiLine"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
             </com.google.android.material.textfield.TextInputLayout>
         </RelativeLayout>
     </ScrollView>

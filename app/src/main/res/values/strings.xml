@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mobira</string>
 
@@ -13,4 +14,101 @@
         <item>black</item>
         <item>aluminium</item>
     </string-array>
+
+    <string name="text_view_welcome">Welcome</string>
+    <string name="button_add">Add/Browse Data</string>
+    <string name="button_export">Export Data</string>
+    <string name="site_description_label">Description:</string>
+    <string name="site_habitat_type_label">Habitat Type:</string>
+    <string name="site_altitude_label">Altitude:</string>
+    <string name="site_latitude_label">Latitude:</string>
+    <string name="site_longitude_label">Longitude:</string>
+    <string name="site_comment_label">Comment:</string>
+    <string name="edit_text_site_title">Title</string>
+    <string name="edit_text_site_description">Description</string>
+    <string name="edit_text_site_habitat_type">Habitat Type</string>
+    <string name="edit_text_site_altitude">Altitude [mASL]</string>
+    <string name="edit_text_site_latitude">Latitude [° N/S]</string>
+    <string name="edit_text_site_longitude">Longitude [° W/E]</string>
+    <string name="edit_text_site_comment">Comment</string>
+    <string name="site_title_label">Site: </string>
+    <string name="delete_site_fab_label">Delete Site</string>
+    <string name="edit_site_fab_label">Edit Details</string>
+    <string name="show_records_fab_label">Show Records</string>
+    <string name="add_record_fab_label">Add Record</string>
+    <string name="record_date_label">Date:</string>
+    <string name="record_start_time_label">Opening Time:</string>
+    <string name="record_end_time_label">Closing Time:</string>
+    <string name="record_start_temperature_label">Start Temperature:</string>
+    <string name="record_end_temperature_label">End Temperature:</string>
+    <string name="record_general_weather_label">Weather:</string>
+    <string name="record_wind_label">Wind:</string>
+    <string name="record_coordinator_label">Coordinator:</string>
+    <string name="record_comment_label">Comment:</string>
+    <string name="actions_fab">Actions</string>
+    <string name="delete_fab_label">Delete Record</string>
+    <string name="edit_fab_label">Edit Details</string>
+    <string name="show_fab_label">Show Recorded Birds</string>
+    <string name="add_fab_label">Add New Birds</string>
+    <string name="record_site_title_label">Site:</string>
+    <string name="edit_text_record_date">Date</string>
+    <string name="edit_text_record_start_time">Opening time</string>
+    <string name="edit_text_record_end_time">Closing time</string>
+    <string name="edit_text_record_start_temperature">Temperature in the beginning [°C]</string>
+    <string name="edit_text_record_end_temperature">Temperature at the end [°C]</string>
+    <string name="edit_text_record_general_weather">Weather</string>
+    <string name="edit_text_record_wind">Wind [Bft]</string>
+    <string name="edit_text_record_coordinator">Coordinator</string>
+    <string name="edit_text_record_comment">Comment</string>
+    <string name="record_item_start_time_label">From</string>
+    <string name="record_item_end_time_label">to</string>
+    <string name="bird_time_label">Time:</string>
+    <string name="bird_net_number_label">Net No.:</string>
+    <string name="bird_net_side_label">Net Side:</string>
+    <string name="bird_shelf_number_label">Shelf No.:</string>
+    <string name="bird_species_label">Species:</string>
+    <string name="bird_ring_number_label">Ring No.:</string>
+    <string name="bird_recapture_label">Recapture:</string>
+    <string name="bird_top_left_color_label">Top Left Color:</string>
+    <string name="bird_top_right_color_label">Top Right Color:</string>
+    <string name="bird_bottom_left_color_label">Bottom Left Color:</string>
+    <string name="bird_bottom_right_color_label">Bottom Right Color:</string>
+    <string name="bird_sex_label">Sex:</string>
+    <string name="bird_age_label">Age:</string>
+    <string name="bird_fat_label">Fat:</string>
+    <string name="bird_muscle_label">Muscle:</string>
+    <string name="bird_tarsus_label">Tarsus:</string>
+    <string name="bird_wing_length_label">Wing Length:</string>
+    <string name="bird_feather_length_label">P8:</string>
+    <string name="bird_weight_label">Weight:</string>
+    <string name="bird_ringer_label">Ringer:</string>
+    <string name="bird_picture_number_label">Picture No.:</string>
+    <string name="bird_comment_label">Comment:</string>
+    <string name="edit_text_bird_time">Time</string>
+    <string name="edit_text_bird_net_number">Net No.</string>
+    <string name="edit_text_bird_net_side">Net Side</string>
+    <string name="edit_text_bird_shelf_number">Shelf No.</string>
+    <string name="edit_text_bird_species">Species</string>
+    <string name="edit_text_bird_ring_number">Ring No.</string>
+    <string name="edit_text_bird_recapture">Recapture</string>
+    <string name="edit_text_bird_top_left_color">Top Left Color</string>
+    <string name="edit_text_bird_top_right_color">Top Right Color</string>
+    <string name="edit_text_bird_bottom_left_color">Bottom Left Color</string>
+    <string name="edit_text_bird_bottom_right_color">Bottom Right Color</string>
+    <string name="edit_text_bird_sex">Sex</string>
+    <string name="edit_text_bird_age">Age</string>
+    <string name="edit_text_bird_fat">Fat</string>
+    <string name="edit_text_bird_muscle">Muscle</string>
+    <string name="edit_text_bird_tarsus">Tarsus [mm]</string>
+    <string name="edit_text_bird_wing_length">Wing Length [mm]</string>
+    <string name="edit_text_bird_feather_length">P8 [mm]</string>
+    <string name="edit_text_bird_weight">Weight [g]</string>
+    <string name="edit_text_bird_ringer">Ringer</string>
+    <string name="edit_text_bird_picture_number">Picture No.</string>
+    <string name="edit_text_bird_comment">Comment</string>
+    <string name="bird_item_time_label">Time </string>
+    <string name="text_view_bird_item_net_label"> |  Net </string>
+    <string name="bird_item_sex_label"> |  Sex</string>
+    <string name="bird_item_age_label"> |  Age</string>
+
 </resources>

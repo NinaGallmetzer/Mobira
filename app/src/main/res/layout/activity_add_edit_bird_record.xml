@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:gravity="end"
-                android:layout_toEndOf="@+id/text_view_site_title"
+                android:layout_toEndOf="@id/text_view_site_title"
                 android:background="@color/design_default_color_secondary_variant"
                 android:paddingHorizontal="@dimen/medium_padding"
                 android:paddingVertical="@dimen/bigger_padding"
@@ -72,7 +72,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Time"
+                            android:hint="@string/edit_text_bird_time"
                             android:inputType="time"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -87,7 +87,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Net No."
+                            android:hint="@string/edit_text_bird_net_number"
                             android:inputType="number"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -102,7 +102,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Net Side"
+                            android:hint="@string/edit_text_bird_net_side"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -117,7 +117,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Shelf No."
+                            android:hint="@string/edit_text_bird_shelf_number"
                             android:inputType="number"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -141,7 +141,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Species"
+                            android:hint="@string/edit_text_bird_species"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -156,7 +156,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Ring No."
+                            android:hint="@string/edit_text_bird_ring_number"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -171,7 +171,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Recapture"
+                            android:hint="@string/edit_text_bird_recapture"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -195,7 +195,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Top Left Color"
+                            android:hint="@string/edit_text_bird_top_left_color"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -210,7 +210,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Top Right Color"
+                            android:hint="@string/edit_text_bird_top_right_color"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -234,7 +234,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Bottom Left Color"
+                            android:hint="@string/edit_text_bird_bottom_left_color"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -249,7 +249,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Bottom Right Color"
+                            android:hint="@string/edit_text_bird_bottom_right_color"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -273,7 +273,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Sex"
+                            android:hint="@string/edit_text_bird_sex"
                             android:inputType="number"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -288,7 +288,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Age"
+                            android:hint="@string/edit_text_bird_age"
                             android:inputType="number"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -303,7 +303,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Fat"
+                            android:hint="@string/edit_text_bird_fat"
                             android:inputType="number"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -318,7 +318,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Muscle"
+                            android:hint="@string/edit_text_bird_muscle"
                             android:inputType="number"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -342,7 +342,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Tarsus [mm]"
+                            android:hint="@string/edit_text_bird_tarsus"
                             android:inputType="numberDecimal"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -357,7 +357,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Wing Length [mm]"
+                            android:hint="@string/edit_text_bird_wing_length"
                             android:inputType="numberDecimal"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -372,7 +372,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="P8 [mm]"
+                            android:hint="@string/edit_text_bird_feather_length"
                             android:inputType="numberDecimal"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -387,7 +387,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Weight [g]"
+                            android:hint="@string/edit_text_bird_weight"
                             android:inputType="numberDecimal"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -411,7 +411,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Ringer"
+                            android:hint="@string/edit_text_bird_ringer"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -426,7 +426,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Picture No."
+                            android:hint="@string/edit_text_bird_picture_number"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -443,7 +443,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:hint="Comment"
+                        android:hint="@string/edit_text_bird_comment"
                         android:inputType="text"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                 </com.google.android.material.textfield.TextInputLayout>

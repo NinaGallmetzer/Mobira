@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:gravity="end"
-                android:layout_toEndOf="@+id/site_title"
+                android:layout_toEndOf="@id/site_title"
                 android:background="@color/design_default_color_secondary_variant"
                 android:paddingHorizontal="@dimen/medium_padding"
                 android:paddingVertical="@dimen/bigger_padding"
@@ -75,7 +75,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Time:"/>
+                            android:text="@string/bird_time_label"/>
                         <TextView
                             android:id="@+id/bird_time"
                             android:layout_width="wrap_content"
@@ -99,7 +99,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Net No.:"/>
+                            android:text="@string/bird_net_number_label"/>
                         <TextView
                             android:id="@+id/bird_net_number"
                             android:layout_width="wrap_content"
@@ -123,7 +123,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Net Side:"/>
+                            android:text="@string/bird_net_side_label"/>
                         <TextView
                             android:id="@+id/bird_net_side"
                             android:layout_width="wrap_content"
@@ -147,7 +147,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Shelf No.:"/>
+                            android:text="@string/bird_shelf_number_label"/>
                         <TextView
                             android:id="@+id/bird_shelf_number"
                             android:layout_width="wrap_content"
@@ -180,7 +180,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Species:"/>
+                            android:text="@string/bird_species_label"/>
                         <TextView
                             android:id="@+id/bird_species"
                             android:layout_width="wrap_content"
@@ -204,7 +204,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Ring No.:"/>
+                            android:text="@string/bird_ring_number_label"/>
                         <TextView
                             android:id="@+id/bird_ring_number"
                             android:layout_width="wrap_content"
@@ -228,7 +228,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Recapture:"/>
+                            android:text="@string/bird_recapture_label"/>
                         <TextView
                             android:id="@+id/bird_recapture"
                             android:layout_width="wrap_content"
@@ -261,7 +261,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Top Left Color:"/>
+                            android:text="@string/bird_top_left_color_label"/>
                         <TextView
                             android:id="@+id/bird_top_left_color"
                             android:layout_width="wrap_content"
@@ -285,7 +285,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Top Right Color:"/>
+                            android:text="@string/bird_top_right_color_label"/>
                         <TextView
                             android:id="@+id/bird_top_right_color"
                             android:layout_width="wrap_content"
@@ -318,7 +318,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Top Left Color:"/>
+                            android:text="@string/bird_bottom_left_color_label"/>
                         <TextView
                             android:id="@+id/bird_bottom_left_color"
                             android:layout_width="wrap_content"
@@ -342,7 +342,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Top Right Color:"/>
+                            android:text="@string/bird_bottom_right_color_label"/>
                         <TextView
                             android:id="@+id/bird_bottom_right_color"
                             android:layout_width="wrap_content"
@@ -375,7 +375,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Sex:"/>
+                            android:text="@string/bird_sex_label"/>
                         <TextView
                             android:id="@+id/bird_sex"
                             android:layout_width="wrap_content"
@@ -399,7 +399,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Age:"/>
+                            android:text="@string/bird_age_label"/>
                         <TextView
                             android:id="@+id/bird_age"
                             android:layout_width="wrap_content"
@@ -423,7 +423,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Fat:"/>
+                            android:text="@string/bird_fat_label"/>
                         <TextView
                             android:id="@+id/bird_fat"
                             android:layout_width="wrap_content"
@@ -447,7 +447,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Muscle:"/>
+                            android:text="@string/bird_muscle_label"/>
                         <TextView
                             android:id="@+id/bird_muscle"
                             android:layout_width="wrap_content"
@@ -480,7 +480,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Tarsus:"/>
+                            android:text="@string/bird_tarsus_label"/>
                         <TextView
                             android:id="@+id/bird_tarsus"
                             android:layout_width="wrap_content"
@@ -514,7 +514,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Wing Length:"/>
+                            android:text="@string/bird_wing_length_label"/>
                         <TextView
                             android:id="@+id/bird_wing_length"
                             android:layout_width="wrap_content"
@@ -548,7 +548,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="P8:"/>
+                            android:text="@string/bird_feather_length_label"/>
                         <TextView
                             android:id="@+id/bird_feather_length"
                             android:layout_width="wrap_content"
@@ -582,7 +582,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Weight:"/>
+                            android:text="@string/bird_weight_label"/>
                         <TextView
                             android:id="@+id/bird_weight"
                             android:layout_width="wrap_content"
@@ -625,7 +625,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Ringer:"/>
+                            android:text="@string/bird_ringer_label"/>
                         <TextView
                             android:id="@+id/bird_ringer"
                             android:layout_width="wrap_content"
@@ -649,7 +649,7 @@
                             android:paddingStart="@dimen/medium_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant"
-                            android:text="Picture No.:"/>
+                            android:text="@string/bird_picture_number_label"/>
                         <TextView
                             android:id="@+id/bird_picture_number"
                             android:layout_width="wrap_content"
@@ -675,7 +675,7 @@
                         android:paddingStart="@dimen/medium_padding"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="@color/design_default_color_secondary_variant"
-                        android:text="Comment:"/>
+                        android:text="@string/bird_comment_label"/>
                     <TextView
                         android:id="@+id/bird_comment"
                         android:layout_width="wrap_content"
@@ -697,7 +697,7 @@
         android:layout_marginEnd="@dimen/huge_padding"
         android:layout_marginBottom="@dimen/huge_padding"
         android:backgroundTint="@color/colorAccent"
-        android:text="Actions"
+        android:text="@string/actions_fab"
         app:icon="@drawable/baseline_more_horiz_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -708,10 +708,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/colorAccent"
-        android:contentDescription="DELETE SITE"
+        android:contentDescription="DELETE BIRD RECORD"
         app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@+id/actions_fab"
-        app:layout_constraintEnd_toEndOf="@+id/actions_fab"
+        app:layout_constraintBottom_toTopOf="@id/actions_fab"
+        app:layout_constraintEnd_toEndOf="@id/actions_fab"
         app:srcCompat="@drawable/ic_delete" />
 
     <TextView
@@ -719,10 +719,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Delete Record"
-        app:layout_constraintBottom_toBottomOf="@+id/delete_fab"
-        app:layout_constraintEnd_toStartOf="@+id/delete_fab"
-        app:layout_constraintTop_toTopOf="@+id/delete_fab" />
+        android:text="@string/delete_fab_label"
+        app:layout_constraintBottom_toBottomOf="@id/delete_fab"
+        app:layout_constraintEnd_toStartOf="@id/delete_fab"
+        app:layout_constraintTop_toTopOf="@id/delete_fab" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit_fab"
@@ -730,10 +730,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/colorAccent"
-        android:contentDescription="EDIT SITE"
+        android:contentDescription="EDIT BIRD RECORD"
         app:fabSize="normal"
-        app:layout_constraintBottom_toTopOf="@+id/delete_fab"
-        app:layout_constraintEnd_toEndOf="@+id/delete_fab"
+        app:layout_constraintBottom_toTopOf="@id/delete_fab"
+        app:layout_constraintEnd_toEndOf="@id/delete_fab"
         app:srcCompat="@drawable/ic_edit" />
 
     <TextView
@@ -741,9 +741,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Edit Details"
-        app:layout_constraintBottom_toBottomOf="@+id/edit_fab"
-        app:layout_constraintEnd_toStartOf="@+id/edit_fab"
-        app:layout_constraintTop_toTopOf="@+id/edit_fab" />
+        android:text="@string/edit_fab_label"
+        app:layout_constraintBottom_toBottomOf="@id/edit_fab"
+        app:layout_constraintEnd_toStartOf="@id/edit_fab"
+        app:layout_constraintTop_toTopOf="@id/edit_fab" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

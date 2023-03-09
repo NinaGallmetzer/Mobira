@@ -50,7 +50,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="@dimen/medium_padding"
                         android:paddingTop="@dimen/big_padding"
-                        android:text="Description:"
+                        android:text="@string/site_description_label"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="@color/design_default_color_secondary_variant" />
                     <TextView
@@ -82,7 +82,7 @@
                             android:layout_height="wrap_content"
                             android:paddingStart="@dimen/medium_padding"
                             android:paddingTop="@dimen/big_padding"
-                            android:text="Habitat Type:"
+                            android:text="@string/site_habitat_type_label"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant" />
                         <TextView
@@ -106,7 +106,7 @@
                             android:layout_height="wrap_content"
                             android:paddingStart="@dimen/medium_padding"
                             android:paddingTop="@dimen/big_padding"
-                            android:text="Altitude:"
+                            android:text="@string/site_altitude_label"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant" />
                         <TextView
@@ -149,7 +149,7 @@
                             android:layout_height="wrap_content"
                             android:paddingStart="@dimen/medium_padding"
                             android:paddingTop="@dimen/big_padding"
-                            android:text="Latitude:"
+                            android:text="@string/site_latitude_label"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant" />
                         <TextView
@@ -183,7 +183,7 @@
                             android:layout_height="wrap_content"
                             android:paddingStart="@dimen/medium_padding"
                             android:paddingTop="@dimen/big_padding"
-                            android:text="Longitude:"
+                            android:text="@string/site_longitude_label"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:textColor="@color/design_default_color_secondary_variant" />
                         <TextView
@@ -220,7 +220,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="@dimen/medium_padding"
                         android:paddingTop="@dimen/big_padding"
-                        android:text="Comment:"
+                        android:text="@string/site_comment_label"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="@color/design_default_color_secondary_variant" />
                     <TextView
@@ -262,11 +262,11 @@
         app:srcCompat="@drawable/ic_delete" />
 
     <TextView
-        android:id="@+id/delete_site_action_text"
+        android:id="@+id/delete_site_fab_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Delete Site"
+        android:text="@string/delete_site_fab_label"
         app:layout_constraintBottom_toBottomOf="@+id/delete_site_fab"
         app:layout_constraintEnd_toStartOf="@+id/delete_site_fab"
         app:layout_constraintTop_toTopOf="@+id/delete_site_fab" />
@@ -284,11 +284,11 @@
         app:srcCompat="@drawable/ic_edit" />
 
     <TextView
-        android:id="@+id/edit_site_action_text"
+        android:id="@+id/edit_site_fab_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Edit Details"
+        android:text="@string/edit_site_fab_label"
         app:layout_constraintBottom_toBottomOf="@+id/edit_site_fab"
         app:layout_constraintEnd_toStartOf="@+id/edit_site_fab"
         app:layout_constraintTop_toTopOf="@+id/edit_site_fab" />
@@ -306,11 +306,11 @@
         app:srcCompat="@drawable/baseline_format_list_bulleted_24" />
 
     <TextView
-        android:id="@+id/show_records_action_text"
+        android:id="@+id/show_records_fab_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Show Records"
+        android:text="@string/show_records_fab_label"
         app:layout_constraintBottom_toBottomOf="@+id/show_records_fab"
         app:layout_constraintEnd_toStartOf="@+id/show_records_fab"
         app:layout_constraintTop_toTopOf="@+id/show_records_fab" />
@@ -328,11 +328,11 @@
         app:srcCompat="@drawable/ic_add" />
 
     <TextView
-        android:id="@+id/add_record_action_text"
+        android:id="@+id/add_record_fab_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Add Record"
+        android:text="@string/add_record_fab_label"
         app:layout_constraintBottom_toBottomOf="@+id/add_record_fab"
         app:layout_constraintEnd_toStartOf="@+id/add_record_fab"
         app:layout_constraintTop_toTopOf="@+id/add_record_fab" />

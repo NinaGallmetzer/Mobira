@@ -14,7 +14,7 @@
         android:padding="@dimen/small_padding">
         
         <TextView
-            android:id="@+id/text_view_bird_species"
+            android:id="@+id/text_view_bird_item_species"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -25,81 +25,85 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
-            android:id="@+id/bird_time_label"
+            android:id="@+id/bird_item_time_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_bird_species"
+            android:layout_below="@id/text_view_bird_item_species"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Time " />
+            android:text="@string/bird_item_time_label" />
 
         <TextView
-            android:id="@+id/text_view_bird_time"
+            android:id="@+id/text_view_bird_item_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_bird_species"
-            android:layout_toEndOf="@id/bird_time_label"
+            android:layout_below="@id/text_view_bird_item_species"
+            android:layout_toEndOf="@id/bird_item_time_label"
+            android:paddingHorizontal="@dimen/tiny_padding"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="00:00" />
 
         <TextView
-            android:id="@+id/text_view_bird_net_label"
+            android:id="@+id/text_view_bird_item_net_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_bird_species"
-            android:layout_toEndOf="@id/text_view_bird_time"
+            android:layout_below="@id/text_view_bird_item_species"
+            android:layout_toEndOf="@id/text_view_bird_item_time"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="  |  Net " />
+            android:text="@string/text_view_bird_item_net_label" />
 
         <TextView
-            android:id="@+id/text_view_bird_net"
+            android:id="@+id/text_view_bird_item_net"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_bird_species"
-            android:layout_toEndOf="@id/text_view_bird_net_label"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="0" />
-
-        <TextView
-            android:id="@+id/bird_age_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_bird_species"
-            android:layout_toEndOf="@id/text_view_bird_net"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="  |  Age " />
-
-        <TextView
-            android:id="@+id/text_view_bird_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_bird_species"
-            android:layout_toEndOf="@id/bird_age_label"
+            android:layout_below="@id/text_view_bird_item_species"
+            android:layout_toEndOf="@id/text_view_bird_item_net_label"
+            android:paddingHorizontal="@dimen/tiny_padding"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="0" />
 
         <TextView
-            android:id="@+id/bird_sex_label"
+            android:id="@+id/bird_item_sex_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_bird_species"
-            android:layout_toEndOf="@id/text_view_bird_age"
+            android:layout_below="@id/text_view_bird_item_species"
+            android:layout_toEndOf="@id/text_view_bird_item_net"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="  |  Sex " />
+            android:text="@string/bird_item_sex_label" />
 
         <TextView
-            android:id="@+id/text_view_bird_sex"
+            android:id="@+id/text_view_bird_item_sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_bird_species"
+            android:layout_below="@id/text_view_bird_item_species"
+            android:layout_toEndOf="@id/bird_item_sex_label"
+            android:paddingHorizontal="@dimen/tiny_padding"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/bird_item_age_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_bird_item_species"
+            android:layout_toEndOf="@id/text_view_bird_item_sex"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/bird_item_age_label" />
+
+        <TextView
+            android:id="@+id/text_view_bird_item_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_bird_item_species"
             android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@id/bird_sex_label"
+            android:layout_toEndOf="@id/bird_item_age_label"
+            android:paddingHorizontal="@dimen/tiny_padding"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="0" />

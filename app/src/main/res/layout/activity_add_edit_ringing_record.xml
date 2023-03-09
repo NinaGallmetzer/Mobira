@@ -27,7 +27,7 @@
                 android:background="@color/design_default_color_secondary_variant"
                 android:paddingHorizontal="@dimen/medium_padding"
                 android:paddingVertical="@dimen/bigger_padding"
-                android:text="Site: "
+                android:text="@string/record_site_title_label"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -40,6 +40,7 @@
                 android:background="@color/design_default_color_secondary_variant"
                 android:ellipsize="end"
                 android:paddingVertical="@dimen/bigger_padding"
+                android:paddingHorizontal="@dimen/medium_padding"
                 android:text="Test site 1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/white"
@@ -64,7 +65,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:hint="Date"
+                        android:hint="@string/edit_text_record_date"
                         android:inputType="date"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -87,7 +88,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Opening time"
+                            android:hint="@string/edit_text_record_start_time"
                             android:inputType="time"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -102,7 +103,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Closing time"
+                            android:hint="@string/edit_text_record_end_time"
                             android:inputType="time"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -126,7 +127,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Temperature in the beginning [°C]"
+                            android:hint="@string/edit_text_record_start_temperature"
                             android:inputType="numberDecimal"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -141,7 +142,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Temperature at the end [°C]"
+                            android:hint="@string/edit_text_record_end_temperature"
                             android:inputType="numberDecimal"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -165,7 +166,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Weather"
+                            android:hint="@string/edit_text_record_general_weather"
                             android:inputType="text"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -180,7 +181,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@android:color/transparent"
-                            android:hint="Wind [Bft]"
+                            android:hint="@string/edit_text_record_wind"
                             android:inputType="number"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -197,7 +198,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:hint="Coordinator"
+                        android:hint="@string/edit_text_record_coordinator"
                         android:inputType="text"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -213,7 +214,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
-                        android:hint="Comment"
+                        android:hint="@string/edit_text_record_comment"
                         android:inputType="textMultiLine"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                 </com.google.android.material.textfield.TextInputLayout>
