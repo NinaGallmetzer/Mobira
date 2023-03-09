@@ -39,11 +39,11 @@ public class BirdRecord implements Parcelable {
     private final double wingLength;
     private final double featherLength;
     private final double weight;
-    private final String pictureNumber;
     private final String ringer;
+    private final String pictureNumber;
     private final String comment;
 
-    public BirdRecord(int ringingRecordID, String time, int netNumber, String netSide, int shelfNumber, String species, boolean recapture, String ringNumber, String topLeftColor, String bottomLeftColor, String topRightColor, String bottomRightColor, int sex, int age, int fat, int muscle, double tarsus, double wingLength, double featherLength, double weight, String pictureNumber, String ringer, String comment) {
+    public BirdRecord(int ringingRecordID, String time, int netNumber, String netSide, int shelfNumber, String species, boolean recapture, String ringNumber, String topLeftColor, String bottomLeftColor, String topRightColor, String bottomRightColor, int sex, int age, int fat, int muscle, double tarsus, double wingLength, double featherLength, double weight, String ringer, String pictureNumber, String comment) {
         this.ringingRecordID = ringingRecordID;
         this.time = time;
         this.netNumber = netNumber;
@@ -64,13 +64,13 @@ public class BirdRecord implements Parcelable {
         this.wingLength = wingLength;
         this.featherLength = featherLength;
         this.weight = weight;
-        this.pictureNumber = pictureNumber;
         this.ringer = ringer;
+        this.pictureNumber = pictureNumber;
         this.comment = comment;
     }
     @Ignore
-    public BirdRecord(int birdRecordID, int ringingRecordID, String time, int netNumber, String netSide, int shelfNumber, String species, boolean recapture, String ringNumber, String topLeftColor, String bottomLeftColor, String topRightColor, String bottomRightColor, int sex, int age, int fat, int muscle, double tarsus, double wingLength, double featherLength, double weight, String pictureNumber, String ringer, String comment) {
-            this.birdRecordID = birdRecordID;
+    public BirdRecord(int birdRecordID, int ringingRecordID, String time, int netNumber, String netSide, int shelfNumber, String species, boolean recapture, String ringNumber, String topLeftColor, String bottomLeftColor, String topRightColor, String bottomRightColor, int sex, int age, int fat, int muscle, double tarsus, double wingLength, double featherLength, double weight, String ringer, String pictureNumber, String comment) {
+        this.birdRecordID = birdRecordID;
         this.ringingRecordID = ringingRecordID;
         this.time = time;
         this.netNumber = netNumber;
@@ -91,8 +91,8 @@ public class BirdRecord implements Parcelable {
         this.wingLength = wingLength;
         this.featherLength = featherLength;
         this.weight = weight;
-        this.pictureNumber = pictureNumber;
         this.ringer = ringer;
+        this.pictureNumber = pictureNumber;
         this.comment = comment;
     }
 
@@ -180,12 +180,12 @@ public class BirdRecord implements Parcelable {
         return weight;
     }
 
-    public String getPictureNumber() {
-        return pictureNumber;
-    }
-
     public String getRinger() {
         return ringer;
+    }
+
+    public String getPictureNumber() {
+        return pictureNumber;
     }
 
     public String getComment() {
@@ -222,8 +222,8 @@ public class BirdRecord implements Parcelable {
         this.wingLength = Double.parseDouble(data[18]);
         this.featherLength = Double.parseDouble(data[19]);
         this.weight = Double.parseDouble(data[20]);
-        this.pictureNumber = data[21];
-        this.ringer = data[22];
+        this.ringer = data[21];
+        this.pictureNumber = data[22];
         this.comment = data[23];
 
     }
@@ -257,8 +257,8 @@ public class BirdRecord implements Parcelable {
                 String.valueOf(this.wingLength),
                 String.valueOf(this.featherLength),
                 String.valueOf(this.weight),
-                this.pictureNumber,
                 this.ringer,
+                this.pictureNumber,
                 this.comment
         });
 

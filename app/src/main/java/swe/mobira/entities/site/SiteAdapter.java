@@ -70,8 +70,8 @@ public class SiteAdapter extends RecyclerView.Adapter<SiteAdapter.SiteHolder> {
         // connects data and xml (itemView = site.item.xml)
         public SiteHolder(View itemView) {
             super(itemView);
-            textViewTitle = itemView.findViewById(R.id.text_view_site_title);
-            textViewDescription = itemView.findViewById(R.id.text_view_site_description);
+            textViewTitle = itemView.findViewById(R.id.text_view_site_item_title);
+            textViewDescription = itemView.findViewById(R.id.text_view_site_item_description);
 
             // EDIT SITES ON ITEM CLICK (https://www.youtube.com/watch?v=dYbbTGiZ2sA)
             // create new OnClickListener, get position from adapter

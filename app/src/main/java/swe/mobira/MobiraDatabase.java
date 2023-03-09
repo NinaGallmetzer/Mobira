@@ -82,9 +82,9 @@ public abstract class MobiraDatabase extends RoomDatabase {
                 ringingRecordDAO.insertRingingRecord(new RingingRecord(1,"2023-01-01","07:00","13:00",15.4, 23.7, "sunny", 2, "Jane", "Test record 1 site 1"));
                 ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-02","07:00","13:00",15.4, 23.7, "sunny", 1, "Anne", "Test record 1 site 2"));
                 ringingRecordDAO.insertRingingRecord(new RingingRecord(2,"2023-01-03","07:00","13:00",15.4, 23.7, "sunny", 3, "Bob", "Test record 2 site 2"));
-                birdRecordDAO.insertBirdRecord(new BirdRecord(1, "08:00", 1, "-", 1, "Great Tit", true, "T060534", "x", "x", "x", "x", 4, 2, 2, 2, 19.9, 77.0, 58.5, 16.6, "no picture", "NGA", "no comment"));
-                birdRecordDAO.insertBirdRecord(new BirdRecord(1, "08:00", 8, "-", 4, "Great Tit", true, "T060540", "x", "x", "x", "x", 3, 2, 2, 3, 19.2, 74.0, 56.0, 17.0, "no picture", "NGA", "no comment"));
-                birdRecordDAO.insertBirdRecord(new BirdRecord(1, "10:00", 6, "-", 2, "Long-tailed Tit", false, "X07138", "x", "x", "x", "x", 2, 0, 2, 2, 16.8, 63.0, 47.5, 7.9, "no picture", "NGA", "ssp. Caudatus"));
+                birdRecordDAO.insertBirdRecord(new BirdRecord(1, "08:00", 1, "-", 1, "Great Tit", true, "T060534", "x", "x", "x", "x", 4, 2, 2, 2, 19.9, 77.0, 58.5, 16.6, "NGA", "no picture", "no comment"));
+                birdRecordDAO.insertBirdRecord(new BirdRecord(1, "08:00", 8, "-", 4, "Great Tit", true, "T060540", "x", "x", "x", "x", 3, 2, 2, 3, 19.2, 74.0, 56.0, 17.0, "NGA", "no picture", "no comment"));
+                birdRecordDAO.insertBirdRecord(new BirdRecord(1, "10:00", 6, "-", 2, "Long-tailed Tit", false, "X07138", "x", "x", "x", "x", 2, 0, 2, 2, 16.8, 63.0, 47.5, 7.9, "NGA", "no picture", "ssp. Caudatus"));
             });
         }
     };

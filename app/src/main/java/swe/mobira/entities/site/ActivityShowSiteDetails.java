@@ -176,10 +176,10 @@ public class ActivityShowSiteDetails extends AppCompatActivity {
         deleteFab = findViewById(R.id.delete_site_fab);
 
         // Also register the action name text, of all the FABs. except parent FAB action name text
-        addRecordActionText = findViewById(R.id.add_record_action_text);
-        showRecordsActionText = findViewById(R.id.show_records_action_text);
-        editSiteActionText = findViewById(R.id.edit_site_action_text);
-        deleteSiteActionText = findViewById(R.id.delete_site_action_text);
+        addRecordActionText = findViewById(R.id.add_record_fab_label);
+        showRecordsActionText = findViewById(R.id.show_records_fab_label);
+        editSiteActionText = findViewById(R.id.edit_site_fab_label);
+        deleteSiteActionText = findViewById(R.id.delete_site_fab_label);
 
         // Now set all the FABs and all the action name texts as GONE (except parent FAB)
         addFab.setVisibility(View.GONE);
