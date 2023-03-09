@@ -110,5 +110,6 @@
     <string name="text_view_bird_item_net_label"> |  Netz</string>
     <string name="bird_item_sex_label"> |  Geschlecht</string>
     <string name="bird_item_age_label"> |  Alter</string>
-
+    <string name="site_title">Site Titel</string>
+    <string name="bird_net_side">links</string>
 </resources>

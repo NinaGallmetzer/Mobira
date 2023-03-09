@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Mobira</string>
 
@@ -110,5 +109,7 @@
     <string name="text_view_bird_item_net_label"> |  Net </string>
     <string name="bird_item_sex_label"> |  Sex</string>
     <string name="bird_item_age_label"> |  Age</string>
+    <string name="site_title">Site Title</string>
+    <string name="bird_net_side">left</string>
 
 </resources>

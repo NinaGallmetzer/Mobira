@@ -24,7 +24,7 @@
                 android:background="@color/design_default_color_secondary_variant"
                 android:paddingHorizontal="@dimen/medium_padding"
                 android:paddingVertical="@dimen/bigger_padding"
-                android:text="Site title"
+                android:text="@string/site_title"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -59,7 +59,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="@dimen/bigger_padding"
                         android:paddingTop="@dimen/small_padding"
-                        android:text="site description"
+                        android:text="@string/site_description_label"
                         android:textAppearance="@style/TextAppearance.AppCompat.Title" />
                 </LinearLayout>
 
@@ -299,7 +299,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/colorAccent"
-        android:contentDescription="SHOW RECORDS"
+        android:contentDescription="@string/show_records_fab_label"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/edit_site_fab"
         app:layout_constraintEnd_toEndOf="@+id/edit_site_fab"
@@ -321,7 +321,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/colorAccent"
-        android:contentDescription="ADD RECORD"
+        android:contentDescription="@string/show_records_fab_label"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/show_records_fab"
         app:layout_constraintEnd_toEndOf="@+id/show_records_fab"

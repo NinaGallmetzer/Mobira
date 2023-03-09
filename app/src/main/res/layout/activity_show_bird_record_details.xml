@@ -131,7 +131,7 @@
                             android:paddingTop="@dimen/small_padding"
                             android:paddingStart="@dimen/bigger_padding"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                            android:text="left"/>
+                            android:text="@string/bird_net_side"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="0dp"

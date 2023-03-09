@@ -25,7 +25,7 @@
             android:layout_alignParentEnd="true"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Title"
+            android:text="@string/edit_text_site_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -37,7 +37,7 @@
             android:layout_alignParentEnd="true"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="Description" />
+            android:text="@string/edit_text_site_description" />
 
     </RelativeLayout>
 
