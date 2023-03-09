@@ -188,7 +188,7 @@
                                 android:paddingEnd="@dimen/big_padding"
                                 android:textAlignment="viewEnd"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                                android:text="ſtring/record_start_temperature"/>
+                                android:text="@string/record_start_temperature"/>
 
                         </LinearLayout>
                         <LinearLayout
@@ -398,7 +398,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/colorAccent"
-        android:contentDescription="DELETE SITE"
+        android:contentDescription="@string/delete"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/actions_fab"
         app:layout_constraintEnd_toEndOf="@+id/actions_fab"
@@ -420,7 +420,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/colorAccent"
-        android:contentDescription="EDIT SITE"
+        android:contentDescription="@string/edit"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/delete_fab"
         app:layout_constraintEnd_toEndOf="@+id/delete_fab"
@@ -442,7 +442,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/colorAccent"
-        android:contentDescription="SHOW RECORDS"
+        android:contentDescription="@string/show"
         app:fabSize="normal"
         app:layout_constraintBottom_toTopOf="@+id/edit_fab"
         app:layout_constraintEnd_toEndOf="@+id/edit_fab"

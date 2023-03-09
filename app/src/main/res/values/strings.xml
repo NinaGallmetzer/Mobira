@@ -40,4 +40,5 @@
     <string name="coordinator_label">Coordinator:</string>
     <string name="record_coordinator">Jane Doe</string>
     <string name="record_comment">testing layout of screen for ringing record details</string>
+    <string name="add">Add</string>
 </resources>

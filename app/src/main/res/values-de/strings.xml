@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mobira</string>
+    <string name="text_view_site_title">Standort Titel</string>
+    <string name="record_site_title_label">Standort: </string>
+    <string name="record_site_title">Test Standort 1</string>
+    <string name="ringingProtocol">Beringungs Protocol</string>
+    <string name="record_date_label">Datum:</string>
+    <string name="record_date">2020-20-20</string>
+    <string name="time_layout_title">Zeit:</string>
+    <string name="record_start_time_label">Beginn:</string>
+    <string name="record_start_time">07:00</string>
+    <string name="record_end_time_label">Ende:</string>
+    <string name="record_end_time">13:00</string>
+    <string name="text_view_title">Titel</string>
+    <string name="description">Beschreibung</string>
+    <string name="text_view_welcome">Willkommen</string>
+    <string name="button_add">Anzeigen/Hinzufügen von Daten</string>
+    <string name="button_export">Export von Daten</string>
+    <string name="text_view_net_number_label">Netz</string>
+    <string name="text_view_net_number">01</string>
+    <string name="text_view_start_time">00:00</string>
+    <string name="text_view_end_time">00:00</string>
+    <string name="title">Titel:</string>
+    <string name="latitude">Breitengrad:</string>
+    <string name="longitude">Längengrad:</string>
+    <string name="comment">Anmerkungen:</string>
+    <string name="action">Aktionen</string>
+    <string name="delete">Löschen</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="show">Anzeigen</string>
+    <string name="temperature_layout_title">Temperatur:</string>
+    <string name="record_start_temperature">7.5</string>
+    <string name="record_end_temperature">13.2</string>
+    <string name="temperature_unit">°C</string>
+    <string name="general_weather_conditions_label">Wetter:</string>
+    <string name="record_general_weather">sonning</string>
+    <string name="wind_label">Wind:</string>
+    <string name="record_wind">3</string>
+    <string name="wind_unit">Bft</string>
+    <string name="coordinator_label">Koordinator:</string>
+    <string name="record_coordinator">Maximiliane Musterfrau</string>
+    <string name="record_comment">Testen des Layouts des Bildschirms für die Details der Beringung</string>
+    <string name="add">Hinzufügen</string>
+</resources>
